@@ -1,0 +1,13 @@
+{
+  "title": "Gulp Test",
+  "name": "gulp_test",
+  "version": "0.1.0",
+  "devDependencies": {
+    "gulp": "^3.5.5",
+    "gulp-jshint": "^1.5.0",
+    "gulp-mocha": "^0.4.1",
+    "gulp-concat": "^2.1.7",
+    "jshint-stylish": "^0.1.5",
+    "gulp-ruby-sass": "^0.4.0"
+  }
+}
