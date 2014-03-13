@@ -6,10 +6,10 @@ var gulp = require('gulp'),
 
 var paths = {
   scripts: './src/javascripts/**/*.js',
-  styles: './src/stylesheets/**/*.scss',
+  styles: './src/stylesheets/**/*',
   tests: './tests/**/*',
   dest: './dest/'
-}
+};
 
 // lint javascript
 gulp.task('lint', function() {
@@ -41,7 +41,7 @@ gulp.task('sass', function() {
 gulp.task('watch', function() {
   gulp.watch(paths.scripts, ['lint']);
   gulp.watch(paths.scripts, ['concat']);
-  gulp.watch(paths.stylesheets, ['sass']);
+  gulp.watch(paths.styles, ['sass']);
 });
 
 // tasks

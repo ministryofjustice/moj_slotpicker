@@ -1,0 +1,349 @@
+@import "themes/_moj.pvb.sass"
+@import "../vendor/govuk_toolkit/stylesheets/_conditionals.scss"
+@import "../vendor/govuk_toolkit/stylesheets/_typography.scss"
+
+.slots,
+.selected-slots
+  display: none
+
+.js-enabled
+  .js-slotpicker-chosen
+    display: none
+
+  .slots.is-active,
+  .selected-slots.is-active
+    display: block
+
+
+.BookingCalendar-wrap
+  overflow: hidden
+  height: 279px
+  border-bottom: 1px solid $grey-3
+
+table.BookingCalendar
+  width: 100%
+  font-size: 19px
+  background: image-url("unavailable_tile.png")
+
+  th,
+  td
+    width: 14.285714286%
+
+  thead th
+    padding: 3px 0 0
+    font-weight: bold
+    line-height: normal
+    text-align: center
+    text-transform: uppercase
+    background: $grey-4
+    border-bottom: 2px solid $grey-2
+
+  tbody td
+    padding: 0
+    border:
+      color: $grey-3
+      style: solid
+      width: 0 0 1px 1px
+  
+  td:last-child > div,
+    border-right: 1px solid $grey-3
+
+  tbody tr:last-child td
+    border-bottom: none
+
+.BookingCalendar-dayLink,
+.BookingCalendar-dayLink:visited
+  position: absolute
+  top: 0
+  width: 100%
+  height: 100%
+  color: $black
+  text-decoration: none
+
+.BookingCalendar-dayLink
+  &:hover
+    color: $black
+    text-decoration: underline
+    background: $light-blue-25
+
+  &.is-chosen
+    overflow: hidden
+    
+    &:after
+      position: absolute
+      content: ''
+      top: 0
+      right: 0
+      width: 0
+      height: 0
+      border-style: solid
+      border-width: 0 10px 10px 0
+      border-color: transparent $light-blue transparent transparent
+
+      @include media(tablet)
+        border-width: 0 15px 15px 0
+
+  span
+    padding-left: 3px
+
+.BookingCalendar-day--bookable
+  background: $white
+
+  &.is-active
+    background: $light-blue-50
+
+.BookingCalendar-day--past
+  background: $grey-2
+  border-left-color: $grey-2
+
+  .BookingCalendar-content a
+    color: $grey-1
+
+.BookingCalendar-day--lead
+  background-image: image-url("lead_tile.png")
+
+.BookingCalendar-day--beyond
+  background-image: image-url("beyond_tile.png")
+
+  .BookingCalendar-content a
+    color: $grey-1
+
+.BookingCalendar-content
+  position: relative
+  min-height: 55px
+
+.BookingCalendar-tag
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 100%
+  padding: 0
+  color: $white
+  line-height: normal
+  text-align: center
+  background: $grey-2
+
+.BookingCalendar-tag--today
+  background: $light-blue
+
+ul.BookingCalendar-key
+  display: table
+  padding: 0
+  list-style: none
+
+  li
+    display: table-cell
+    @include core-16
+
+.BookingCalendar-dayBox
+  float: left
+  width: 19px
+  height: 19px
+  margin-right: 3px
+  border: 1px solid $grey-3
+
+  &.BookingCalendar-day--unavailable
+    background: image-url("unavailable_tile.png")
+
+.BookingCalendar-availableMonths
+  display: none
+
+.BookingCalendar-nav
+  position: relative
+  background: $grey-2
+
+  strong
+    display: block
+    @include bold-24
+    margin: 0
+    padding: .5em 0
+    text-align: center
+
+  .next,
+  .prev
+    position: absolute
+    top: 0
+    left: 0
+    padding: .632em
+    @include core-19
+    color: $black
+    line-height: 30px
+    text-decoration: none
+    background: no-repeat 0 -80px
+
+    &:hover
+      text-decoration: underline
+
+  .prev
+    margin-left: 10px
+    padding-left: 35px
+    background-image: image-url("icons/prev.png")
+
+    @include device-pixel-ratio
+      background-position: 0 10px
+      background-size: 30px
+
+  .next
+    left: auto
+    right: 0
+    margin-right: 10px
+    padding-right: 35px
+    background-image: image-url("icons/next.png")
+    background-position: 100% -80px
+
+    @include device-pixel-ratio
+      background-position: 100% 10px
+      background-size: 30px
+
+
+.slots
+  margin-bottom: 10px
+
+  @include media(false, 768px)
+    margin-bottom: 0
+
+.day-slots
+  display: none
+  padding: .5em
+  background: $grey-3
+
+  @include media(mobile)
+    border-width: 1px 0
+
+  &.is-active
+    display: block
+
+  .day-slots-heading
+    @include bold-24
+    margin: .2em 0 .3em
+
+  .slot
+    cursor: pointer
+    position: relative
+    float: left
+    box-sizing: border-box
+    min-width: 120px
+    margin-right: .5em
+    padding: .3em 15px .3em 40px
+    font-size: 24px
+    line-height: 1.2em
+    border: 2px solid $grey-2
+    background: $white
+
+    &:last-child
+      margin-right: 0
+
+    input
+      position: absolute
+      top: 50%
+      left: 10px
+      margin-top: -7px
+
+  .duration
+    display: block
+
+.selected-slots
+
+  h3,
+  p
+    margin-bottom: 0
+
+  .js-promote-help
+    display: none
+
+    &.is-active
+      display: block
+
+  .selected-slots-group
+    padding: 10px
+    background: $grey-3
+
+    @include media(desktop)
+      min-height: 236px
+
+  ul
+    margin: 0
+    padding: 0
+    list-style-type: none
+
+    li
+      position: relative
+      margin-top: 10px
+      padding: 10px
+      min-height: 60px
+      background: $white
+      border: 1px dashed $grey-2
+
+      &:first-child
+        margin-top: 0
+
+      .prompt
+        padding: 5px 5em
+        text-align: center
+        color: $grey-1
+
+      &.is-active
+        padding-left: 65px
+        border-style: solid
+
+        p
+          font-size: 24px
+
+        .prompt
+          display: none
+
+        .slot-remove,
+        .slot-promote
+          display: block
+
+        .date
+          font-weight: bold
+
+        .slot-position
+          display: block
+
+      .slot-position
+        display: none
+        position: absolute
+        left: 10px
+        height: 100%
+        background: $light-blue
+        color: $white
+        width: 55px
+        font-size: 48px
+        font-weight: bold
+        text-align: center
+        margin: -10px 0 0 -10px
+
+      .slot-remove
+        display: none
+        position: absolute
+        top: 50%
+        right: 10px
+        margin-top: -15px
+        background-image: image-url("icons/remove.png")
+
+      .slot-promote
+        display: none
+        position: absolute
+        top: 50%
+        right: 50px
+        margin-top: -15px
+        background-image: image-url("icons/promote.png")
+      
+      p
+        margin: 0
+
+.icon
+  width: 30px
+  height: 30px
+  overflow: hidden
+  text-indent: 999px
+  background: no-repeat 0 -90px
+
+  @include device-pixel-ratio
+    background-position: 0 0
+    background-size: 100%
+
+.slot-form
+  clear: both
