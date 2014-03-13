@@ -7,6 +7,7 @@ var gulp = require('gulp'),
 var paths = {
   scripts: './src/javascripts/**/*.js',
   styles: './src/stylesheets/**/*',
+  markup: './src/index.html',
   tests: './tests/**/*',
   dest: './dest/'
 };
@@ -28,6 +29,8 @@ gulp.task('test', function() {
 gulp.task('concat', function() {
   gulp.src(paths.scripts)
     .pipe(gulp.dest(paths.dest + 'javascripts'));
+  gulp.src(paths.markup)
+    .pipe(gulp.dest(paths.dest));
 });
 
 // compile sass
