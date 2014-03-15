@@ -1,12 +1,18 @@
 # Slot Picker
 
-A Web user interface for selecting 3 dates and times in order of preference.
+A Web user interface for selecting 3 time slots in order of preference.
 
+The interface is made-up of:
 
-## What it is
+* a calendar (for selecting available days)
+* a list of slots for the selected day
+* a list of chosen slots
 
-The interface is made-up of a calendar (for selecting a day), a list of slots for the selected day, and a list of chosen slots.
+There is also an optional 'date-slider', intended for touch screen devices which can substitute the calendar, ie. at chosen break points.
 
+When a slot is selected the corresponding hidden option is selected.
+
+This UI does depend on JavaScript. 
 
 ## How to use
 
@@ -14,13 +20,14 @@ The interface is made-up of a calendar (for selecting a day), a list of slots fo
 
 or
 
-Download the ZIP and use the `dist` folder.
-
+Download the ZIP and use the `dest` folder.
 
 ## Build
 
-### Requirements
-    NodeJS
-    Install Gulp.js
-    Install Sass
+To compile the Sass, you will need:
 
+* NodeJS
+* Sass Ruby Gem
+* GulpJS
+
+Run `gulp` to lint the JavaScript and build the CSS from the Sass source.
