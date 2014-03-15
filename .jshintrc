@@ -1,0 +1,29 @@
+{
+  "strict": true,
+  "browser": true,
+  "curly": true,
+  "eqeqeq": true,
+  "quotmark": true,
+  "latedef": true,
+  "onevar": true,
+  "noarg": true,
+  "noempty": true,
+  "node": true,
+  "trailing": true,
+  "undef": true,
+  "unused": true,
+  "devel": true,
+  "newcap": true,
+  "indent": 2,
+  "jquery": true,
+  "globals": {
+    "moj": true,
+    "pvbe": true,
+    "ga": true
+  },
+
+  "maxparams": 4,
+  "maxdepth": 4,
+  "maxstatements": 16,
+  "maxcomplexity": 6
+}

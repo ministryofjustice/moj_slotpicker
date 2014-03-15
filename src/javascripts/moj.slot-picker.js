@@ -1,5 +1,7 @@
+
 (function() {
-  "use strict";
+  'use strict';
+
   var SlotPicker;
 
   SlotPicker = function(el, options) {
@@ -37,7 +39,7 @@
     bindEvents: function() {
       var _this = this;
       _this = this;
-      this.$slotOptions.on('click', function(e) {
+      this.$slotOptions.on('click', function() {
         _this.$selectedSlotWrapper.addClass('is-active');
         _this.emptyUiSlots();
         _this.emptySlotInputs();
@@ -115,7 +117,7 @@
       dateStr = day.data('date');
       date = new Date(dateStr);
       $('.js-slotpicker-options').removeClass('is-active');
-      $("#date-" + dateStr).addClass('is-active').focus();
+      $('#date-' + dateStr).addClass('is-active').focus();
       if (!~pvbe.bookable_dates.indexOf(dateStr)) {
         today = new Date((new Date()).formatIso());
         bookingFrom = new Date(pvbe.bookable_from);
@@ -141,7 +143,7 @@
       _results = [];
       for (_i = 0, _len = slots.length; _i < _len; _i++) {
         slot = slots[_i];
-        _results.push($("[value='" + slot + "']").click());
+        _results.push($('[value="' + slot + '"]').click());
       }
       return _results;
     },
@@ -185,7 +187,7 @@
       _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         slot = _ref[_i];
-        $slotEl = $("[value=" + slot + "]");
+        $slotEl = $('[value=' + slot + ']');
         _this.highlightSlot($slotEl.closest('label'));
         _this.populateSlotInputs(i, $slotEl.val());
         _this.populateUiSlots(i, $slotEl);
@@ -229,12 +231,22 @@
     highlightDay: function(slot) {
       var day;
       day = this.splitDateAndSlot(slot)[0];
-      return $("[data-date=" + day + "]")[~this.settings.currentSlots.join('-').indexOf(day) ? 'addClass' : 'removeClass']('is-chosen');
+      return $('[data-date=' + day + ']')[~this.settings.currentSlots.join('-').indexOf(day) ? 'addClass' : 'removeClass']('is-chosen');
     },
     confirmVisibility: function($el) {
-      if (!isElementInViewport($el.get(0))) {
+      if (!this.isElementInViewport($el.get(0))) {
         return this.moveIntoViewport($el);
       }
+    },
+    isElementInViewport: function(el) {
+      var rect = el.getBoundingClientRect();
+
+      return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
+          rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
+      );
     },
     moveIntoViewport: function($el) {
       var bottom;

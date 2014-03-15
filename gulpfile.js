@@ -43,7 +43,7 @@ gulp.task('sass', function() {
 // watches
 gulp.task('watch', function() {
   gulp.watch(paths.scripts, ['lint']);
-  gulp.watch(paths.scripts, ['concat']);
+  gulp.watch([paths.scripts, paths.markup], ['concat']);
   gulp.watch(paths.styles, ['sass']);
 });
 
