@@ -13,10 +13,11 @@
 .selected-slots {
   display: none; }
 
-.js-enabled .js-slotpicker-chosen {
+.js-slotpicker-chosen {
   display: none; }
-.js-enabled .slots.is-active,
-.js-enabled .selected-slots.is-active {
+
+.slots.is-active,
+.selected-slots.is-active {
   display: block; }
 
 .BookingCalendar-wrap {

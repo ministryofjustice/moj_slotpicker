@@ -2,749 +2,997 @@
 <html>
 <head>
   <title>Slot Picker</title>
+  <link rel="stylesheet" href="stylesheets/moj.slot-picker.css" />
+  <style>
+    .visuallyhidden { position: absolute; left: -9999em; }
+    table { border-collapse: collapse; }
+  </style>
 </head>
 <body>
 
-<div class="left-column visible-js-enabled">
-  <h2 class="step_prompt">First choose a date</h2>
-  <ul class="BookingCalendar-availableMonths">
-    <li>
-      <a href="href=#month-2014-03">March</a>
-      <a href="href=#month-2014-04">April</a>
-      <a href="href=#month-2014-05">May</a>
-    </li>
-  </ul>
-  <div class="BookingCalendar-nav">
-    <a href="#" class="prev hidden">Previous</a>
-    <strong>April</strong>
-    <a href="#" class="next hidden">Next</a>
-  </div>
+<h2 class="step_prompt">First choose a date</h2>
+<ul class="BookingCalendar-availableMonths">
+  <li>
+    <a href="#month-2014-03">March</a>
+    <a href="#month-2014-04">April</a>
+    <a href="#month-2014-05">May</a>
+  </li>
+</ul>
+
+<div class="BookingCalendar-nav">
+  <a href="#" class="prev hidden">Previous</a>
+  <strong>April</strong>
+  <a href="#" class="next hidden">Next</a>
+</div>
+
+<table class="BookingCalendar">
+  <thead>
+    <tr>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+      <th>Sat</th>
+      <th>Sun</th>
+    </tr>
+  </thead>
+</table>
+
+<div class="BookingCalendar-wrap">
   <table class="BookingCalendar">
-    <thead>
+    <tbody>
       <tr>
-        <th>Mon</th>
-        <th>Tue</th>
-        <th>Wed</th>
-        <th>Thu</th>
-        <th>Fri</th>
-        <th>Sat</th>
-        <th>Sun</th>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-03-10" href="#date-2014-03-10">
+              <span class="visuallyhidden">Monday</span>
+              <span>10</span>
+              <span class="visuallyhidden">
+                March
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-03-11" href="#date-2014-03-11">
+              <span class="visuallyhidden">Tuesday</span>
+              <span>11</span>
+              <span class="visuallyhidden">
+                March
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-03-12" href="#date-2014-03-12">
+              <span class="visuallyhidden">Wednesday</span>
+              <span>12</span>
+              <span class="visuallyhidden">
+                March
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-03-13" href="#date-2014-03-13">
+              <span class="visuallyhidden">Thursday</span>
+              <span>13</span>
+              <span class="visuallyhidden">
+                March
+                unavailable
+              </span>
+            </a>
+            <span class="BookingCalendar-tag BookingCalendar-tag--today">Today</span>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-03-14" href="#date-2014-03-14">
+              <span class="visuallyhidden">Friday</span>
+              <span>14</span>
+              <span class="visuallyhidden">
+                March
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-03-15" href="#date-2014-03-15">
+              <span class="visuallyhidden">Saturday</span>
+              <span>15</span>
+              <span class="visuallyhidden">
+                March
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-03-16" href="#date-2014-03-16">
+              <span class="visuallyhidden">Sunday</span>
+              <span>16</span>
+              <span class="visuallyhidden">
+                March
+                available
+              </span>
+            </a>
+          </div>
+        </td>
       </tr>
-    </thead>
+      <tr>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-03-17" href="#date-2014-03-17">
+              <span class="visuallyhidden">Monday</span>
+              <span>17</span>
+              <span class="visuallyhidden">
+                March
+                available
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-03-18" href="#date-2014-03-18">
+              <span class="visuallyhidden">Tuesday</span>
+              <span>18</span>
+              <span class="visuallyhidden">
+                March
+                available
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-03-19" href="#date-2014-03-19">
+              <span class="visuallyhidden">Wednesday</span>
+              <span>19</span>
+              <span class="visuallyhidden">
+                March
+                available
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-03-20" href="#date-2014-03-20">
+              <span class="visuallyhidden">Thursday</span>
+              <span>20</span>
+              <span class="visuallyhidden">
+                March
+                available
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-03-21" href="#date-2014-03-21">
+              <span class="visuallyhidden">Friday</span>
+              <span>21</span>
+              <span class="visuallyhidden">
+                March
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-03-22" href="#date-2014-03-22">
+              <span class="visuallyhidden">Saturday</span>
+              <span>22</span>
+              <span class="visuallyhidden">
+                March
+                available
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-03-23" href="#date-2014-03-23">
+              <span class="visuallyhidden">Sunday</span>
+              <span>23</span>
+              <span class="visuallyhidden">
+                March
+                available
+              </span>
+            </a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-03-24" href="#date-2014-03-24">
+              <span class="visuallyhidden">Monday</span>
+              <span>24</span>
+              <span class="visuallyhidden">
+                March
+                available
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-03-25" href="#date-2014-03-25">
+              <span class="visuallyhidden">Tuesday</span>
+              <span>25</span>
+              <span class="visuallyhidden">
+                March
+                available
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-03-26" href="#date-2014-03-26">
+              <span class="visuallyhidden">Wednesday</span>
+              <span>26</span>
+              <span class="visuallyhidden">
+                March
+                available
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-03-27" href="#date-2014-03-27">
+              <span class="visuallyhidden">Thursday</span>
+              <span>27</span>
+              <span class="visuallyhidden">
+                March
+                available
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-03-28" href="#date-2014-03-28">
+              <span class="visuallyhidden">Friday</span>
+              <span>28</span>
+              <span class="visuallyhidden">
+                March
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-03-29" href="#date-2014-03-29">
+              <span class="visuallyhidden">Saturday</span>
+              <span>29</span>
+              <span class="visuallyhidden">
+                March
+                available
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-03-30" href="#date-2014-03-30">
+              <span class="visuallyhidden">Sunday</span>
+              <span>30</span>
+              <span class="visuallyhidden">
+                March
+                available
+              </span>
+            </a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-03-31" href="#date-2014-03-31">
+              <span class="visuallyhidden">Monday</span>
+              <span>31</span>
+              <span class="visuallyhidden">
+                March
+                available
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-01" href="#date-2014-04-01">
+              <span class="visuallyhidden">Tuesday</span>
+              <span> 1</span>
+              <span class="visuallyhidden">
+                April
+                available
+              </span>
+            </a>
+            <span class="BookingCalendar-tag BookingCalendar-month" id="month-2014-04" tabindex="-1">Apr</span>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-02" href="#date-2014-04-02">
+              <span class="visuallyhidden">Wednesday</span>
+              <span> 2</span>
+              <span class="visuallyhidden">
+                April
+                available
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-03" href="#date-2014-04-03">
+              <span class="visuallyhidden">Thursday</span>
+              <span> 3</span>
+              <span class="visuallyhidden">
+                April
+                available
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-04" href="#date-2014-04-04">
+              <span class="visuallyhidden">Friday</span>
+              <span> 4</span>
+              <span class="visuallyhidden">
+                April
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-05" href="#date-2014-04-05">
+              <span class="visuallyhidden">Saturday</span>
+              <span> 5</span>
+              <span class="visuallyhidden">
+                April
+                available
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-06" href="#date-2014-04-06">
+              <span class="visuallyhidden">Sunday</span>
+              <span> 6</span>
+              <span class="visuallyhidden">
+                April
+                available
+              </span>
+            </a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-07" href="#date-2014-04-07">
+              <span class="visuallyhidden">Monday</span>
+              <span> 7</span>
+              <span class="visuallyhidden">
+                April
+                available
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-08" href="#date-2014-04-08">
+              <span class="visuallyhidden">Tuesday</span>
+              <span> 8</span>
+              <span class="visuallyhidden">
+                April
+                available
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-09" href="#date-2014-04-09">
+              <span class="visuallyhidden">Wednesday</span>
+              <span> 9</span>
+              <span class="visuallyhidden">
+                April
+                available
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--bookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-10" href="#date-2014-04-10">
+              <span class="visuallyhidden">Thursday</span>
+              <span>10</span>
+              <span class="visuallyhidden">
+                April
+                available
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-11" href="#date-2014-04-11">
+              <span class="visuallyhidden">Friday</span>
+              <span>11</span>
+              <span class="visuallyhidden">
+                April
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-12" href="#date-2014-04-12">
+              <span class="visuallyhidden">Saturday</span>
+              <span>12</span>
+              <span class="visuallyhidden">
+                April
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-13" href="#date-2014-04-13">
+              <span class="visuallyhidden">Sunday</span>
+              <span>13</span>
+              <span class="visuallyhidden">
+                April
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-14" href="#date-2014-04-14">
+              <span class="visuallyhidden">Monday</span>
+              <span>14</span>
+              <span class="visuallyhidden">
+                April
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-15" href="#date-2014-04-15">
+              <span class="visuallyhidden">Tuesday</span>
+              <span>15</span>
+              <span class="visuallyhidden">
+                April
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-16" href="#date-2014-04-16">
+              <span class="visuallyhidden">Wednesday</span>
+              <span>16</span>
+              <span class="visuallyhidden">
+                April
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-17" href="#date-2014-04-17">
+              <span class="visuallyhidden">Thursday</span>
+              <span>17</span>
+              <span class="visuallyhidden">
+                April
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-18" href="#date-2014-04-18">
+              <span class="visuallyhidden">Friday</span>
+              <span>18</span>
+              <span class="visuallyhidden">
+                April
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-19" href="#date-2014-04-19">
+              <span class="visuallyhidden">Saturday</span>
+              <span>19</span>
+              <span class="visuallyhidden">
+                April
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-20" href="#date-2014-04-20">
+              <span class="visuallyhidden">Sunday</span>
+              <span>20</span>
+              <span class="visuallyhidden">
+                April
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-21" href="#date-2014-04-21">
+              <span class="visuallyhidden">Monday</span>
+              <span>21</span>
+              <span class="visuallyhidden">
+                April
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-22" href="#date-2014-04-22">
+              <span class="visuallyhidden">Tuesday</span>
+              <span>22</span>
+              <span class="visuallyhidden">
+                April
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-23" href="#date-2014-04-23">
+              <span class="visuallyhidden">Wednesday</span>
+              <span>23</span>
+              <span class="visuallyhidden">
+                April
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-24" href="#date-2014-04-24">
+              <span class="visuallyhidden">Thursday</span>
+              <span>24</span>
+              <span class="visuallyhidden">
+                April
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-25" href="#date-2014-04-25">
+              <span class="visuallyhidden">Friday</span>
+              <span>25</span>
+              <span class="visuallyhidden">
+                April
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-26" href="#date-2014-04-26">
+              <span class="visuallyhidden">Saturday</span>
+              <span>26</span>
+              <span class="visuallyhidden">
+                April
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-27" href="#date-2014-04-27">
+              <span class="visuallyhidden">Sunday</span>
+              <span>27</span>
+              <span class="visuallyhidden">
+                April
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-28" href="#date-2014-04-28">
+              <span class="visuallyhidden">Monday</span>
+              <span>28</span>
+              <span class="visuallyhidden">
+                April
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-29" href="#date-2014-04-29">
+              <span class="visuallyhidden">Tuesday</span>
+              <span>29</span>
+              <span class="visuallyhidden">
+                April
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-04-30" href="#date-2014-04-30">
+              <span class="visuallyhidden">Wednesday</span>
+              <span>30</span>
+              <span class="visuallyhidden">
+                April
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-05-01" href="#date-2014-05-01">
+              <span class="visuallyhidden">Thursday</span>
+              <span> 1</span>
+              <span class="visuallyhidden">
+                May
+                unavailable
+              </span>
+            </a>
+            <span class="BookingCalendar-tag BookingCalendar-month" id="month-2014-05" tabindex="-1">May</span>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-05-02" href="#date-2014-05-02">
+              <span class="visuallyhidden">Friday</span>
+              <span> 2</span>
+              <span class="visuallyhidden">
+                May
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-05-03" href="#date-2014-05-03">
+              <span class="visuallyhidden">Saturday</span>
+              <span> 3</span>
+              <span class="visuallyhidden">
+                May
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+        <td class="BookingCalendar-day--unbookable">
+          <div class="BookingCalendar-content">
+            <a class="BookingCalendar-dayLink" data-date="2014-05-04" href="#date-2014-05-04">
+              <span class="visuallyhidden">Sunday</span>
+              <span> 4</span>
+              <span class="visuallyhidden">
+                May
+                unavailable
+              </span>
+            </a>
+          </div>
+        </td>
+      </tr>
+    </tbody>
   </table>
-  <div class="BookingCalendar-wrap">
+</div>
 
-    <table class="BookingCalendar">
-      <tbody>
-        <tr>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-03-10" href="#date-2014-03-10">
-                <span class="visuallyhidden">Monday</span>
-                <span>10</span>
-                <span class="visuallyhidden">
-                  March
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-03-11" href="#date-2014-03-11">
-                <span class="visuallyhidden">Tuesday</span>
-                <span>11</span>
-                <span class="visuallyhidden">
-                  March
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-03-12" href="#date-2014-03-12">
-                <span class="visuallyhidden">Wednesday</span>
-                <span>12</span>
-                <span class="visuallyhidden">
-                  March
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-03-13" href="#date-2014-03-13">
-                <span class="visuallyhidden">Thursday</span>
-                <span>13</span>
-                <span class="visuallyhidden">
-                  March
-                  unavailable
-                </span>
-              </a>
-              <span class="BookingCalendar-tag BookingCalendar-tag--today">Today</span>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-03-14" href="#date-2014-03-14">
-                <span class="visuallyhidden">Friday</span>
-                <span>14</span>
-                <span class="visuallyhidden">
-                  March
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-03-15" href="#date-2014-03-15">
-                <span class="visuallyhidden">Saturday</span>
-                <span>15</span>
-                <span class="visuallyhidden">
-                  March
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-03-16" href="#date-2014-03-16">
-                <span class="visuallyhidden">Sunday</span>
-                <span>16</span>
-                <span class="visuallyhidden">
-                  March
-                  available
-                </span>
-              </a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-03-17" href="#date-2014-03-17">
-                <span class="visuallyhidden">Monday</span>
-                <span>17</span>
-                <span class="visuallyhidden">
-                  March
-                  available
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-03-18" href="#date-2014-03-18">
-                <span class="visuallyhidden">Tuesday</span>
-                <span>18</span>
-                <span class="visuallyhidden">
-                  March
-                  available
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-03-19" href="#date-2014-03-19">
-                <span class="visuallyhidden">Wednesday</span>
-                <span>19</span>
-                <span class="visuallyhidden">
-                  March
-                  available
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-03-20" href="#date-2014-03-20">
-                <span class="visuallyhidden">Thursday</span>
-                <span>20</span>
-                <span class="visuallyhidden">
-                  March
-                  available
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-03-21" href="#date-2014-03-21">
-                <span class="visuallyhidden">Friday</span>
-                <span>21</span>
-                <span class="visuallyhidden">
-                  March
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-03-22" href="#date-2014-03-22">
-                <span class="visuallyhidden">Saturday</span>
-                <span>22</span>
-                <span class="visuallyhidden">
-                  March
-                  available
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-03-23" href="#date-2014-03-23">
-                <span class="visuallyhidden">Sunday</span>
-                <span>23</span>
-                <span class="visuallyhidden">
-                  March
-                  available
-                </span>
-              </a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-03-24" href="#date-2014-03-24">
-                <span class="visuallyhidden">Monday</span>
-                <span>24</span>
-                <span class="visuallyhidden">
-                  March
-                  available
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-03-25" href="#date-2014-03-25">
-                <span class="visuallyhidden">Tuesday</span>
-                <span>25</span>
-                <span class="visuallyhidden">
-                  March
-                  available
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-03-26" href="#date-2014-03-26">
-                <span class="visuallyhidden">Wednesday</span>
-                <span>26</span>
-                <span class="visuallyhidden">
-                  March
-                  available
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-03-27" href="#date-2014-03-27">
-                <span class="visuallyhidden">Thursday</span>
-                <span>27</span>
-                <span class="visuallyhidden">
-                  March
-                  available
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-03-28" href="#date-2014-03-28">
-                <span class="visuallyhidden">Friday</span>
-                <span>28</span>
-                <span class="visuallyhidden">
-                  March
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-03-29" href="#date-2014-03-29">
-                <span class="visuallyhidden">Saturday</span>
-                <span>29</span>
-                <span class="visuallyhidden">
-                  March
-                  available
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-03-30" href="#date-2014-03-30">
-                <span class="visuallyhidden">Sunday</span>
-                <span>30</span>
-                <span class="visuallyhidden">
-                  March
-                  available
-                </span>
-              </a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-03-31" href="#date-2014-03-31">
-                <span class="visuallyhidden">Monday</span>
-                <span>31</span>
-                <span class="visuallyhidden">
-                  March
-                  available
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-01" href="#date-2014-04-01">
-                <span class="visuallyhidden">Tuesday</span>
-                <span> 1</span>
-                <span class="visuallyhidden">
-                  April
-                  available
-                </span>
-              </a>
-              <span class="BookingCalendar-tag BookingCalendar-month" id="month-2014-04" tabindex="-1">Apr</span>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-02" href="#date-2014-04-02">
-                <span class="visuallyhidden">Wednesday</span>
-                <span> 2</span>
-                <span class="visuallyhidden">
-                  April
-                  available
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-03" href="#date-2014-04-03">
-                <span class="visuallyhidden">Thursday</span>
-                <span> 3</span>
-                <span class="visuallyhidden">
-                  April
-                  available
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-04" href="#date-2014-04-04">
-                <span class="visuallyhidden">Friday</span>
-                <span> 4</span>
-                <span class="visuallyhidden">
-                  April
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-05" href="#date-2014-04-05">
-                <span class="visuallyhidden">Saturday</span>
-                <span> 5</span>
-                <span class="visuallyhidden">
-                  April
-                  available
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-06" href="#date-2014-04-06">
-                <span class="visuallyhidden">Sunday</span>
-                <span> 6</span>
-                <span class="visuallyhidden">
-                  April
-                  available
-                </span>
-              </a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-07" href="#date-2014-04-07">
-                <span class="visuallyhidden">Monday</span>
-                <span> 7</span>
-                <span class="visuallyhidden">
-                  April
-                  available
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-08" href="#date-2014-04-08">
-                <span class="visuallyhidden">Tuesday</span>
-                <span> 8</span>
-                <span class="visuallyhidden">
-                  April
-                  available
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-09" href="#date-2014-04-09">
-                <span class="visuallyhidden">Wednesday</span>
-                <span> 9</span>
-                <span class="visuallyhidden">
-                  April
-                  available
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--bookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-10" href="#date-2014-04-10">
-                <span class="visuallyhidden">Thursday</span>
-                <span>10</span>
-                <span class="visuallyhidden">
-                  April
-                  available
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-11" href="#date-2014-04-11">
-                <span class="visuallyhidden">Friday</span>
-                <span>11</span>
-                <span class="visuallyhidden">
-                  April
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-12" href="#date-2014-04-12">
-                <span class="visuallyhidden">Saturday</span>
-                <span>12</span>
-                <span class="visuallyhidden">
-                  April
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-13" href="#date-2014-04-13">
-                <span class="visuallyhidden">Sunday</span>
-                <span>13</span>
-                <span class="visuallyhidden">
-                  April
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-14" href="#date-2014-04-14">
-                <span class="visuallyhidden">Monday</span>
-                <span>14</span>
-                <span class="visuallyhidden">
-                  April
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-15" href="#date-2014-04-15">
-                <span class="visuallyhidden">Tuesday</span>
-                <span>15</span>
-                <span class="visuallyhidden">
-                  April
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-16" href="#date-2014-04-16">
-                <span class="visuallyhidden">Wednesday</span>
-                <span>16</span>
-                <span class="visuallyhidden">
-                  April
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-17" href="#date-2014-04-17">
-                <span class="visuallyhidden">Thursday</span>
-                <span>17</span>
-                <span class="visuallyhidden">
-                  April
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-18" href="#date-2014-04-18">
-                <span class="visuallyhidden">Friday</span>
-                <span>18</span>
-                <span class="visuallyhidden">
-                  April
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-19" href="#date-2014-04-19">
-                <span class="visuallyhidden">Saturday</span>
-                <span>19</span>
-                <span class="visuallyhidden">
-                  April
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-20" href="#date-2014-04-20">
-                <span class="visuallyhidden">Sunday</span>
-                <span>20</span>
-                <span class="visuallyhidden">
-                  April
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-21" href="#date-2014-04-21">
-                <span class="visuallyhidden">Monday</span>
-                <span>21</span>
-                <span class="visuallyhidden">
-                  April
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-22" href="#date-2014-04-22">
-                <span class="visuallyhidden">Tuesday</span>
-                <span>22</span>
-                <span class="visuallyhidden">
-                  April
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-23" href="#date-2014-04-23">
-                <span class="visuallyhidden">Wednesday</span>
-                <span>23</span>
-                <span class="visuallyhidden">
-                  April
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-24" href="#date-2014-04-24">
-                <span class="visuallyhidden">Thursday</span>
-                <span>24</span>
-                <span class="visuallyhidden">
-                  April
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-25" href="#date-2014-04-25">
-                <span class="visuallyhidden">Friday</span>
-                <span>25</span>
-                <span class="visuallyhidden">
-                  April
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-26" href="#date-2014-04-26">
-                <span class="visuallyhidden">Saturday</span>
-                <span>26</span>
-                <span class="visuallyhidden">
-                  April
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-27" href="#date-2014-04-27">
-                <span class="visuallyhidden">Sunday</span>
-                <span>27</span>
-                <span class="visuallyhidden">
-                  April
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-28" href="#date-2014-04-28">
-                <span class="visuallyhidden">Monday</span>
-                <span>28</span>
-                <span class="visuallyhidden">
-                  April
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-29" href="#date-2014-04-29">
-                <span class="visuallyhidden">Tuesday</span>
-                <span>29</span>
-                <span class="visuallyhidden">
-                  April
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-04-30" href="#date-2014-04-30">
-                <span class="visuallyhidden">Wednesday</span>
-                <span>30</span>
-                <span class="visuallyhidden">
-                  April
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-05-01" href="#date-2014-05-01">
-                <span class="visuallyhidden">Thursday</span>
-                <span> 1</span>
-                <span class="visuallyhidden">
-                  May
-                  unavailable
-                </span>
-              </a>
-              <span class="BookingCalendar-tag BookingCalendar-month" id="month-2014-05" tabindex="-1">May</span>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-05-02" href="#date-2014-05-02">
-                <span class="visuallyhidden">Friday</span>
-                <span> 2</span>
-                <span class="visuallyhidden">
-                  May
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-05-03" href="#date-2014-05-03">
-                <span class="visuallyhidden">Saturday</span>
-                <span> 3</span>
-                <span class="visuallyhidden">
-                  May
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-          <td class="BookingCalendar-day--unbookable">
-            <div class="BookingCalendar-content">
-              <a class="BookingCalendar-dayLink" data-date="2014-05-04" href="#date-2014-05-04">
-                <span class="visuallyhidden">Sunday</span>
-                <span> 4</span>
-                <span class="visuallyhidden">
-                  May
-                  unavailable
-                </span>
-              </a>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<ul class="BookingCalendar-key">
+  <li>
+    <div class="BookingCalendar-dayBox"></div>
+    Visits possible on this day
+  </li>
+  <li>
+    <div class="BookingCalendar-dayBox BookingCalendar-day--unavailable"></div>
+    No visits this day
+  </li>
+</ul>
 
+<div class="slots js-slotpicker" data-optionlimits="3">
+  <h2 class="step_prompt">Now choose a time</h2>
+  <div class="js-slotpicker-options day-slots" id="in-the-past">
+    <p>It is not possible to book a visit in the past.</p>
   </div>
-  <ul class="BookingCalendar-key">
-    <li>
-      <div class="BookingCalendar-dayBox"></div>
-      Visits possible on this day
-    </li>
-    <li>
-      <div class="BookingCalendar-dayBox BookingCalendar-day--unavailable"></div>
-      No visits this day
-    </li>
-  </ul>
+  <div class="js-slotpicker-options day-slots" id="too-far-ahead">
+    <p>You can only book a visit in the next 28 days.</p>
+  </div>
+  <div class="js-slotpicker-options day-slots" id="booking-gap">
+    <p>You can only book a visit 3 days in advance.</p>
+  </div>
+  <div class="js-slotpicker__months">
+    <div class="slot__month" data-focusfirst="true" id="month-2014-03-01">
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-03-19" tabindex="-1">
+        <h4 class="day-slots-heading">Wednesday 19 March</h4>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-03-19-1400-1600">
+          <strong> 2:00pm</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-03-20" tabindex="-1">
+        <h4 class="day-slots-heading">Thursday 20 March</h4>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-03-20-1400-1600">
+          <strong> 2:00pm</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-03-21" tabindex="-1">
+        <h4 class="day-slots-heading">Friday 21 March</h4>
+        <p>There are no sessions available on Fridays.</p>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-03-22" tabindex="-1">
+        <h4 class="day-slots-heading">Saturday 22 March</h4>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-03-22-0915-1115">
+          <strong> 9:15am</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-03-22-1400-1600">
+          <strong> 2:00pm</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-03-23" tabindex="-1">
+        <h4 class="day-slots-heading">Sunday 23 March</h4>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-03-23-1400-1600">
+          <strong> 2:00pm</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-03-24" tabindex="-1">
+        <h4 class="day-slots-heading">Monday 24 March</h4>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-03-24-1400-1600">
+          <strong> 2:00pm</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-03-25" tabindex="-1">
+        <h4 class="day-slots-heading">Tuesday 25 March</h4>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-03-25-1400-1600">
+          <strong> 2:00pm</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-03-26" tabindex="-1">
+        <h4 class="day-slots-heading">Wednesday 26 March</h4>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-03-26-1400-1600">
+          <strong> 2:00pm</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-03-27" tabindex="-1">
+        <h4 class="day-slots-heading">Thursday 27 March</h4>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-03-27-1400-1600">
+          <strong> 2:00pm</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-03-28" tabindex="-1">
+        <h4 class="day-slots-heading">Friday 28 March</h4>
+        <p>There are no sessions available on Fridays.</p>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-03-29" tabindex="-1">
+        <h4 class="day-slots-heading">Saturday 29 March</h4>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-03-29-0915-1115">
+          <strong> 9:15am</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-03-29-1400-1600">
+          <strong> 2:00pm</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-03-30" tabindex="-1">
+        <h4 class="day-slots-heading">Sunday 30 March</h4>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-03-30-1400-1600">
+          <strong> 2:00pm</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-03-31" tabindex="-1">
+        <h4 class="day-slots-heading">Monday 31 March</h4>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-03-31-1400-1600">
+          <strong> 2:00pm</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+      </div>
+    </div>
+    <div class="slot__month" data-focusfirst="true" id="month-2014-04-01">
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-04-01" tabindex="-1">
+        <h4 class="day-slots-heading">Tuesday  1 April</h4>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-04-01-1400-1600">
+          <strong> 2:00pm</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-04-02" tabindex="-1">
+        <h4 class="day-slots-heading">Wednesday  2 April</h4>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-04-02-1400-1600">
+          <strong> 2:00pm</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-04-03" tabindex="-1">
+        <h4 class="day-slots-heading">Thursday  3 April</h4>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-04-03-1400-1600">
+          <strong> 2:00pm</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-04-04" tabindex="-1">
+        <h4 class="day-slots-heading">Friday  4 April</h4>
+        <p>There are no sessions available on Fridays.</p>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-04-05" tabindex="-1">
+        <h4 class="day-slots-heading">Saturday  5 April</h4>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-04-05-0915-1115">
+          <strong> 9:15am</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-04-05-1400-1600">
+          <strong> 2:00pm</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-04-06" tabindex="-1">
+        <h4 class="day-slots-heading">Sunday  6 April</h4>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-04-06-1400-1600">
+          <strong> 2:00pm</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-04-07" tabindex="-1">
+        <h4 class="day-slots-heading">Monday  7 April</h4>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-04-07-1400-1600">
+          <strong> 2:00pm</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-04-08" tabindex="-1">
+        <h4 class="day-slots-heading">Tuesday  8 April</h4>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-04-08-1400-1600">
+          <strong> 2:00pm</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-04-09" tabindex="-1">
+        <h4 class="day-slots-heading">Wednesday  9 April</h4>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-04-09-1400-1600">
+          <strong> 2:00pm</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-04-10" tabindex="-1">
+        <h4 class="day-slots-heading">Thursday 10 April</h4>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-04-10-1400-1600">
+          <strong> 2:00pm</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-04-11" tabindex="-1">
+        <h4 class="day-slots-heading">Friday 11 April</h4>
+        <p>There are no sessions available on Fridays.</p>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-04-12" tabindex="-1">
+        <h4 class="day-slots-heading">Saturday 12 April</h4>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-04-12-0915-1115">
+          <strong> 9:15am</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-04-12-1400-1600">
+          <strong> 2:00pm</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+      </div>
+      <div class="js-slotpicker-options day-slots cf" id="date-2014-04-13" tabindex="-1">
+        <h4 class="day-slots-heading">Sunday 13 April</h4>
+        <label class="slot">
+          <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-04-13-1400-1600">
+          <strong> 2:00pm</strong>
+          <span class="duration">2 hrs</span>
+        </label>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>
+Date.prototype.formatIso = function() {
+  return [
+    this.getFullYear(),
+    ('0'+(this.getMonth()+1)).slice(-2),
+    ('0'+this.getDate()).slice(-2)
+  ].join('-')
+}
+var pvbe = {
+  current_slots: [],
+  bookable_dates: [],
+  bookable_from: '2014-03-16'
+};
 var moj = moj || { Modules: {} };
 </script>
 <script src="javascripts/moj.slot-picker.js"></script>
