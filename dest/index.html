@@ -782,6 +782,39 @@
   </div>
 </div>
 
+<div class="selected-slots js-selected-slots">
+  <h2 class="step_prompt">Chosen time (up to 3 per visit)</h2>
+  <div class="selected-slots-group">
+    <ul>
+      <li>
+        <a class="icon slot-remove js-remove-slot" href="#">Remove</a>
+        <div class="slot-position">1</div>
+        <p class="date"></p>
+        <p class="time"></p>
+        <p class="prompt">Choose a   date and time from the calendar</p>
+      </li>
+      <li>
+        <a class="icon slot-promote js-promote-slot" href="#2">Promote</a>
+        <a class="icon slot-remove js-remove-slot" href="#">Remove</a>
+        <div class="slot-position">2</div>
+        <p class="date"></p>
+        <p class="time"></p>
+        <p class="prompt">Choose a second date and time from the calendar</p>
+      </li>
+      <li>
+        <a class="icon slot-promote js-promote-slot" href="#3">Promote</a>
+        <a class="icon slot-remove js-remove-slot" href="#">Remove</a>
+        <div class="slot-position">3</div>
+        <p class="date"></p>
+        <p class="time"></p>
+        <p class="prompt">Choose a third date and time from the calendar</p>
+      </li>
+    </ul>
+  </div>
+  <p class="js-promote-help">Use the arrows to put your visit choices in the order that suits you best.</p>
+</div>
+
+
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>
 Date.prototype.formatIso = function() {
