@@ -10,7 +10,7 @@
   </style>
 </head>
 <body>
-
+<div id="wrapper">
 <h2 class="step_prompt">First choose a date</h2>
 <ul class="BookingCalendar-availableMonths">
   <li>
@@ -914,7 +914,7 @@
 </form>
 
 <p><a href="#" id="displayOutput">Alert chosen slots</a></p>
-
+</div>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>
 Date.prototype.formatIso = function() {
@@ -930,6 +930,16 @@ Array.prototype.indexOf = function(obj, start) {
      }
      return -1;
 }
+Array.prototype.move = function (old_index, new_index) {
+    if (new_index >= this.length) {
+        var k = new_index - this.length;
+        while ((k--) + 1) {
+            this.push(undefined);
+        }
+    }
+    this.splice(new_index, 0, this.splice(old_index, 1)[0]);
+    return this; // for testing purposes
+};
 var pvbe = {
   current_slots: [],
   bookable_dates: ['2014-03-16','2014-03-17'],
