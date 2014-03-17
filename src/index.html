@@ -913,6 +913,8 @@
   </div>
 </form>
 
+<p><a href="#" id="displayOutput">Alert chosen slots</a></p>
+
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>
 Date.prototype.formatIso = function() {
@@ -939,6 +941,14 @@ var moj = moj || { Modules: {} };
 <script>
 
 moj.Modules.slotPicker.init();
+
+$('#displayOutput').on('click', function(e) {
+  e.preventDefault();
+  var values = $('select').map(function() {
+    return $(this).val();
+  }).get().join();
+  alert(values);
+});
 
 </script>
 </body>
