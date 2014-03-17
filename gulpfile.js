@@ -1,14 +1,12 @@
 var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     sass = require('gulp-ruby-sass'),
-    mocha = require('gulp-mocha'),
     stylish = require('jshint-stylish');
 
 var paths = {
   scripts: './src/javascripts/**/*.js',
   styles: './src/stylesheets/**/*',
   markup: './src/index.html',
-  tests: './tests/**/*',
   dest: './dest/'
 };
 
@@ -17,12 +15,6 @@ gulp.task('lint', function() {
   gulp.src(paths.scripts)
     .pipe(jshint())
     .pipe(jshint.reporter(stylish));
-});
-
-// run tests
-gulp.task('test', function() {
-  gulp.src(paths.tests)
-    .pipe(mocha());
 });
 
 // join javascript and output
