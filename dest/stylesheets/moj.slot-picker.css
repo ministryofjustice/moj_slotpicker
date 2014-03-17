@@ -13,9 +13,6 @@
 .selected-slots {
   display: none; }
 
-.js-slotpicker-chosen {
-  display: none; }
-
 .slots.is-active,
 .selected-slots.is-active {
   display: block; }
