@@ -117,7 +117,6 @@
       dateStr = day.data('date');
       date = new Date(dateStr);
       $('.js-slotpicker-options').removeClass('is-active');
-      $('#date-' + dateStr).addClass('is-active').focus();
       if (!~pvbe.bookable_dates.indexOf(dateStr)) {
         today = new Date((new Date()).formatIso());
         bookingFrom = new Date(pvbe.bookable_from);
@@ -131,6 +130,8 @@
             $('#booking-gap').addClass('is-active');
           }
         }
+      } else {
+        $('#date-' + dateStr).addClass('is-active').focus();
       }
       $('.BookingCalendar-day--bookable.is-active').removeClass('is-active');
       return day.closest('td').addClass('is-active');
