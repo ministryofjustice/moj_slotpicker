@@ -6,6 +6,7 @@ var gulp = require('gulp'),
 var paths = {
   scripts: './src/javascripts/**/*.js',
   styles: './src/stylesheets/**/*',
+  images: './src/images/**/*',
   markup: './src/index.html',
   dest: './dest/'
 };
@@ -21,6 +22,8 @@ gulp.task('lint', function() {
 gulp.task('concat', function() {
   gulp.src(paths.scripts)
     .pipe(gulp.dest(paths.dest + 'javascripts'));
+  gulp.src(paths.images)
+    .pipe(gulp.dest(paths.dest + 'images'));
   gulp.src(paths.markup)
     .pipe(gulp.dest(paths.dest));
 });

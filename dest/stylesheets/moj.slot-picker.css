@@ -25,7 +25,7 @@
 table.BookingCalendar {
   width: 100%;
   font-size: 19px;
-  background: image-url("unavailable_tile.png"); }
+  background: url("../images/unavailable_tile.png"); }
   table.BookingCalendar th,
   table.BookingCalendar td {
     width: 14.28571%; }
@@ -90,10 +90,10 @@ table.BookingCalendar {
     color: #6f777b; }
 
 .BookingCalendar-day--lead {
-  background-image: image-url("lead_tile.png"); }
+  background-image: url("../images/lead_tile.png"); }
 
 .BookingCalendar-day--beyond {
-  background-image: image-url("beyond_tile.png"); }
+  background-image: url("../images/beyond_tile.png"); }
   .BookingCalendar-day--beyond .BookingCalendar-content a {
     color: #6f777b; }
 
@@ -138,7 +138,7 @@ ul.BookingCalendar-key {
   margin-right: 3px;
   border: 1px solid #dee0e2; }
   .BookingCalendar-dayBox.BookingCalendar-day--unavailable {
-    background: image-url("unavailable_tile.png"); }
+    background: url("../images/unavailable_tile.png"); }
 
 .BookingCalendar-availableMonths {
   display: none; }
@@ -187,7 +187,7 @@ ul.BookingCalendar-key {
   .BookingCalendar-nav .prev {
     margin-left: 10px;
     padding-left: 35px;
-    background-image: image-url("icons/prev.png"); }
+    background-image: url("../images/prev.png"); }
     @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
       .BookingCalendar-nav .prev {
         background-position: 0 10px;
@@ -197,7 +197,7 @@ ul.BookingCalendar-key {
     right: 0;
     margin-right: 10px;
     padding-right: 35px;
-    background-image: image-url("icons/next.png");
+    background-image: url("../images/next.png");
     background-position: 100% -80px; }
     @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
       .BookingCalendar-nav .next {
@@ -315,14 +315,14 @@ ul.BookingCalendar-key {
       top: 50%;
       right: 10px;
       margin-top: -15px;
-      background-image: image-url("icons/remove.png"); }
+      background-image: url("../images/remove.png"); }
     .selected-slots ul li .slot-promote {
       display: none;
       position: absolute;
       top: 50%;
       right: 50px;
       margin-top: -15px;
-      background-image: image-url("icons/promote.png"); }
+      background-image: url("../images/promote.png"); }
     .selected-slots ul li p {
       margin: 0; }
 
