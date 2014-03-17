@@ -178,7 +178,7 @@
       return $slot.find('.js-remove-slot').data('slot-option', checkbox);
     },
     populateSlotInputs: function(index, chosen) {
-      return this.$slotInputs.eq(index).find('[name="visit[slots][][slot]"]').val(chosen);
+      return this.$slotInputs.eq(index).find('select').val(chosen);
     },
     processSlots: function() {
       var $slotEl, i, slot, _i, _len, _ref, _results, _this;
