@@ -19,7 +19,7 @@ gulp.task('lint', function() {
 });
 
 // join javascript and output
-gulp.task('concat', function() {
+gulp.task('copy', function() {
   gulp.src(paths.scripts)
     .pipe(gulp.dest(paths.dest + 'javascripts'));
   gulp.src(paths.images)
@@ -38,9 +38,9 @@ gulp.task('sass', function() {
 // watches
 gulp.task('watch', function() {
   gulp.watch(paths.scripts, ['lint']);
-  gulp.watch([paths.scripts, paths.markup], ['concat']);
+  gulp.watch([paths.scripts, paths.markup], ['copy']);
   gulp.watch(paths.styles, ['sass']);
 });
 
 // tasks
-gulp.task('default', ['lint', 'concat', 'sass']);
+gulp.task('default', ['lint', 'copy', 'sass']);
