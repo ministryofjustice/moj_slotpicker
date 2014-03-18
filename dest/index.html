@@ -822,7 +822,7 @@
       <select name="slot-1" id="slot-1">
         <option value="">none</option>
         <option value="2014-03-16-1400-1600">Sunday, 16 March -  2:00pm</option>
-        <option value="2014-03-17-1400-1600">Monday, 17 March -  2:00pm</option>
+        <option value="2014-03-17-1400-1600" selected="selected">Monday, 17 March -  2:00pm</option>
         <option value="2014-03-18-1400-1600">Tuesday, 18 March -  2:00pm</option>
         <option value="2014-03-19-1400-1600">Wednesday, 19 March -  2:00pm</option>
         <option value="2014-03-20-1400-1600">Thursday, 20 March -  2:00pm</option>
@@ -855,7 +855,7 @@
         <option value="">none</option>
         <option value="2014-03-16-1400-1600">Sunday, 16 March -  2:00pm</option>
         <option value="2014-03-17-1400-1600">Monday, 17 March -  2:00pm</option>
-        <option value="2014-03-18-1400-1600">Tuesday, 18 March -  2:00pm</option>
+        <option value="2014-03-18-1400-1600" selected="selected">Tuesday, 18 March -  2:00pm</option>
         <option value="2014-03-19-1400-1600">Wednesday, 19 March -  2:00pm</option>
         <option value="2014-03-20-1400-1600">Thursday, 20 March -  2:00pm</option>
         <option value="2014-03-22-0915-1115">Saturday, 22 March -  9:15am</option>
@@ -943,11 +943,7 @@ Array.prototype.move = function (old_index, new_index) {
     this.splice(new_index, 0, this.splice(old_index, 1)[0]);
     return this; // for testing purposes
 };
-var pvbe = {
-  current_slots: [],
-  bookable_dates: ['2014-03-16','2014-03-17'],
-  bookable_from: '2014-03-16'
-};
+
 var moj = moj || { Modules: {} };
 </script>
 <script src="javascripts/moj.slot-picker.js"></script>
@@ -959,7 +955,7 @@ $('#displayOutput').on('click', function(e) {
   e.preventDefault();
   var values = $('select').map(function() {
     return $(this).val();
-  }).get().join();
+  }).get();
   alert(values);
 });
 

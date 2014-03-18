@@ -10,7 +10,8 @@
     this.bindEvents();
     this.setupNav();
     this.updateNav(0);
-    this.markChosenSlots(pvbe.current_slots);
+    this.consolidate();
+    this.markChosenSlots(this.settings.currentSlots);
     return this;
   };
 
@@ -18,6 +19,8 @@
     defaults: {
       optionlimit: 3,
       selections: 'has-selections',
+      bookableSlots: [],
+      bookableDates: [],
       currentSlots: [],
       calendarDayHeight: 56,
       navPointer: 0
@@ -112,14 +115,25 @@
         scrollTop: this.settings.months[this.settings.navPointer].pos
       }, 200);
     },
+    consolidate: function() {
+      this.settings.bookableSlots = this.$slotInputs.first().find('select option').map(function() {
+        return $(this).val();
+      }).get().filter(function(v){return v!==''});
+      this.settings.bookableDates = this.settings.bookableSlots.map(function(s) {
+        return s.substr(0, 10);
+      });
+      this.settings.currentSlots = this.$slotInputs.find('select').map(function() {
+        return $(this).val();
+      }).get().filter(function(v){return v!==''});
+    },
     selectDay: function(day) {
       var bookingFrom, date, dateStr, today;
       dateStr = day.data('date');
       date = new Date(dateStr);
       $('.js-slotpicker-options').removeClass('is-active');
-      if (!~pvbe.bookable_dates.indexOf(dateStr)) {
+      if (!~this.settings.bookableDates.indexOf(dateStr)) {
         today = new Date((new Date()).formatIso());
-        bookingFrom = new Date(pvbe.bookable_from);
+        bookingFrom = new Date(this.settings.bookableDates[0]);
         if (date < today) {
           $('#in-the-past').addClass('is-active');
         }
@@ -140,9 +154,11 @@
       return this.$promoteHelp[this.settings.currentSlots.length > 1 ? 'addClass' : 'removeClass']('is-active');
     },
     markChosenSlots: function(slots) {
+      console.log(slots)
       var slot, _i, _len, _results;
       _results = [];
       for (_i = 0, _len = slots.length; _i < _len; _i++) {
+        console.log(slots[_i])
         slot = slots[_i];
         _results.push($('[value="' + slot + '"]').click());
       }
