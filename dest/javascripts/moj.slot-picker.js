@@ -11,7 +11,7 @@
     this.setupNav();
     this.updateNav(0);
     this.consolidate();
-    this.markChosenSlots(this.settings.currentSlots);
+    this.markChosenSlots(this.settings.originalSlots);
     return this;
   };
 
@@ -21,6 +21,7 @@
       selections: 'has-selections',
       bookableSlots: [],
       bookableDates: [],
+      originalSlots: [],
       currentSlots: [],
       calendarDayHeight: 56,
       navPointer: 0
@@ -118,13 +119,13 @@
     consolidate: function() {
       this.settings.bookableSlots = this.$slotInputs.first().find('select option').map(function() {
         return $(this).val();
-      }).get().filter(function(v){return v!==''});
+      }).get().filter(function(v){return v!=='';});
       this.settings.bookableDates = this.settings.bookableSlots.map(function(s) {
         return s.substr(0, 10);
       });
-      this.settings.currentSlots = this.$slotInputs.find('select').map(function() {
+      this.settings.originalSlots = this.$slotInputs.find('select').map(function() {
         return $(this).val();
-      }).get().filter(function(v){return v!==''});
+      }).get().filter(function(v){return v!=='';});
     },
     selectDay: function(day) {
       var bookingFrom, date, dateStr, today;
@@ -154,11 +155,9 @@
       return this.$promoteHelp[this.settings.currentSlots.length > 1 ? 'addClass' : 'removeClass']('is-active');
     },
     markChosenSlots: function(slots) {
-      console.log(slots)
       var slot, _i, _len, _results;
       _results = [];
       for (_i = 0, _len = slots.length; _i < _len; _i++) {
-        console.log(slots[_i])
         slot = slots[_i];
         _results.push($('[value="' + slot + '"]').click());
       }
