@@ -56,7 +56,6 @@
       this.$wrapper.on('click', this.$removeSlots, function(e) {
         e.preventDefault();
         $($(this).data('slot-option')).click();
-        return ga('send', 'event', 'slot', 'remove');
       });
       this.$wrapper.on('click', this.$promoteSlots, function(e) {
         var promoted;
@@ -64,7 +63,6 @@
         promoted = $(this).attr('href').split('#')[1] - 1;
         _this.promoteSlot(promoted);
         _this.processSlots();
-        return ga('send', 'event', 'slot', 'promote');
       });
       $('.BookingCalendar-dayLink, .DateSlider-largeDates li').on('click chosen', function(e) {
         e.preventDefault();
