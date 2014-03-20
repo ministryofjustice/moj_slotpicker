@@ -122,7 +122,7 @@
     nudgeNav: function(i) {
       this.settings.navPointer = i + this.settings.navPointer;
       this.updateNav(this.settings.navPointer);
-      return $('.BookingCalendar-wrap').animate({
+      $('.BookingCalendar-wrap').animate({
         scrollTop: this.settings.months[this.settings.navPointer].pos
       }, 200);
     },
@@ -315,7 +315,7 @@
   moj.Modules.SlotPicker = {
     init: function() {
       return $('.js-slotpicker').each(function() {
-        return $(this).data('SlotPicker', new SlotPicker($(this), $(this).data()));
+        $(this).data('SlotPicker', new SlotPicker($(this), $(this).data()));
       });
     }
   };
