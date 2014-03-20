@@ -312,10 +312,10 @@
   };
 
 
-  moj.Modules.slotPicker = {
+  moj.Modules.SlotPicker = {
     init: function() {
       return $('.js-slotpicker').each(function() {
-        return $(this).data('slotpicker', new SlotPicker($(this), $(this).data()));
+        return $(this).data('SlotPicker', new SlotPicker($(this), $(this).data()));
       });
     }
   };
