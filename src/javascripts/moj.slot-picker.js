@@ -148,16 +148,20 @@
     },
 
     selectDay: function(day) {
-      var bookingFrom, date, dateStr, today;
-      dateStr = day.data('date');
-      date = new Date(dateStr);
+      var bookingFrom, today,
+          dateStr = day.data('date'),
+          date = new Date(dateStr);
+      
       $('.js-slotpicker-options').removeClass('is-active');
+      
       if (!~this.settings.bookableDates.indexOf(dateStr)) {
         today = new Date((new Date()).formatIso());
         bookingFrom = new Date(this.settings.bookableDates[0]);
+        
         if (date < today) {
           $('#in-the-past').addClass('is-active');
         }
+        
         if (date >= today) {
           if (date > bookingFrom) {
             $('#too-far-ahead').addClass('is-active');
@@ -168,112 +172,125 @@
       } else {
         $('#date-' + dateStr).addClass('is-active').focus();
       }
+      
       $('.BookingCalendar-day--bookable.is-active').removeClass('is-active');
-      return day.closest('td').addClass('is-active');
+      day.closest('td').addClass('is-active');
     },
+
     togglePromoteHelp: function() {
-      return this.$promoteHelp[this.settings.currentSlots.length > 1 ? 'addClass' : 'removeClass']('is-active');
+      this.$promoteHelp[this.settings.currentSlots.length > 1 ? 'addClass' : 'removeClass']('is-active');
     },
+
     markChosenSlots: function(slots) {
-      var slot, _i, _len, _results;
-      _results = [];
-      for (_i = 0, _len = slots.length; _i < _len; _i++) {
-        slot = slots[_i];
-        _results.push($('[value="' + slot + '"]').click());
+      for (var i = 0; i < slots.length; i++) {
+        $('[value="' + slots[i] + '"]').click();
       }
-      return _results;
     },
+
     highlightSlot: function(slot) {
-      return slot.addClass('is-active');
+      slot.addClass('is-active');
     },
+
     unHighlightSlots: function() {
-      return $('.js-slotpicker-options label').removeClass('is-active');
+      $('.js-slotpicker-options label').removeClass('is-active');
     },
+
     emptyUiSlots: function() {
-      var slots;
-      slots = this.$selectedSlots;
+      var slots = this.$selectedSlots;
+      
       slots.removeClass('is-active');
       slots.find('a').removeData();
-      return slots.find('.date, .time').text('');
+      slots.find('.date, .time').text('');
     },
+
     emptySlotInputs: function() {
-      return this.$slotInputs.find('select').val('');
+      this.$slotInputs.find('select').val('');
     },
+
     populateUiSlots: function(index, checkbox) {
-      var $slot, date, day, duration, label, time;
-      date = this.splitDateAndSlot(checkbox.val())[0];
-      label = checkbox.closest('label');
-      day = label.siblings('h4').text();
-      time = label.find('strong').text();
-      duration = label.find('.duration').text();
-      $slot = this.$selectedSlots.eq(index);
+      var label = checkbox.closest('label'),
+          day = label.siblings('h4').text(),
+          time = label.find('strong').text(),
+          duration = label.find('.duration').text(),
+          $slot = this.$selectedSlots.eq(index);
+
       $slot.addClass('is-active');
       $slot.find('.date').text(day);
       $slot.find('.time').text([time, duration].join(', '));
-      return $slot.find('.js-remove-slot').data('slot-option', checkbox);
+      $slot.find('.js-remove-slot').data('slot-option', checkbox);
     },
+
     populateSlotInputs: function(index, chosen) {
-      return this.$slotInputs.eq(index).find('select').val(chosen);
+      this.$slotInputs.eq(index).find('select').val(chosen);
     },
+
     processSlots: function() {
-      var $slotEl, i, slot, _i, _len, _ref, _results, _this;
-      _this = this;
-      i = 0;
-      _ref = this.settings.currentSlots;
-      _results = [];
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        slot = _ref[_i];
-        $slotEl = $('[value=' + slot + ']');
-        _this.highlightSlot($slotEl.closest('label'));
-        _this.populateSlotInputs(i, $slotEl.val());
-        _this.populateUiSlots(i, $slotEl);
-        _results.push(i++);
+      var self = this,
+          slots = this.settings.currentSlots,
+          i, $slotEl;
+
+      for (i = 0; i < slots.length; i++) {
+        $slotEl = $('[value=' + slots[i] + ']');
+
+        self.highlightSlot($slotEl.closest('label'));
+        self.populateSlotInputs(i, $slotEl.val());
+        self.populateUiSlots(i, $slotEl);
       }
-      return _results;
     },
+
     limitReached: function() {
       return this.$slotOptions.filter(':checked').length >= this.settings.optionlimit;
     },
+
     disableCheckboxes: function(disable) {
-      this.$slotOptions.not(':checked').prop('disabled', disable);
-      return this.$slotOptions.not(':checked').closest('label')[disable ? 'addClass' : 'removeClass']('is-disabled');
+      this.$slotOptions.not(':checked')
+        .prop('disabled', disable)
+        .closest('label')[disable ? 'addClass' : 'removeClass']('is-disabled');
     },
+
     splitDateAndSlot: function(str) {
-      var bits, time;
-      bits = str.split('-');
-      time = bits.splice(-2).join('-');
+      var bits = str.split('-'),
+          time = bits.splice(-2).join('-');
+      
       return [bits.join('-'), time];
     },
+
     checkSlot: function(el) {
       if (el.is(':checked')) {
-        return this.addSlot(el.val());
+        this.addSlot(el.val());
       } else {
-        return this.removeSlot(el.val());
+        this.removeSlot(el.val());
       }
     },
+
     addSlot: function(slot) {
       this.settings.currentSlots.push(slot);
-      return this.highlightDay(slot);
+      this.highlightDay(slot);
     },
+
     removeSlot: function(slot) {
-      var pos;
-      pos = this.settings.currentSlots.indexOf(slot);
+      var pos = this.settings.currentSlots.indexOf(slot);
+      
       this.settings.currentSlots.splice(pos, 1);
-      return this.highlightDay(slot);
+      this.highlightDay(slot);
     },
+
     promoteSlot: function(pos) {
       this.settings.currentSlots = this.settings.currentSlots.move(pos, pos - 1);
     },
+
     highlightDay: function(slot) {
-      var day;
-      day = this.splitDateAndSlot(slot)[0];
-      return $('[data-date=' + day + ']')[~this.settings.currentSlots.join('-').indexOf(day) ? 'addClass' : 'removeClass']('is-chosen');
+      var day = this.splitDateAndSlot(slot)[0];
+      
+      $('[data-date=' + day + ']')[~this.settings.currentSlots.join('-').indexOf(day) ? 'addClass' : 'removeClass']('is-chosen');
     },
+
     confirmVisibility: function($el) {
       if (!this.isElementInViewport($el.get(0))) {
-        return this.moveIntoViewport($el);
+        this.moveIntoViewport($el);
       }
     },
+
     isElementInViewport: function(el) {
       var rect = el.getBoundingClientRect();
 
@@ -284,14 +301,16 @@
           rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
       );
     },
+
     moveIntoViewport: function($el) {
-      var bottom;
-      bottom = $el.offset().top + $el.height();
-      return $('html,body').animate({
+      var bottom = $el.offset().top + $el.height();
+      
+      $('html,body').animate({
         scrollTop: bottom - $(window).height()
       }, 350);
     }
   };
+
 
   moj.Modules.slotPicker = {
     init: function() {
@@ -301,4 +320,4 @@
     }
   };
 
-}).call(this);
+}());
