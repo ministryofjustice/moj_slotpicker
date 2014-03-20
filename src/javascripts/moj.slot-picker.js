@@ -16,6 +16,7 @@
   };
 
   SlotPicker.prototype = {
+    
     defaults: {
       optionlimit: 3,
       selections: 'has-selections',
@@ -26,6 +27,7 @@
       calendarDayHeight: 56,
       navPointer: 0
     },
+
     cacheEls: function() {
       this.$wrapper = $('#wrapper');
       this.$slotInputs = $('.js-slotpicker-slot');
@@ -40,53 +42,59 @@
       this.$prev = $('.BookingCalendar-nav .prev');
       this.$availableMonths = $('.BookingCalendar-availableMonths a');
     },
+
     bindEvents: function() {
-      var _this = this;
-      _this = this;
+      var self = this;
+
       this.$slotOptions.on('click', function() {
-        _this.$selectedSlotWrapper.addClass('is-active');
-        _this.emptyUiSlots();
-        _this.emptySlotInputs();
-        _this.unHighlightSlots();
-        _this.checkSlot($(this));
-        _this.processSlots();
-        _this.disableCheckboxes(_this.limitReached());
-        return _this.togglePromoteHelp();
+        self.$selectedSlotWrapper.addClass('is-active');
+        self.emptyUiSlots();
+        self.emptySlotInputs();
+        self.unHighlightSlots();
+        self.checkSlot($(this));
+        self.processSlots();
+        self.disableCheckboxes(self.limitReached());
+        self.togglePromoteHelp();
       });
+
       this.$wrapper.on('click', this.$removeSlots, function(e) {
         e.preventDefault();
         $($(this).data('slot-option')).click();
       });
+
       this.$wrapper.on('click', this.$promoteSlots, function(e) {
-        var promoted;
         e.preventDefault();
-        promoted = $(this).attr('href').split('#')[1] - 1;
-        _this.promoteSlot(promoted);
-        _this.processSlots();
+        self.promoteSlot($(this).attr('href').split('#')[1] - 1);
+        self.processSlots();
       });
+
       $('.BookingCalendar-dayLink, .DateSlider-largeDates li').on('click chosen', function(e) {
         e.preventDefault();
-        _this.selectDay($(this));
-        $('.js-slotpicker').addClass('is-active');
+        self.selectDay( $(this) );
+        $('.js-slotpicker').addClass( 'is-active' );
+        
         if (e.type !== 'chosen') {
-          return _this.confirmVisibility(_this.$months);
+          self.confirmVisibility(self.$months);
         }
       });
+
       this.$next.on('click', function(e) {
         e.preventDefault();
-        return _this.nudgeNav(1);
+        self.nudgeNav(1);
       });
-      return this.$prev.on('click', function(e) {
+
+      this.$prev.on('click', function(e) {
         e.preventDefault();
-        return _this.nudgeNav(-1);
+        self.nudgeNav(-1);
       });
     },
+
     setupNav: function() {
-      var self;
-      self = this;
+      var self = this;
+
       this.settings.months = this.$availableMonths.map(function() {
-        var item;
-        item = $(this);
+        var item = $(this);
+
         return {
           label: item.text(),
           date: item.attr('href'),
@@ -94,19 +102,23 @@
         };
       });
     },
+
     updateNav: function(i) {
       if (i > 0) {
         this.$prev.removeClass('hidden').text(this.settings.months[i - 1].label);
       } else {
         this.$prev.addClass('hidden');
       }
+
       if (i + 1 < this.settings.months.length) {
         this.$next.removeClass('hidden').text(this.settings.months[i + 1].label);
       } else {
         this.$next.addClass('hidden');
       }
-      return $('.BookingCalendar-nav strong').text(this.settings.months[i].label);
+
+      $('.BookingCalendar-nav strong').text(this.settings.months[i].label);
     },
+
     nudgeNav: function(i) {
       this.settings.navPointer = i + this.settings.navPointer;
       this.updateNav(this.settings.navPointer);
@@ -114,17 +126,27 @@
         scrollTop: this.settings.months[this.settings.navPointer].pos
       }, 200);
     },
+
     consolidate: function() {
       this.settings.bookableSlots = this.$slotInputs.first().find('select option').map(function() {
-        return $(this).val();
-      }).get().filter(function(v){return v!=='';});
+        var v = $(this).val();
+        if (v !== '') {
+          return v;
+        }
+      }).get();
+
       this.settings.bookableDates = this.settings.bookableSlots.map(function(s) {
         return s.substr(0, 10);
       });
+
       this.settings.originalSlots = this.$slotInputs.find('select').map(function() {
-        return $(this).val();
-      }).get().filter(function(v){return v!=='';});
+        var v = $(this).val();
+        if (v !== '') {
+          return v;
+        }
+      }).get();
     },
+
     selectDay: function(day) {
       var bookingFrom, date, dateStr, today;
       dateStr = day.data('date');
