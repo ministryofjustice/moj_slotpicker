@@ -70,8 +70,9 @@
 
       $('.BookingCalendar-dayLink, .DateSlider-largeDates li').on('click chosen', function(e) {
         e.preventDefault();
-        self.selectDay( $(this) );
-        $('.js-slotpicker').addClass( 'is-active' );
+        self.selectDay($(this));
+        self.markDate($(this));
+        $('.js-slotpicker').addClass('is-active');
       });
 
       this.$next.on('click', function(e) {
@@ -167,7 +168,7 @@
     },
 
     selectDay: function(day) {
-      var bookingFrom, today,
+      var bookingFrom, bookingTo, today, target,
           dateStr = day.data('date'),
           date = new Date(dateStr);
       
@@ -176,22 +177,29 @@
       if (!~this.settings.bookableDates.indexOf(dateStr)) {
         today = new Date(this.settings.today);
         bookingFrom = new Date(this.settings.bookableDates[0]);
+        bookingTo = new Date(this.settings.bookableDates[this.settings.bookableDates.length-1]);
         
         if (date < today) {
-          $('#in-the-past').addClass('is-active');
-        }
-        
-        if (date >= today) {
+          target = '#date-past';
+        } else {
           if (date > bookingFrom) {
-            $('#too-far-ahead').addClass('is-active');
+            if (date < bookingTo) {
+              target = '#date-unavailable';
+            } else {
+              target = '#date-beyond';
+            }
           } else {
-            $('#booking-gap').addClass('is-active');
+            target = '#date-leadtime';
           }
         }
       } else {
-        $('#date-' + dateStr).addClass('is-active').focus();
+        target = '#date-' + dateStr;
       }
       
+      $(target).addClass('is-active').focus();
+    },
+
+    markDate: function(day) {
       $('.BookingCalendar-day--bookable.is-active').removeClass('is-active');
       day.closest('td').addClass('is-active');
     },
