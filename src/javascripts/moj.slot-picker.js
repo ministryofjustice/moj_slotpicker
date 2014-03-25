@@ -18,7 +18,7 @@
   SlotPicker.prototype = {
     
     defaults: {
-      optionlimit: 3,
+      optionLimit: 3,
       selections: 'has-selections',
       bookableSlots: [],
       bookableDates: [],
@@ -258,7 +258,7 @@
     },
 
     limitReached: function() {
-      return this.$slotOptions.filter(':checked').length >= this.settings.optionlimit;
+      return this.$slotOptions.filter(':checked').length >= this.settings.optionLimit;
     },
 
     disableCheckboxes: function(disable) {
