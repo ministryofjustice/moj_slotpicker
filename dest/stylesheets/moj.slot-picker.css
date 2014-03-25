@@ -116,11 +116,12 @@ table.BookingCalendar {
   background: #2b8cc4; }
 
 ul.BookingCalendar-key {
-  display: table;
+  overflow: hidden;
   padding: 0;
   list-style: none; }
   ul.BookingCalendar-key li {
-    display: table-cell;
+    float: left;
+    margin-right: 20px;
     font-family: "nta", Arial, sans-serif;
     font-size: 16px;
     line-height: 1.25;
@@ -130,12 +131,14 @@ ul.BookingCalendar-key {
       ul.BookingCalendar-key li {
         font-size: 14px;
         line-height: 1.14286; } }
+    ul.BookingCalendar-key li:last-child {
+      margin-right: 0; }
 
 .BookingCalendar-dayBox {
   float: left;
-  width: 19px;
-  height: 19px;
-  margin-right: 3px;
+  width: 29px;
+  height: 29px;
+  margin: 0 5px 0 0;
   border: 1px solid #dee0e2; }
   .BookingCalendar-dayBox.BookingCalendar-day--unavailable {
     background: url("../images/unavailable_tile.png"); }

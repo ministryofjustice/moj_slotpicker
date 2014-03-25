@@ -124,19 +124,23 @@ table.BookingCalendar
   background: $light-blue
 
 ul.BookingCalendar-key
-  display: table
+  overflow: hidden
   padding: 0
   list-style: none
 
   li
-    display: table-cell
+    float: left
+    margin-right: 20px
     @include core-16
+
+    &:last-child
+      margin-right: 0
 
 .BookingCalendar-dayBox
   float: left
-  width: 19px
-  height: 19px
-  margin-right: 3px
+  width: 29px
+  height: 29px
+  margin: 0 5px 0 0
   border: 1px solid $grey-3
 
   &.BookingCalendar-day--unavailable
