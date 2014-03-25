@@ -25,7 +25,8 @@
       originalSlots: [],
       currentSlots: [],
       calendarDayHeight: 56,
-      navPointer: 0
+      navPointer: 0,
+      today: (new Date()).formatIso()
     },
 
     cacheEls: function() {
@@ -173,7 +174,7 @@
       $('.js-slotpicker-options').removeClass('is-active');
       
       if (!~this.settings.bookableDates.indexOf(dateStr)) {
-        today = new Date((new Date()).formatIso());
+        today = new Date(this.settings.today);
         bookingFrom = new Date(this.settings.bookableDates[0]);
         
         if (date < today) {
