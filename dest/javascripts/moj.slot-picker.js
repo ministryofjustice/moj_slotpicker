@@ -125,35 +125,12 @@
     },
 
     consolidate: function() {
-      var days = {}, day, times = [], last, i, slots;
-
       this.settings.bookableSlots = this.$slotInputs.first().find('select option').map(function() {
         var v = $(this).val();
         if (v !== '') {
           return v;
         }
       }).get();
-
-      slots = this.settings.bookableSlots;
-
-      for (i = 0; i < slots.length; i++) {
-        day = this.splitDateAndSlot(slots[i])[0];
-
-        if (last !== day && i) {
-          days[last] = times;
-          times = [];
-        }
-
-        times.push(this.splitDateAndSlot(slots[i])[1]);
-
-        if (i === slots.length-1) {
-          days[day] = times;
-        }
-
-        last = day;
-      }
-
-      this.settings.bookableTimes = days;
 
       this.settings.bookableDates = this.settings.bookableSlots.map(function(s) {
         return s.substr(0, 10);
