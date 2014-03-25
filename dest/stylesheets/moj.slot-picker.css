@@ -75,7 +75,7 @@ a.BookingCalendar-dayLink,
     @media (min-width: 641px) {
       .BookingCalendar-dayLink.is-chosen:after {
         border-width: 0 15px 15px 0; } }
-.BookingCalendar-dayLink span {
+.BookingCalendar-dayLink .BookingCalendar-dayNum {
   padding-left: 3px; }
 
 .BookingCalendar-day--bookable {
