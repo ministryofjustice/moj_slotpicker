@@ -270,9 +270,13 @@ ul.BookingCalendar-key {
     .selected-slots ul li:first-child {
       margin-top: 0; }
     .selected-slots ul li .prompt {
-      padding: 5px 5em;
+      padding: 5px 18%;
       text-align: center;
       color: #6f777b; }
+      @media (max-width: 640px) {
+        .selected-slots ul li .prompt {
+          padding-left: 10%;
+          padding-right: 10%; } }
     .selected-slots ul li.is-active {
       padding-left: 65px;
       border-style: solid; }

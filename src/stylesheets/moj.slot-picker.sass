@@ -264,9 +264,13 @@ ul.BookingCalendar-key
         margin-top: 0
 
       .prompt
-        padding: 5px 5em
+        padding: 5px 18%
         text-align: center
         color: $grey-1
+
+        @include media(mobile)
+          padding-left: 10%
+          padding-right: 10%
 
       &.is-active
         padding-left: 65px
