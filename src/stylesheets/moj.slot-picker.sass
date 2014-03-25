@@ -211,14 +211,28 @@ ul.BookingCalendar-key
     box-sizing: border-box
     min-width: 120px
     margin-right: .5em
+    margin-bottom: .5em
     padding: .3em 15px .3em 40px
     font-size: 24px
     line-height: 1.2em
     border: 2px solid $grey-2
     background: $white
 
+    @include media(mobile)
+      width: 100%
+      padding-top: 10px
+      padding-bottom: 10px
+
+      &.is-active
+        border-color: $light-blue
+        background: $light-blue-25
+
+    &.is-disabled
+      color: $grey-2
+
     &:last-child
       margin-right: 0
+      margin-bottom: 0
 
     input
       position: absolute
@@ -228,6 +242,9 @@ ul.BookingCalendar-key
 
   .duration
     display: block
+
+    @include media(mobile)
+      display: inline
 
 .selected-slots
 
