@@ -24,6 +24,7 @@
 
 table.BookingCalendar {
   width: 100%;
+  border-collapse: collapse;
   font-size: 19px;
   background: url("../images/unavailable_tile.png"); }
   table.BookingCalendar th,
