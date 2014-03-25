@@ -279,7 +279,11 @@ ul.BookingCalendar-key {
           padding-right: 10%; } }
     .selected-slots ul li.is-active {
       padding-left: 65px;
+      padding-right: 80px;
       border-style: solid; }
+      @media (max-width: 640px) {
+        .selected-slots ul li.is-active {
+          padding-left: 55px; } }
       .selected-slots ul li.is-active p {
         font-size: 24px; }
       .selected-slots ul li.is-active .prompt {
@@ -303,6 +307,9 @@ ul.BookingCalendar-key {
       font-weight: bold;
       text-align: center;
       margin: -10px 0 0 -10px; }
+      @media (max-width: 640px) {
+        .selected-slots ul li .slot-position {
+          width: 45px; } }
     .selected-slots ul li .slot-remove {
       display: none;
       position: absolute;

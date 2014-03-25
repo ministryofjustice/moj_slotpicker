@@ -274,7 +274,11 @@ ul.BookingCalendar-key
 
       &.is-active
         padding-left: 65px
+        padding-right: 80px
         border-style: solid
+
+        @include media(mobile)
+          padding-left: 55px
 
         p
           font-size: 24px
@@ -304,6 +308,9 @@ ul.BookingCalendar-key
         font-weight: bold
         text-align: center
         margin: -10px 0 0 -10px
+
+        @include media(mobile)
+          width: 45px
 
       .slot-remove
         display: none
