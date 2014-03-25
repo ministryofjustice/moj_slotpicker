@@ -48,7 +48,7 @@ table.BookingCalendar
   tbody tr:last-child td
     border-bottom: none
 
-.BookingCalendar-dayLink,
+a.BookingCalendar-dayLink,
 .BookingCalendar-dayLink:visited
   position: absolute
   top: 0
@@ -88,22 +88,6 @@ table.BookingCalendar
 
   &.is-active
     background: $light-blue-50
-
-.BookingCalendar-day--past
-  background: $grey-2
-  border-left-color: $grey-2
-
-  .BookingCalendar-content a
-    color: $grey-1
-
-.BookingCalendar-day--lead
-  background-image: url("../images/lead_tile.png")
-
-.BookingCalendar-day--beyond
-  background-image: url("../images/beyond_tile.png")
-
-  .BookingCalendar-content a
-    color: $grey-1
 
 .BookingCalendar-content
   position: relative

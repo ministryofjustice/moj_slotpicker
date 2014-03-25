@@ -47,7 +47,7 @@ table.BookingCalendar {
   table.BookingCalendar tbody tr:last-child td {
     border-bottom: none; }
 
-.BookingCalendar-dayLink,
+a.BookingCalendar-dayLink,
 .BookingCalendar-dayLink:visited {
   position: absolute;
   top: 0;
@@ -82,20 +82,6 @@ table.BookingCalendar {
   background: white; }
   .BookingCalendar-day--bookable.is-active {
     background: #96c6e2; }
-
-.BookingCalendar-day--past {
-  background: #bfc1c3;
-  border-left-color: #bfc1c3; }
-  .BookingCalendar-day--past .BookingCalendar-content a {
-    color: #6f777b; }
-
-.BookingCalendar-day--lead {
-  background-image: url("../images/lead_tile.png"); }
-
-.BookingCalendar-day--beyond {
-  background-image: url("../images/beyond_tile.png"); }
-  .BookingCalendar-day--beyond .BookingCalendar-content a {
-    color: #6f777b; }
 
 .BookingCalendar-content {
   position: relative;
