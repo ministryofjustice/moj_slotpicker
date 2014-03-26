@@ -1,0 +1,168 @@
+.BookingCalendar-mask
+  overflow: hidden
+  height: 279px
+  border-bottom: 1px solid $grey-3
+
+table.BookingCalendar-dates
+  width: 100%
+  border-collapse: collapse
+  font-size: 19px
+  background: url("../images/unavailable_tile.png")
+
+  th,
+  td
+    width: 14.285714286%
+
+  thead th
+    padding: 3px 0 0
+    font-weight: bold
+    line-height: normal
+    text-align: center
+    text-transform: uppercase
+    background: $grey-4
+    border-bottom: 2px solid $grey-2
+
+  tbody td
+    padding: 0
+    border:
+      color: $grey-3
+      style: solid
+      width: 0 0 1px 1px
+  
+  td:last-child > div,
+    border-right: 1px solid $grey-3
+
+  tbody tr:last-child td
+    border-bottom: none
+
+a.BookingCalendar-dayLink,
+.BookingCalendar-dayLink:visited
+  position: absolute
+  top: 0
+  width: 100%
+  height: 100%
+  color: $black
+  text-decoration: none
+
+.BookingCalendar-dayLink
+  &:hover
+    color: $black
+    text-decoration: underline
+    background: $light-blue-25
+
+  &.is-chosen
+    overflow: hidden
+    
+    &:after
+      position: absolute
+      content: ''
+      top: 0
+      right: 0
+      width: 0
+      height: 0
+      border-style: solid
+      border-width: 0 10px 10px 0
+      border-color: transparent $light-blue transparent transparent
+
+      @include media(tablet)
+        border-width: 0 15px 15px 0
+
+  .BookingCalendar-dayNum
+    padding-left: 3px
+
+.BookingCalendar-day--bookable
+  background: $white
+
+  &.is-active
+    background: $light-blue-50
+
+.BookingCalendar-content
+  position: relative
+  min-height: 55px
+
+.BookingCalendar-tag
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 100%
+  padding: 0
+  color: $white
+  line-height: normal
+  text-align: center
+  background: $grey-2
+
+.BookingCalendar-tag--today
+  background: $light-blue
+
+ul.BookingCalendar-key
+  overflow: hidden
+  padding: 0
+  list-style: none
+
+  li
+    float: left
+    margin-right: 20px
+    @include core-16
+
+    &:last-child
+      margin-right: 0
+
+.BookingCalendar-dayBox
+  float: left
+  width: 29px
+  height: 29px
+  margin: 0 5px 0 0
+  border: 1px solid $grey-3
+
+  &.BookingCalendar-day--unavailable
+    background: url("../images/unavailable_tile.png")
+
+.BookingCalendar-availableMonths
+  display: none
+
+.BookingCalendar-nav
+  position: relative
+  background: $grey-2
+
+  strong
+    display: block
+    @include bold-24
+    margin: 0
+    padding: .5em 0
+    text-align: center
+
+  .next,
+  .prev
+    position: absolute
+    top: 0
+    left: 0
+    padding: .632em
+    @include core-19
+    color: $black
+    line-height: 30px
+    text-decoration: none
+    background: no-repeat 0 -80px
+
+    &:hover
+      text-decoration: underline
+
+  .prev
+    margin-left: 10px
+    padding-left: 35px
+    background-image: url("../images/prev.png")
+
+    @include device-pixel-ratio
+      background-position: 0 10px
+      background-size: 30px
+
+  .next
+    left: auto
+    right: 0
+    margin-right: 10px
+    padding-right: 35px
+    background-image: url("../images/next.png")
+    background-position: 100% -80px
+
+    @include device-pixel-ratio
+      background-position: 100% 10px
+      background-size: 30px

@@ -9,14 +9,6 @@
   width: device-width; }
 @-o-viewport {
   width: device-width; }
-.slots,
-.selected-slots {
-  display: none; }
-
-.slots.is-active,
-.selected-slots.is-active {
-  display: block; }
-
 .BookingCalendar-mask {
   overflow: hidden;
   height: 279px;
@@ -193,6 +185,14 @@ ul.BookingCalendar-key {
       .BookingCalendar-nav .next {
         background-position: 100% 10px;
         background-size: 30px; } }
+
+.slots,
+.selected-slots {
+  display: none; }
+
+.slots.is-active,
+.selected-slots.is-active {
+  display: block; }
 
 .slots {
   margin-bottom: 10px; }
