@@ -35,8 +35,8 @@ table.BookingCalendar-dates
   tbody tr:last-child td
     border-bottom: none
 
-a.BookingCalendar-dayLink,
-.BookingCalendar-dayLink:visited
+a.BookingCalendar-dateLink,
+.BookingCalendar-dateLink:visited
   position: absolute
   top: 0
   width: 100%
@@ -44,7 +44,7 @@ a.BookingCalendar-dayLink,
   color: $black
   text-decoration: none
 
-.BookingCalendar-dayLink
+.BookingCalendar-dateLink
   &:hover
     color: $black
     text-decoration: underline
@@ -67,10 +67,10 @@ a.BookingCalendar-dayLink,
       @include media(tablet)
         border-width: 0 15px 15px 0
 
-  .BookingCalendar-dayNum
+  .BookingCalendar-day
     padding-left: 3px
 
-.BookingCalendar-day--bookable
+.BookingCalendar-date--bookable
   background: $white
 
   &.is-active
@@ -94,7 +94,7 @@ a.BookingCalendar-dayLink,
 .BookingCalendar-tag--today
   background: $light-blue
 
-ul.BookingCalendar-key
+ul.BookingCalendar-legend
   overflow: hidden
   padding: 0
   list-style: none
@@ -107,62 +107,62 @@ ul.BookingCalendar-key
     &:last-child
       margin-right: 0
 
-.BookingCalendar-dayBox
+.BookingCalendar-legendBox
   float: left
   width: 29px
   height: 29px
   margin: 0 5px 0 0
   border: 1px solid $grey-3
 
-  &.BookingCalendar-day--unavailable
+  &.BookingCalendar-date--unavailable
     background: url("../images/unavailable_tile.png")
 
 .BookingCalendar-availableMonths
   display: none
 
-.BookingCalendar-nav
+.BookingCalendar-header
   position: relative
   background: $grey-2
 
-  strong
-    display: block
-    @include bold-24
-    margin: 0
-    padding: .5em 0
-    text-align: center
+.BookingCalendar-currentMonth
+  display: block
+  @include bold-24
+  margin: 0
+  padding: .5em 0
+  text-align: center
 
-  .next,
-  .prev
-    position: absolute
-    top: 0
-    left: 0
-    padding: .632em
-    @include core-19
-    color: $black
-    line-height: 30px
-    text-decoration: none
-    background: no-repeat 0 -80px
+.BookingCalendar-navNext,
+.BookingCalendar-navPrev
+  position: absolute
+  top: 0
+  left: 0
+  padding: .632em
+  @include core-19
+  color: $black
+  line-height: 30px
+  text-decoration: none
+  background: no-repeat 0 -80px
 
-    &:hover
-      text-decoration: underline
+  &:hover
+    text-decoration: underline
 
-  .prev
-    margin-left: 10px
-    padding-left: 35px
-    background-image: url("../images/prev.png")
+.BookingCalendar-navPrev
+  margin-left: 10px
+  padding-left: 35px
+  background-image: url("../images/prev.png")
 
-    @include device-pixel-ratio
-      background-position: 0 10px
-      background-size: 30px
+  @include device-pixel-ratio
+    background-position: 0 10px
+    background-size: 30px
 
-  .next
-    left: auto
-    right: 0
-    margin-right: 10px
-    padding-right: 35px
-    background-image: url("../images/next.png")
-    background-position: 100% -80px
+.BookingCalendar-navNext
+  left: auto
+  right: 0
+  margin-right: 10px
+  padding-right: 35px
+  background-image: url("../images/next.png")
+  background-position: 100% -80px
 
-    @include device-pixel-ratio
-      background-position: 100% 10px
-      background-size: 30px
+  @include device-pixel-ratio
+    background-position: 100% 10px
+    background-size: 30px

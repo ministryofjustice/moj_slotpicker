@@ -40,8 +40,8 @@ table.BookingCalendar-dates {
   table.BookingCalendar-dates tbody tr:last-child td {
     border-bottom: none; }
 
-a.BookingCalendar-dayLink,
-.BookingCalendar-dayLink:visited {
+a.BookingCalendar-dateLink,
+.BookingCalendar-dateLink:visited {
   position: absolute;
   top: 0;
   width: 100%;
@@ -49,13 +49,13 @@ a.BookingCalendar-dayLink,
   color: #0b0c0c;
   text-decoration: none; }
 
-.BookingCalendar-dayLink:hover {
+.BookingCalendar-dateLink:hover {
   color: #0b0c0c;
   text-decoration: underline;
   background: #d5e8f3; }
-.BookingCalendar-dayLink.is-chosen {
+.BookingCalendar-dateLink.is-chosen {
   overflow: hidden; }
-  .BookingCalendar-dayLink.is-chosen:after {
+  .BookingCalendar-dateLink.is-chosen:after {
     position: absolute;
     content: "";
     top: 0;
@@ -66,14 +66,14 @@ a.BookingCalendar-dayLink,
     border-width: 0 10px 10px 0;
     border-color: transparent #2b8cc4 transparent transparent; }
     @media (min-width: 641px) {
-      .BookingCalendar-dayLink.is-chosen:after {
+      .BookingCalendar-dateLink.is-chosen:after {
         border-width: 0 15px 15px 0; } }
-.BookingCalendar-dayLink .BookingCalendar-dayNum {
+.BookingCalendar-dateLink .BookingCalendar-day {
   padding-left: 3px; }
 
-.BookingCalendar-day--bookable {
+.BookingCalendar-date--bookable {
   background: white; }
-  .BookingCalendar-day--bookable.is-active {
+  .BookingCalendar-date--bookable.is-active {
     background: #96c6e2; }
 
 .BookingCalendar-content {
@@ -94,11 +94,11 @@ a.BookingCalendar-dayLink,
 .BookingCalendar-tag--today {
   background: #2b8cc4; }
 
-ul.BookingCalendar-key {
+ul.BookingCalendar-legend {
   overflow: hidden;
   padding: 0;
   list-style: none; }
-  ul.BookingCalendar-key li {
+  ul.BookingCalendar-legend li {
     float: left;
     margin-right: 20px;
     font-family: "nta", Arial, sans-serif;
@@ -107,84 +107,88 @@ ul.BookingCalendar-key {
     font-weight: 300;
     text-transform: none; }
     @media (max-width: 640px) {
-      ul.BookingCalendar-key li {
+      ul.BookingCalendar-legend li {
         font-size: 14px;
         line-height: 1.14286; } }
-    ul.BookingCalendar-key li:last-child {
+    ul.BookingCalendar-legend li:last-child {
       margin-right: 0; }
 
-.BookingCalendar-dayBox {
+.BookingCalendar-legendBox {
   float: left;
   width: 29px;
   height: 29px;
   margin: 0 5px 0 0;
   border: 1px solid #dee0e2; }
-  .BookingCalendar-dayBox.BookingCalendar-day--unavailable {
+  .BookingCalendar-legendBox.BookingCalendar-date--unavailable {
     background: url("../images/unavailable_tile.png"); }
 
 .BookingCalendar-availableMonths {
   display: none; }
 
-.BookingCalendar-nav {
+.BookingCalendar-header {
   position: relative;
   background: #bfc1c3; }
-  .BookingCalendar-nav strong {
-    display: block;
-    font-family: "nta", Arial, sans-serif;
-    font-size: 24px;
-    line-height: 1.25;
-    font-weight: 400;
-    text-transform: none;
-    font-weight: 700;
-    margin: 0;
-    padding: 0.5em 0;
-    text-align: center; }
-    @media (max-width: 640px) {
-      .BookingCalendar-nav strong {
-        font-size: 20px;
-        line-height: 1.2; } }
-  .BookingCalendar-nav .next,
-  .BookingCalendar-nav .prev {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0.632em;
-    font-family: "nta", Arial, sans-serif;
-    font-size: 19px;
-    line-height: 1.31579;
-    font-weight: 400;
-    text-transform: none;
-    color: #0b0c0c;
-    line-height: 30px;
-    text-decoration: none;
-    background: no-repeat 0 -80px; }
-    @media (max-width: 640px) {
-      .BookingCalendar-nav .next,
-      .BookingCalendar-nav .prev {
-        font-size: 16px;
-        line-height: 1.25; } }
-    .BookingCalendar-nav .next:hover,
-    .BookingCalendar-nav .prev:hover {
-      text-decoration: underline; }
-  .BookingCalendar-nav .prev {
-    margin-left: 10px;
-    padding-left: 35px;
-    background-image: url("../images/prev.png"); }
-    @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-      .BookingCalendar-nav .prev {
-        background-position: 0 10px;
-        background-size: 30px; } }
-  .BookingCalendar-nav .next {
-    left: auto;
-    right: 0;
-    margin-right: 10px;
-    padding-right: 35px;
-    background-image: url("../images/next.png");
-    background-position: 100% -80px; }
-    @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-      .BookingCalendar-nav .next {
-        background-position: 100% 10px;
-        background-size: 30px; } }
+
+.BookingCalendar-currentMonth {
+  display: block;
+  font-family: "nta", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+  font-weight: 700;
+  margin: 0;
+  padding: 0.5em 0;
+  text-align: center; }
+  @media (max-width: 640px) {
+    .BookingCalendar-currentMonth {
+      font-size: 20px;
+      line-height: 1.2; } }
+
+.BookingCalendar-navNext,
+.BookingCalendar-navPrev {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.632em;
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 400;
+  text-transform: none;
+  color: #0b0c0c;
+  line-height: 30px;
+  text-decoration: none;
+  background: no-repeat 0 -80px; }
+  @media (max-width: 640px) {
+    .BookingCalendar-navNext,
+    .BookingCalendar-navPrev {
+      font-size: 16px;
+      line-height: 1.25; } }
+  .BookingCalendar-navNext:hover,
+  .BookingCalendar-navPrev:hover {
+    text-decoration: underline; }
+
+.BookingCalendar-navPrev {
+  margin-left: 10px;
+  padding-left: 35px;
+  background-image: url("../images/prev.png"); }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    .BookingCalendar-navPrev {
+      background-position: 0 10px;
+      background-size: 30px; } }
+
+.BookingCalendar-navNext {
+  left: auto;
+  right: 0;
+  margin-right: 10px;
+  padding-right: 35px;
+  background-image: url("../images/next.png");
+  background-position: 100% -80px; }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    .BookingCalendar-navNext {
+      background-position: 100% 10px;
+      background-size: 30px; } }
 
 .slots,
 .selected-slots {

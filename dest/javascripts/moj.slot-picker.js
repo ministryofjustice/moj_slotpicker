@@ -37,15 +37,15 @@
       this.$selectedSlotWrapper = $('.js-selected-slots', $el);
       this.$selectedSlots = $('.selected-slots li', $el);
       this.$promoteHelp = $('.js-promote-help', $el);
-      this.$next = $('.BookingCalendar-nav .next', $el);
-      this.$prev = $('.BookingCalendar-nav .prev', $el);
+      this.$next = $('.BookingCalendar-navNext', $el);
+      this.$prev = $('.BookingCalendar-navPrev', $el);
       this.$availableMonths = $('.BookingCalendar-availableMonths a', $el);
       this.$slotTimes = $('.js-slotpicker', $el);
-      this.$dateTriggers = $('.BookingCalendar-dayLink, .DateSlider-largeDates li', $el);
-      this.$currentMonth = $('.BookingCalendar-nav strong');
+      this.$dateTriggers = $('.BookingCalendar-dateLink, .DateSlider-largeDates li', $el);
+      this.$currentMonth = $('.BookingCalendar-currentMonth');
       this.$calMask = $('.BookingCalendar-mask', $el);
       this.$options = $('.js-slotpicker-options', $el);
-      this.$calDates = $('.BookingCalendar-day--bookable', $el);
+      this.$calDates = $('.BookingCalendar-date--bookable', $el);
     },
 
     bindEvents: function() {
