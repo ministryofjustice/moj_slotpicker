@@ -17,20 +17,20 @@
 .selected-slots.is-active {
   display: block; }
 
-.BookingCalendar-wrap {
+.BookingCalendar-mask {
   overflow: hidden;
   height: 279px;
   border-bottom: 1px solid #dee0e2; }
 
-table.BookingCalendar {
+table.BookingCalendar-dates {
   width: 100%;
   border-collapse: collapse;
   font-size: 19px;
   background: url("../images/unavailable_tile.png"); }
-  table.BookingCalendar th,
-  table.BookingCalendar td {
+  table.BookingCalendar-dates th,
+  table.BookingCalendar-dates td {
     width: 14.28571%; }
-  table.BookingCalendar thead th {
+  table.BookingCalendar-dates thead th {
     padding: 3px 0 0;
     font-weight: bold;
     line-height: normal;
@@ -38,14 +38,14 @@ table.BookingCalendar {
     text-transform: uppercase;
     background: #f8f8f8;
     border-bottom: 2px solid #bfc1c3; }
-  table.BookingCalendar tbody td {
+  table.BookingCalendar-dates tbody td {
     padding: 0;
     border-color: #dee0e2;
     border-style: solid;
     border-width: 0 0 1px 1px; }
-  table.BookingCalendar td:last-child > div {
+  table.BookingCalendar-dates td:last-child > div {
     border-right: 1px solid #dee0e2; }
-  table.BookingCalendar tbody tr:last-child td {
+  table.BookingCalendar-dates tbody tr:last-child td {
     border-bottom: none; }
 
 a.BookingCalendar-dayLink,
