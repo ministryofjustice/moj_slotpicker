@@ -303,8 +303,8 @@ ul.BookingCalendar-legend {
           font-size: 24px; }
         .SlotPicker-choices ul li.is-active .SlotPicker-prompt {
           display: none; }
-        .SlotPicker-choices ul li.is-active .SlotPicker-remove,
-        .SlotPicker-choices ul li.is-active .SlotPicker-promote {
+        .SlotPicker-choices ul li.is-active .SlotPicker-icon--remove,
+        .SlotPicker-choices ul li.is-active .SlotPicker-icon--promote {
           display: block; }
         .SlotPicker-choices ul li.is-active .SlotPicker-date {
           font-weight: bold; }
@@ -350,9 +350,9 @@ ul.BookingCalendar-legend {
       background-position: 0 0;
       background-size: 100%; } }
 
-.SlotPicker-remove {
+.SlotPicker-icon--remove {
   background-image: url("../images/remove.png"); }
 
-.SlotPicker-promote {
+.SlotPicker-icon--promote {
   right: 50px;
   background-image: url("../images/promote.png"); }

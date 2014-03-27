@@ -60,12 +60,12 @@
         self.togglePromoteHelp();
       });
 
-      this.$_el.on('click', '.SlotPicker-remove', function(e) {
+      this.$_el.on('click', '.SlotPicker-icon--remove', function(e) {
         e.preventDefault();
         $($(this).data('slot-option')).click();
       });
 
-      this.$_el.on('click', '.SlotPicker-promote', function(e) {
+      this.$_el.on('click', '.SlotPicker-icon--promote', function(e) {
         e.preventDefault();
         self.promoteSlot($(this).attr('href').split('#')[1] - 1);
         self.processSlots();
@@ -204,7 +204,7 @@
 
     emptyUiSlots: function() {
       this.$choice.removeClass('is-active');
-      this.$choice.find('.SlotPicker-remove').removeData();
+      this.$choice.find('.SlotPicker-icon--remove').removeData();
       this.$choice.find('.SlotPicker-date, .SlotPicker-time').text('');
     },
 
@@ -222,7 +222,7 @@
       $slot.addClass('is-active');
       $slot.find('.SlotPicker-date').text(day);
       $slot.find('.SlotPicker-time').text([time, duration].join(', '));
-      $slot.find('.SlotPicker-remove').data('slot-option', checkbox);
+      $slot.find('.SlotPicker-icon--remove').data('slot-option', checkbox);
     },
 
     populateSlotInputs: function(index, chosen) {
