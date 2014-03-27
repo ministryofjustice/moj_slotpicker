@@ -160,16 +160,16 @@
         bookingTo = new Date(this.settings.bookableDates[this.settings.bookableDates.length-1]);
         
         if (date < today) {
-          target = '#date-past';
+          target = '.SlotPicker-day--past';
         } else {
           if (date > bookingFrom) {
             if (date < bookingTo) {
-              target = '#date-unavailable';
+              target = '.SlotPicker-day--unavailable';
             } else {
-              target = '#date-beyond';
+              target = '.SlotPicker-day--beyond';
             }
           } else {
-            target = '#date-leadtime';
+            target = '.SlotPicker-day--leadtime';
           }
         }
       } else {
