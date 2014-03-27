@@ -763,38 +763,38 @@
     <div class="js-slotpicker-options day-slots" id="date-leadtime">
       <p>You can only book a visit 3 days in advance.</p>
     </div>
-        <div class="js-slotpicker-options day-slots" id="date-2014-03-16" tabindex="-1">
-          <h4 class="day-slots-heading">Sunday 16 March</h4>
-          <label class="slot">
-            <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-03-16-1400-1600">
-            <strong> 2:00pm</strong>
-            <span class="duration">2 hrs</span>
-          </label>
-        </div>
-        <div class="js-slotpicker-options day-slots" id="date-2014-03-17" tabindex="-1">
-          <h4 class="day-slots-heading">Monday 17 March</h4>
-          <label class="slot">
-            <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-03-17-1400-1600">
-            <strong> 2:00pm</strong>
-            <span class="duration">2 hrs</span>
-          </label>
-        </div>
-        <div class="js-slotpicker-options day-slots" id="date-2014-03-18" tabindex="-1">
-          <h4 class="day-slots-heading">Tuesday 18 March</h4>
-          <label class="slot">
-            <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-03-18-1400-1600">
-            <strong> 2:00pm</strong>
-            <span class="duration">2 hrs</span>
-          </label>
-        </div>
-        <div class="js-slotpicker-options day-slots" id="date-2014-03-19" tabindex="-1">
-          <h4 class="day-slots-heading">Wednesday 19 March</h4>
-          <label class="slot">
-            <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-03-19-1400-1600">
-            <strong> 2:00pm</strong>
-            <span class="duration">2 hrs</span>
-          </label>
-        </div>
+    <div class="js-slotpicker-options day-slots" id="date-2014-03-16" tabindex="-1">
+      <h4 class="day-slots-heading">Sunday 16 March</h4>
+      <label class="slot">
+        <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-03-16-1400-1600">
+        <strong> 2:00pm</strong>
+        <span class="duration">2 hrs</span>
+      </label>
+    </div>
+    <div class="js-slotpicker-options day-slots" id="date-2014-03-17" tabindex="-1">
+      <h4 class="day-slots-heading">Monday 17 March</h4>
+      <label class="slot">
+        <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-03-17-1400-1600">
+        <strong> 2:00pm</strong>
+        <span class="duration">2 hrs</span>
+      </label>
+    </div>
+    <div class="js-slotpicker-options day-slots" id="date-2014-03-18" tabindex="-1">
+      <h4 class="day-slots-heading">Tuesday 18 March</h4>
+      <label class="slot">
+        <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-03-18-1400-1600">
+        <strong> 2:00pm</strong>
+        <span class="duration">2 hrs</span>
+      </label>
+    </div>
+    <div class="js-slotpicker-options day-slots" id="date-2014-03-19" tabindex="-1">
+      <h4 class="day-slots-heading">Wednesday 19 March</h4>
+      <label class="slot">
+        <input class="js-slotpicker-option" name="slot" type="checkbox" value="2014-03-19-1400-1600">
+        <strong> 2:00pm</strong>
+        <span class="duration">2 hrs</span>
+      </label>
+    </div>
     <div class="js-slotpicker-options day-slots" id="date-2014-03-20" tabindex="-1">
       <h4 class="day-slots-heading">Thursday 20 March</h4>
       <label class="slot">
@@ -911,35 +911,33 @@
     </div>
       </div>
 
-  <div class="selected-slots js-selected-slots">
-    <div class="selected-slots-group">
-      <ul>
-        <li>
-          <a class="icon slot-remove js-remove-slot" href="#">Remove</a>
-          <div class="slot-position">1</div>
-          <p class="date"></p>
-          <p class="time"></p>
-          <p class="prompt">Choose a   date and time from the calendar</p>
-        </li>
-        <li>
-          <a class="icon slot-promote js-promote-slot" href="#2">Promote</a>
-          <a class="icon slot-remove js-remove-slot" href="#">Remove</a>
-          <div class="slot-position">2</div>
-          <p class="date"></p>
-          <p class="time"></p>
-          <p class="prompt">Choose a second date and time from the calendar</p>
-        </li>
-        <li>
-          <a class="icon slot-promote js-promote-slot" href="#3">Promote</a>
-          <a class="icon slot-remove js-remove-slot" href="#">Remove</a>
-          <div class="slot-position">3</div>
-          <p class="date"></p>
-          <p class="time"></p>
-          <p class="prompt">Choose a third date and time from the calendar</p>
-        </li>
-      </ul>
-    </div>
-    <p class="js-promote-help">Use the arrows to put your visit choices in the order that suits you best.</p>
+  <div class="SlotPicker-choices">
+    <ul>
+      <li>
+        <a class="SlotPicker-icon SlotPicker-remove" href="#">Remove</a>
+        <span class="SlotPicker-position">1</span>
+        <p class="SlotPicker-date"></p>
+        <p class="SlotPicker-time"></p>
+        <p class="SlotPicker-prompt">Choose a date and time from the calendar</p>
+      </li>
+      <li>
+        <a class="SlotPicker-icon SlotPicker-promote" href="#2">Promote</a>
+        <a class="SlotPicker-icon SlotPicker-remove" href="#">Remove</a>
+        <span class="SlotPicker-position">2</span>
+        <p class="SlotPicker-date"></p>
+        <p class="SlotPicker-time"></p>
+        <p class="SlotPicker-prompt">Choose a second date and time from the calendar</p>
+      </li>
+      <li>
+        <a class="SlotPicker-icon SlotPicker-promote" href="#3">Promote</a>
+        <a class="SlotPicker-icon SlotPicker-remove" href="#">Remove</a>
+        <span class="SlotPicker-position">3</span>
+        <p class="SlotPicker-date"></p>
+        <p class="SlotPicker-time"></p>
+        <p class="SlotPicker-prompt">Choose a third date and time from the calendar</p>
+      </li>
+    </ul>
+    <p class="SlotPicker-promoteHelp">Use the arrows to put your visit choices in the order that suits you best.</p>
   </div>
 
   <form action="" method="">

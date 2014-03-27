@@ -34,9 +34,9 @@
       
       this.$slotInputs = $('.js-slotpicker-slot', $el);
       this.$slotOptions = $('.js-slotpicker-option', $el);
-      this.$selectedSlotWrapper = $('.js-selected-slots', $el);
-      this.$selectedSlots = $('.selected-slots li', $el);
-      this.$promoteHelp = $('.js-promote-help', $el);
+      this.$choices = $('.SlotPicker-choices', $el);
+      this.$choice = $('.SlotPicker-choices li', $el);
+      this.$promoteHelp = $('.SlotPicker-promoteHelp', $el);
       this.$next = $('.BookingCalendar-navNext', $el);
       this.$prev = $('.BookingCalendar-navPrev', $el);
       this.$availableMonths = $('.BookingCalendar-availableMonths a', $el);
@@ -52,7 +52,7 @@
       var self = this;
 
       this.$slotOptions.on('click', function() {
-        self.$selectedSlotWrapper.addClass('is-active');
+        self.$choices.addClass('is-active');
         self.emptyUiSlots();
         self.emptySlotInputs();
         self.unHighlightSlots();
@@ -62,12 +62,12 @@
         self.togglePromoteHelp();
       });
 
-      this.$_el.on('click', '.js-remove-slot', function(e) {
+      this.$_el.on('click', '.SlotPicker-remove', function(e) {
         e.preventDefault();
         $($(this).data('slot-option')).click();
       });
 
-      this.$_el.on('click', '.js-promote-slot', function(e) {
+      this.$_el.on('click', '.SlotPicker-promote', function(e) {
         e.preventDefault();
         self.promoteSlot($(this).attr('href').split('#')[1] - 1);
         self.processSlots();
@@ -205,11 +205,9 @@
     },
 
     emptyUiSlots: function() {
-      var slots = this.$selectedSlots;
-      
-      slots.removeClass('is-active');
-      slots.find('a').removeData();
-      slots.find('.date, .time').text('');
+      this.$choice.removeClass('is-active');
+      this.$choice.find('a').removeData();
+      this.$choice.find('.SlotPicker-date, .SlotPicker-time').text('');
     },
 
     emptySlotInputs: function() {
@@ -221,12 +219,12 @@
           day = label.siblings('h4').text(),
           time = label.find('strong').text(),
           duration = label.find('.duration').text(),
-          $slot = this.$selectedSlots.eq(index);
+          $slot = this.$choice.eq(index);
 
       $slot.addClass('is-active');
-      $slot.find('.date').text(day);
-      $slot.find('.time').text([time, duration].join(', '));
-      $slot.find('.js-remove-slot').data('slot-option', checkbox);
+      $slot.find('.SlotPicker-date').text(day);
+      $slot.find('.SlotPicker-time').text([time, duration].join(', '));
+      $slot.find('.SlotPicker-remove').data('slot-option', checkbox);
     },
 
     populateSlotInputs: function(index, chosen) {

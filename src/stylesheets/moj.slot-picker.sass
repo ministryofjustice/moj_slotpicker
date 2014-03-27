@@ -4,12 +4,10 @@
 
 @import "moj.booking-calendar.sass"
 
-.slots,
-.selected-slots
+.slots
   display: none
 
-.slots.is-active,
-.selected-slots.is-active
+.slots.is-active
   display: block
 
 
@@ -77,29 +75,26 @@
     @include media(mobile)
       display: inline
 
-.selected-slots
+.SlotPicker-choices
+  display: none
 
-  h3,
-  p
-    margin-bottom: 0
+  &.is-active
+    display: block
 
-  .js-promote-help
+  .SlotPicker-promoteHelp
     display: none
 
     &.is-active
       display: block
 
-  .selected-slots-group
+  ul
+    margin: 0
     padding: 10px
+    list-style-type: none
     background: $grey-3
 
     @include media(desktop)
       min-height: 236px
-
-  ul
-    margin: 0
-    padding: 0
-    list-style-type: none
 
     li
       position: relative
@@ -112,7 +107,7 @@
       &:first-child
         margin-top: 0
 
-      .prompt
+      .SlotPicker-prompt
         padding: 5px 18%
         text-align: center
         color: $grey-1
@@ -132,57 +127,46 @@
         p
           font-size: 24px
 
-        .prompt
+        .SlotPicker-prompt
           display: none
 
-        .slot-remove,
-        .slot-promote
+        .SlotPicker-remove,
+        .SlotPicker-promote
           display: block
 
-        .date
+        .SlotPicker-date
           font-weight: bold
 
-        .slot-position
+        .SlotPicker-position
           display: block
-
-      .slot-position
-        display: none
-        position: absolute
-        left: 10px
-        height: 100%
-        background: $light-blue
-        color: $white
-        width: 55px
-        font-size: 48px
-        font-weight: bold
-        text-align: center
-        margin: -10px 0 0 -10px
-
-        @include media(mobile)
-          width: 45px
-
-      .slot-remove
-        display: none
-        position: absolute
-        top: 50%
-        right: 10px
-        margin-top: -15px
-        background-image: url("../images/remove.png")
-
-      .slot-promote
-        display: none
-        position: absolute
-        top: 50%
-        right: 50px
-        margin-top: -15px
-        background-image: url("../images/promote.png")
       
       p
         margin: 0
 
-.icon
+.SlotPicker-position
+  display: none
+  position: absolute
+  left: 10px
+  height: 100%
+  background: $light-blue
+  color: $white
+  width: 55px
+  font-size: 48px
+  font-weight: bold
+  text-align: center
+  margin: -10px 0 0 -10px
+
+  @include media(mobile)
+    width: 45px
+
+.SlotPicker-icon
+  display: none
+  position: absolute
+  top: 50%
+  right: 10px
   width: 30px
   height: 30px
+  margin-top: -15px
   overflow: hidden
   text-indent: 999px
   background: no-repeat 0 -90px
@@ -190,3 +174,10 @@
   @include device-pixel-ratio
     background-position: 0 0
     background-size: 100%
+
+.SlotPicker-remove
+  background-image: url("../images/remove.png")
+
+.SlotPicker-promote
+  right: 50px
+  background-image: url("../images/promote.png")
