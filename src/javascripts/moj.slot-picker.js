@@ -2,9 +2,7 @@
 (function() {
   'use strict';
 
-  var SlotPicker;
-
-  SlotPicker = function($el, options) {
+  var SlotPicker = function($el, options) {
     this.settings = $.extend({}, this.defaults, options);
     this.cacheEls($el);
     this.bindEvents();
@@ -33,18 +31,18 @@
       this.$_el = $el;
       
       this.$slotInputs = $('.SlotPicker-input', $el);
-      this.$slotOptions = $('.js-slotpicker-option', $el);
+      this.$slotOptions = $('.SlotPicker-slot', $el);
       this.$choices = $('.SlotPicker-choices', $el);
       this.$choice = $('.SlotPicker-choices li', $el);
       this.$promoteHelp = $('.SlotPicker-promoteHelp', $el);
       this.$next = $('.BookingCalendar-navNext', $el);
       this.$prev = $('.BookingCalendar-navPrev', $el);
       this.$availableMonths = $('.BookingCalendar-availableMonths a', $el);
-      this.$slotTimes = $('.js-slotpicker', $el);
+      this.$slotTimes = $('.SlotPicker-days', $el);
       this.$dateTriggers = $('.BookingCalendar-dateLink, .DateSlider-largeDates li', $el);
       this.$currentMonth = $('.BookingCalendar-currentMonth');
       this.$calMask = $('.BookingCalendar-mask', $el);
-      this.$options = $('.js-slotpicker-options', $el);
+      this.$times = $('.SlotPicker-day', $el);
       this.$calDates = $('.BookingCalendar-date--bookable', $el);
     },
 
@@ -154,7 +152,7 @@
           dateStr = day.data('date'),
           date = new Date(dateStr);
       
-      this.$options.removeClass('is-active');
+      this.$times.removeClass('is-active');
       
       if (!~this.settings.bookableDates.indexOf(dateStr)) {
         today = new Date(this.settings.today);
@@ -201,12 +199,12 @@
     },
 
     unHighlightSlots: function() {
-      this.$options.find('label').removeClass('is-active');
+      this.$times.find('.SlotPicker-label').removeClass('is-active');
     },
 
     emptyUiSlots: function() {
       this.$choice.removeClass('is-active');
-      this.$choice.find('a').removeData();
+      this.$choice.find('.SlotPicker-remove').removeData();
       this.$choice.find('.SlotPicker-date, .SlotPicker-time').text('');
     },
 
@@ -215,10 +213,10 @@
     },
 
     populateUiSlots: function(index, checkbox) {
-      var label = checkbox.closest('label'),
-          day = label.siblings('h4').text(),
-          time = label.find('strong').text(),
-          duration = label.find('.duration').text(),
+      var label = checkbox.closest('.SlotPicker-label'),
+          day = label.siblings('.SlotPicker-dayTitle').text(),
+          time = label.find('.SlotPicker-time').text(),
+          duration = label.find('.SlotPicker-duration').text(),
           $slot = this.$choice.eq(index);
 
       $slot.addClass('is-active');
