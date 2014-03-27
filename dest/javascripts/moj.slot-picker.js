@@ -32,7 +32,7 @@
     cacheEls: function($el) {
       this.$_el = $el;
       
-      this.$slotInputs = $('.js-slotpicker-slot', $el);
+      this.$slotInputs = $('.SlotPicker-input', $el);
       this.$slotOptions = $('.js-slotpicker-option', $el);
       this.$choices = $('.SlotPicker-choices', $el);
       this.$choice = $('.SlotPicker-choices li', $el);
@@ -130,7 +130,7 @@
     },
 
     consolidate: function() {
-      this.settings.bookableSlots = this.$slotInputs.first().find('select option').map(function() {
+      this.settings.bookableSlots = this.$slotInputs.first().find('option').map(function() {
         var v = $(this).val();
         if (v !== '') {
           return v;
@@ -141,7 +141,7 @@
         return s.substr(0, 10);
       });
 
-      this.settings.originalSlots = this.$slotInputs.find('select').map(function() {
+      this.settings.originalSlots = this.$slotInputs.map(function() {
         var v = $(this).val();
         if (v !== '') {
           return v;
@@ -211,7 +211,7 @@
     },
 
     emptySlotInputs: function() {
-      this.$slotInputs.find('select').val('');
+      this.$slotInputs.val('');
     },
 
     populateUiSlots: function(index, checkbox) {
@@ -228,7 +228,7 @@
     },
 
     populateSlotInputs: function(index, chosen) {
-      this.$slotInputs.eq(index).find('select').val(chosen);
+      this.$slotInputs.eq(index).val(chosen);
     },
 
     processSlots: function() {
