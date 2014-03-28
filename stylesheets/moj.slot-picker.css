@@ -1,0 +1,358 @@
+@-ms-viewport {
+  width: device-width; }
+@-o-viewport {
+  width: device-width; }
+@font-face {
+  font-family: GDS-Logo;
+  src: local("HelveticaNeue"), local("Helvetica Neue"), local("Arial"), local("Helvetica"); }
+@-ms-viewport {
+  width: device-width; }
+@-o-viewport {
+  width: device-width; }
+.BookingCalendar-mask {
+  overflow: hidden;
+  height: 279px;
+  border-bottom: 1px solid #dee0e2; }
+
+table.BookingCalendar-dates {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 19px;
+  background: url("../images/unavailable_tile.png"); }
+  table.BookingCalendar-dates th,
+  table.BookingCalendar-dates td {
+    width: 14.28571%; }
+  table.BookingCalendar-dates thead th {
+    padding: 3px 0 0;
+    font-weight: bold;
+    line-height: normal;
+    text-align: center;
+    text-transform: uppercase;
+    background: #f8f8f8;
+    border-bottom: 2px solid #bfc1c3; }
+  table.BookingCalendar-dates tbody td {
+    padding: 0;
+    border-color: #dee0e2;
+    border-style: solid;
+    border-width: 0 0 1px 1px; }
+  table.BookingCalendar-dates td:last-child > div {
+    border-right: 1px solid #dee0e2; }
+  table.BookingCalendar-dates tbody tr:last-child td {
+    border-bottom: none; }
+
+a.BookingCalendar-dateLink,
+.BookingCalendar-dateLink:visited {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: #0b0c0c;
+  text-decoration: none; }
+
+.BookingCalendar-dateLink:hover {
+  color: #0b0c0c;
+  text-decoration: underline;
+  background: #d5e8f3; }
+.BookingCalendar-dateLink.is-chosen {
+  overflow: hidden; }
+  .BookingCalendar-dateLink.is-chosen:after {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 0;
+    border-color: transparent #2b8cc4 transparent transparent; }
+    @media (min-width: 641px) {
+      .BookingCalendar-dateLink.is-chosen:after {
+        border-width: 0 15px 15px 0; } }
+.BookingCalendar-dateLink .BookingCalendar-day {
+  padding-left: 3px; }
+
+.BookingCalendar-date--bookable {
+  background: white; }
+  .BookingCalendar-date--bookable.is-active {
+    background: #96c6e2; }
+
+.BookingCalendar-content {
+  position: relative;
+  min-height: 55px; }
+
+.BookingCalendar-tag {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0;
+  color: white;
+  line-height: normal;
+  text-align: center;
+  background: #bfc1c3; }
+
+.BookingCalendar-tag--today {
+  background: #2b8cc4; }
+
+ul.BookingCalendar-legend {
+  overflow: hidden;
+  padding: 0;
+  list-style: none; }
+  ul.BookingCalendar-legend li {
+    float: left;
+    margin-right: 20px;
+    font-family: "nta", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.25;
+    font-weight: 300;
+    text-transform: none; }
+    @media (max-width: 640px) {
+      ul.BookingCalendar-legend li {
+        font-size: 14px;
+        line-height: 1.14286; } }
+    ul.BookingCalendar-legend li:last-child {
+      margin-right: 0; }
+
+.BookingCalendar-legendBox {
+  float: left;
+  width: 29px;
+  height: 29px;
+  margin: 0 5px 0 0;
+  border: 1px solid #dee0e2; }
+  .BookingCalendar-legendBox.BookingCalendar-date--unavailable {
+    background: url("../images/unavailable_tile.png"); }
+
+.BookingCalendar-availableMonths {
+  display: none; }
+
+.BookingCalendar-header {
+  position: relative;
+  background: #bfc1c3; }
+
+.BookingCalendar-currentMonth {
+  display: block;
+  font-family: "nta", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+  font-weight: 700;
+  margin: 0;
+  padding: 0.5em 0;
+  text-align: center; }
+  @media (max-width: 640px) {
+    .BookingCalendar-currentMonth {
+      font-size: 20px;
+      line-height: 1.2; } }
+
+.BookingCalendar-navNext,
+.BookingCalendar-navPrev {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.632em;
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 400;
+  text-transform: none;
+  color: #0b0c0c;
+  line-height: 30px;
+  text-decoration: none;
+  background: no-repeat 0 -80px; }
+  @media (max-width: 640px) {
+    .BookingCalendar-navNext,
+    .BookingCalendar-navPrev {
+      font-size: 16px;
+      line-height: 1.25; } }
+  .BookingCalendar-navNext:hover,
+  .BookingCalendar-navPrev:hover {
+    text-decoration: underline; }
+
+.BookingCalendar-navPrev {
+  margin-left: 10px;
+  padding-left: 35px;
+  background-image: url("../images/prev.png"); }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    .BookingCalendar-navPrev {
+      background-position: 0 10px;
+      background-size: 30px; } }
+
+.BookingCalendar-navNext {
+  left: auto;
+  right: 0;
+  margin-right: 10px;
+  padding-right: 35px;
+  background-image: url("../images/next.png");
+  background-position: 100% -80px; }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    .BookingCalendar-navNext {
+      background-position: 100% 10px;
+      background-size: 30px; } }
+
+.SlotPicker-days {
+  display: none;
+  margin-bottom: 10px;
+  padding: 0; }
+  @media (max-width: 768px) {
+    .SlotPicker-days {
+      margin-bottom: 0; } }
+  .SlotPicker-days.is-active {
+    display: block; }
+
+.SlotPicker-day {
+  display: none;
+  overflow: hidden;
+  padding: 0.5em;
+  background: #dee0e2; }
+  @media (max-width: 640px) {
+    .SlotPicker-day {
+      border-width: 1px 0; } }
+  .SlotPicker-day.is-active {
+    display: block; }
+
+.SlotPicker-dayTitle {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+  font-weight: 700;
+  margin: 0.2em 0 0.3em; }
+  @media (max-width: 640px) {
+    .SlotPicker-dayTitle {
+      font-size: 20px;
+      line-height: 1.2; } }
+
+.SlotPicker-label {
+  cursor: pointer;
+  position: relative;
+  float: left;
+  box-sizing: border-box;
+  min-width: 120px;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  padding: 0.3em 15px 0.3em 40px;
+  font-size: 24px;
+  line-height: 1.2em;
+  border: 2px solid #bfc1c3;
+  background: white; }
+  @media (max-width: 640px) {
+    .SlotPicker-label {
+      width: 100%;
+      padding-top: 10px;
+      padding-bottom: 10px; }
+      .SlotPicker-label.is-active {
+        border-color: #2b8cc4;
+        background: #d5e8f3; } }
+  .SlotPicker-label.is-disabled {
+    color: #bfc1c3; }
+  .SlotPicker-label:last-child {
+    margin-right: 0;
+    margin-bottom: 0; }
+
+.SlotPicker-slot {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  margin-top: -7px; }
+
+.SlotPicker-duration {
+  display: block; }
+  @media (max-width: 640px) {
+    .SlotPicker-duration {
+      display: inline; } }
+
+.SlotPicker-choices {
+  display: none; }
+  .SlotPicker-choices.is-active {
+    display: block; }
+  .SlotPicker-choices ul {
+    margin: 0;
+    padding: 10px;
+    list-style-type: none;
+    background: #dee0e2; }
+    @media (min-width: 769px) {
+      .SlotPicker-choices ul {
+        min-height: 236px; } }
+    .SlotPicker-choices ul li {
+      position: relative;
+      margin-top: 10px;
+      padding: 10px;
+      min-height: 60px;
+      background: white;
+      border: 1px dashed #bfc1c3; }
+      .SlotPicker-choices ul li:first-child {
+        margin-top: 0; }
+      .SlotPicker-choices ul li .SlotPicker-prompt {
+        padding: 5px 18%;
+        text-align: center;
+        color: #6f777b; }
+        @media (max-width: 640px) {
+          .SlotPicker-choices ul li .SlotPicker-prompt {
+            padding-left: 10%;
+            padding-right: 10%; } }
+      .SlotPicker-choices ul li.is-active {
+        padding-left: 65px;
+        padding-right: 80px;
+        border-style: solid; }
+        @media (max-width: 640px) {
+          .SlotPicker-choices ul li.is-active {
+            padding-left: 55px; } }
+        .SlotPicker-choices ul li.is-active p {
+          font-size: 24px; }
+        .SlotPicker-choices ul li.is-active .SlotPicker-prompt {
+          display: none; }
+        .SlotPicker-choices ul li.is-active .SlotPicker-icon--remove,
+        .SlotPicker-choices ul li.is-active .SlotPicker-icon--promote {
+          display: block; }
+        .SlotPicker-choices ul li.is-active .SlotPicker-date {
+          font-weight: bold; }
+        .SlotPicker-choices ul li.is-active .SlotPicker-position {
+          display: block; }
+      .SlotPicker-choices ul li p {
+        margin: 0; }
+
+.SlotPicker-promoteHelp {
+  display: none; }
+  .SlotPicker-promoteHelp.is-active {
+    display: block; }
+
+.SlotPicker-position {
+  display: none;
+  position: absolute;
+  left: 10px;
+  height: 100%;
+  background: #2b8cc4;
+  color: white;
+  width: 55px;
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+  margin: -10px 0 0 -10px; }
+  @media (max-width: 640px) {
+    .SlotPicker-position {
+      width: 45px; } }
+
+.SlotPicker-icon {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+  overflow: hidden;
+  text-indent: 999px;
+  background: no-repeat 0 -90px; }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    .SlotPicker-icon {
+      background-position: 0 0;
+      background-size: 100%; } }
+
+.SlotPicker-icon--remove {
+  background-image: url("../images/remove.png"); }
+
+.SlotPicker-icon--promote {
+  right: 50px;
+  background-image: url("../images/promote.png"); }
