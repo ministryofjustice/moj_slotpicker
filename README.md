@@ -1,4 +1,4 @@
-# Slot Picker
+# MOJ Slot Picker
 
 A Web user interface for selecting 3 time slots in order of preference.
 
@@ -19,11 +19,17 @@ When a slot is selected the corresponding hidden option element is selected.
 
 ## How to use
 
+Install as a [Bower](http://bower.io) package
+
+    bower install moj.slot-picker
+
+or
+
 `git clone https://github.com/ministryofjustice/slot-picker`
 
 or
 
-[Download the ZIP](https://github.com/ministryofjustice/moj_slotpicker/archive/902e148eee11ef276fb52d9117582e3b2ab6d8e6.zip) and use the `dist` folder.
+Download the [latest version as a ZIP](https://github.com/ministryofjustice/moj_slotpicker/releases) and use the `dist` folder.
 
 ## Mark-up
 
