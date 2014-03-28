@@ -4,6 +4,7 @@
 
   var SlotPicker = function($el, options) {
     this.settings = $.extend({}, this.defaults, options);
+    this.settings.today = this.formatIso(this.settings.today);
     this.cacheEls($el);
     this.bindEvents();
     this.setupNav();
@@ -24,7 +25,7 @@
       currentSlots: [],
       calendarDayHeight: 56,
       navPointer: 0,
-      today: (new Date()).formatIso()
+      today: new Date()
     },
 
     cacheEls: function($el) {
@@ -154,7 +155,7 @@
       
       this.$times.removeClass('is-active');
       
-      if (!~this.settings.bookableDates.indexOf(dateStr)) {
+      if (!~this.indexOf(this.settings.bookableDates, dateStr)) {
         today = new Date(this.settings.today);
         bookingFrom = new Date(this.settings.bookableDates[0]);
         bookingTo = new Date(this.settings.bookableDates[this.settings.bookableDates.length-1]);
@@ -280,7 +281,7 @@
     },
 
     promoteSlot: function(pos) {
-      this.settings.currentSlots = this.settings.currentSlots.move(pos, pos - 1);
+      this.settings.currentSlots = this.move(this.settings.currentSlots, pos, pos - 1);
     },
 
     markDate: function(slot) {
@@ -288,6 +289,36 @@
       
       $('[data-date=' + day + ']', this.$_el)[~this.settings.currentSlots.join('-').indexOf(day) ? 'addClass' : 'removeClass']('is-chosen');
     },
+
+    formatIso: function(date) {
+      if (typeof date === 'string') {
+        return date;
+      }
+      return [
+        date.getFullYear(),
+        ('0'+(date.getMonth()+1)).slice(-2),
+        ('0'+date.getDate()).slice(-2)
+      ].join('-');
+    },
+
+    indexOf: function(array, obj) {
+      for (var i = 0, j = array.length; i < j; i++) {
+        if (array[i] === obj) { return i; }
+      }
+      return -1;
+    },
+
+    move: function(array, old_index, new_index) {
+      if (new_index >= array.length) {
+        var k = new_index - array.length;
+        while ((k--) + 1) {
+          array.push(undefined);
+        }
+      }
+      array.splice(new_index, 0, array.splice(old_index, 1)[0]);
+      return array;
+    }
+
 
   };
 

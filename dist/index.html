@@ -731,38 +731,14 @@
 <p><a href="#" id="displayOutput">Alert chosen slots</a></p>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script>
-Date.prototype.formatIso = function() {
-  return [
-    this.getFullYear(),
-    ('0'+(this.getMonth()+1)).slice(-2),
-    ('0'+this.getDate()).slice(-2)
-  ].join('-')
-}
-Array.prototype.indexOf = function(obj, start) {
-     for (var i = (start || 0), j = this.length; i < j; i++) {
-         if (this[i] === obj) { return i; }
-     }
-     return -1;
-}
-Array.prototype.move = function (old_index, new_index) {
-    if (new_index >= this.length) {
-        var k = new_index - this.length;
-        while ((k--) + 1) {
-            this.push(undefined);
-        }
-    }
-    this.splice(new_index, 0, this.splice(old_index, 1)[0]);
-    return this; // for testing purposes
-};
 
-var moj = moj || { Modules: {} };
-</script>
+<script>var moj = moj || { Modules: {} };</script>
 <script src="javascripts/moj.slot-picker.js"></script>
+<script>moj.Modules.SlotPicker.init();</script>
+
 <script>
 
-moj.Modules.SlotPicker.init();
-
+// Test select fields have been populated
 $('#displayOutput').on('click', function(e) {
   e.preventDefault();
   var values = $('select').map(function() {
