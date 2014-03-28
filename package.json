@@ -1,6 +1,6 @@
 {
-  "title": "Gulp Test",
-  "name": "gulp_test",
+  "title": "MOJ Slot Picker",
+  "name": "moj.slot-picker",
   "version": "0.1.0",
   "devDependencies": {
     "gulp": "^3.5.5",
