@@ -8,7 +8,7 @@ var paths = {
   styles: './src/stylesheets/**/*',
   images: './src/images/**/*',
   markup: './src/index.html',
-  dest: './dest/'
+  dest: './dist/'
 };
 
 // lint javascript
