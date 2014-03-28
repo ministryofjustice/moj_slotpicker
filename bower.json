@@ -6,7 +6,7 @@
     ".jshintrc",
     "/src",
     "/tests",
-    "gulpfile.js"
+    "gulpfile.js",
     "**/.*",
     "bower_components"
   ],
