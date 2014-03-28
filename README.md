@@ -2,6 +2,8 @@
 
 A Web user interface for selecting 3 time slots in order of preference.
 
+[Demo](http://ministryofjustice.github.io/moj_slotpicker/index.html)
+
 The interface consists of:
 
 * a calendar (for selecting available days)
@@ -9,6 +11,11 @@ The interface consists of:
 * a list of chosen slots
 
 When a slot is selected the corresponding hidden option element is selected.
+
+## Dependencies
+
+* jQuery
+* moj.js (see [Non-MOJ projects](#non-moj-projects) below)
 
 ## How to use
 
@@ -29,3 +36,15 @@ The slot data is in the format `YYYY-MM-DD-HHMM-HHMM`, where the former time is 
 Re-create the classname structure as shown in `/dist/index.html`.
 
 Currently the component requires your app to generate each calendar day (see `.BookingCalendar-dates` and `.SlotPicker-days`).
+
+## Non-MOJ projects
+
+MOJ projects use a JavaScript [module structure](https://github.com/ministryofjustice/moj_boilerplate/blob/master/app/assets/javascripts/moj.js) based on [Heisenburg.js](https://github.com/Heisenbergjs/heisenberg). 
+
+For non-MOJ projects you need to re-create the namespace before the moj.slot-picker.js file is included and then initialise the Slot Picker module.
+
+    <script>var moj = moj || { Modules: {} };</script>
+    <script src="javascripts/moj.slot-picker.js"></script>
+    <script>moj.Modules.SlotPicker.init();</script>
+
+This can be seen in the [demo](http://ministryofjustice.github.io/moj_slotpicker/index.html).
