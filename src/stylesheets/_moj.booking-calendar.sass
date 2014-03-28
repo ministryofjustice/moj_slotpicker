@@ -131,8 +131,14 @@ ul.BookingCalendar-legend
   padding: .5em 0
   text-align: center
 
-.BookingCalendar-navNext,
-.BookingCalendar-navPrev
+.BookingCalendar-nav
+  display: none
+
+  &.is-active
+    display: block
+
+.BookingCalendar-nav--next,
+.BookingCalendar-nav--prev
   position: absolute
   top: 0
   left: 0
@@ -146,7 +152,7 @@ ul.BookingCalendar-legend
   &:hover
     text-decoration: underline
 
-.BookingCalendar-navPrev
+.BookingCalendar-nav--prev
   margin-left: 10px
   padding-left: 35px
   background-image: url("../images/prev.png")
@@ -155,7 +161,7 @@ ul.BookingCalendar-legend
     background-position: 0 10px
     background-size: 30px
 
-.BookingCalendar-navNext
+.BookingCalendar-nav--next
   left: auto
   right: 0
   margin-right: 10px

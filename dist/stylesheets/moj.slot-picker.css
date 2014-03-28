@@ -145,8 +145,13 @@ ul.BookingCalendar-legend {
       font-size: 20px;
       line-height: 1.2; } }
 
-.BookingCalendar-navNext,
-.BookingCalendar-navPrev {
+.BookingCalendar-nav {
+  display: none; }
+  .BookingCalendar-nav.is-active {
+    display: block; }
+
+.BookingCalendar-nav--next,
+.BookingCalendar-nav--prev {
   position: absolute;
   top: 0;
   left: 0;
@@ -161,24 +166,24 @@ ul.BookingCalendar-legend {
   text-decoration: none;
   background: no-repeat 0 -80px; }
   @media (max-width: 640px) {
-    .BookingCalendar-navNext,
-    .BookingCalendar-navPrev {
+    .BookingCalendar-nav--next,
+    .BookingCalendar-nav--prev {
       font-size: 16px;
       line-height: 1.25; } }
-  .BookingCalendar-navNext:hover,
-  .BookingCalendar-navPrev:hover {
+  .BookingCalendar-nav--next:hover,
+  .BookingCalendar-nav--prev:hover {
     text-decoration: underline; }
 
-.BookingCalendar-navPrev {
+.BookingCalendar-nav--prev {
   margin-left: 10px;
   padding-left: 35px;
   background-image: url("../images/prev.png"); }
   @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-    .BookingCalendar-navPrev {
+    .BookingCalendar-nav--prev {
       background-position: 0 10px;
       background-size: 30px; } }
 
-.BookingCalendar-navNext {
+.BookingCalendar-nav--next {
   left: auto;
   right: 0;
   margin-right: 10px;
@@ -186,7 +191,7 @@ ul.BookingCalendar-legend {
   background-image: url("../images/next.png");
   background-position: 100% -80px; }
   @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-    .BookingCalendar-navNext {
+    .BookingCalendar-nav--next {
       background-position: 100% 10px;
       background-size: 30px; } }
 

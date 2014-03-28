@@ -36,8 +36,8 @@
       this.$choices = $('.SlotPicker-choices', $el);
       this.$choice = $('.SlotPicker-choices li', $el);
       this.$promoteHelp = $('.SlotPicker-promoteHelp', $el);
-      this.$next = $('.BookingCalendar-navNext', $el);
-      this.$prev = $('.BookingCalendar-navPrev', $el);
+      this.$next = $('.BookingCalendar-nav--next', $el);
+      this.$prev = $('.BookingCalendar-nav--prev', $el);
       this.$availableMonths = $('.BookingCalendar-availableMonths a', $el);
       this.$slotTimes = $('.SlotPicker-days', $el);
       this.$dateTriggers = $('.BookingCalendar-dateLink, .DateSlider-largeDates li', $el);
@@ -106,15 +106,15 @@
 
     updateNav: function(i) {
       if (i > 0) {
-        this.$prev.removeClass('hidden').text(this.settings.months[i - 1].label);
+        this.$prev.addClass('is-active').text(this.settings.months[i - 1].label);
       } else {
-        this.$prev.addClass('hidden');
+        this.$prev.removeClass('is-active');
       }
 
       if (i + 1 < this.settings.months.length) {
-        this.$next.removeClass('hidden').text(this.settings.months[i + 1].label);
+        this.$next.addClass('is-active').text(this.settings.months[i + 1].label);
       } else {
-        this.$next.addClass('hidden');
+        this.$next.removeClass('is-active');
       }
 
       this.$currentMonth.text(this.settings.months[i].label);
