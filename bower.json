@@ -1,0 +1,19 @@
+{
+  "name": "moj.slot-picker",
+  "version": "0.2.0",
+  "main": "dist/javascript/moj.slot-picker.css",
+  "ignore": [
+    ".jshintrc",
+    "/src",
+    "/tests",
+    "gulpfile.js"
+    "**/.*",
+    "bower_components"
+  ],
+  "homepage": "http://ministryofjustice.github.io/moj_slotpicker",
+  "authors": [
+    "Mat Harden <matharden@gmail.com>"
+  ],
+  "description": "A Web user interface for selecting 3 time slots in order of preference",
+  "license": "MIT"
+}
