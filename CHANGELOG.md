@@ -1,14 +1,17 @@
 # Changelog
 
+## 0.3.3 (Apr 8, 2014)
+ * Added [OGL LICENCE](https://github.com/ministryofjustice/moj_slotpicker/blob/master/LICENCE.md)
+
 ## 0.3.2 (Mar 28, 2014)
  * Package is now self-sufficient in terms of CSS
  * README now includes Bower details
 
 ## 0.3.1 (Mar 28, 2014)
- * Fix missing comma in Bower JSON
+ * Fixed missing comma in Bower JSON
 
 ## 0.3.0 (Mar 28, 2014)
- * Add Bower config
+ * Added Bower config
 
 ## 0.2.0 (Mar 28, 2014)
  * SlotPicker is now self-sufficient in terms of Array/Date object methods
