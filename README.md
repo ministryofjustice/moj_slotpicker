@@ -25,7 +25,7 @@ Install as a [Bower](http://bower.io) package
 
 or
 
-`git clone https://github.com/ministryofjustice/slot-picker`
+    git clone https://github.com/ministryofjustice/slot-picker
 
 or
 
@@ -42,6 +42,16 @@ The slot data is in the format `YYYY-MM-DD-HHMM-HHMM`, where the former time is 
 Re-create the classname structure as shown in `/dist/index.html`.
 
 Currently the component requires your app to generate each calendar day (see `.BookingCalendar-dates` and `.SlotPicker-days`).
+
+## Options
+
+Options are applied via **data-*** attributes.
+
+Name                   | Default | Description
+---------------------- | ------- | ---------------
+option-limit           | 3       | The amount of slots to populate
+single-unavailable-msg | true    | Use one message for all days do not contain any slot times (defined by .SlotPicker-day--unavailable
+
 
 ## Non-MOJ projects
 
