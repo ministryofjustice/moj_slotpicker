@@ -196,15 +196,17 @@ ul.BookingCalendar-legend {
       background-position: 100% 10px;
       background-size: 30px; } }
 
+.SlotPicker-timeSlots {
+  display: none; }
+  .SlotPicker-timeSlots.is-active {
+    display: block; }
+
 .SlotPicker-days {
-  display: none;
   margin-bottom: 10px;
   padding: 0; }
   @media (max-width: 768px) {
     .SlotPicker-days {
       margin-bottom: 0; } }
-  .SlotPicker-days.is-active {
-    display: block; }
 
 .SlotPicker-day {
   display: none;

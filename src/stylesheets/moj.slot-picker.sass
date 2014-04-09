@@ -4,16 +4,18 @@
 
 @import "moj.booking-calendar.sass"
 
-.SlotPicker-days
+.SlotPicker-timeSlots
   display: none
+
+  &.is-active
+    display: block
+
+.SlotPicker-days
   margin-bottom: 10px
   padding: 0
 
   @include media(false, 768px)
     margin-bottom: 0
-
-  &.is-active
-    display: block
 
 .SlotPicker-day
   display: none

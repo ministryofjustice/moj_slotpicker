@@ -40,7 +40,7 @@
       this.$next = $('.BookingCalendar-nav--next', $el);
       this.$prev = $('.BookingCalendar-nav--prev', $el);
       this.$availableMonths = $('.BookingCalendar-availableMonths a', $el);
-      this.$slotTimes = $('.SlotPicker-days', $el);
+      this.$timeSlots = $('.SlotPicker-timeSlots', $el);
       this.$dateTriggers = $('.BookingCalendar-dateLink, .DateSlider-largeDates li', $el);
       this.$currentMonth = $('.BookingCalendar-currentMonth');
       this.$calMask = $('.BookingCalendar-mask', $el);
@@ -77,7 +77,7 @@
         e.preventDefault();
         self.selectDay($(this));
         self.highlightDate($(this));
-        self.$slotTimes.addClass('is-active');
+        self.$timeSlots.addClass('is-active');
       });
 
       this.$next.on('click', function(e) {
