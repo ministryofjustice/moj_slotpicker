@@ -18,6 +18,7 @@
     
     defaults: {
       optionLimit: 3,
+      singleUnavailableMsg: true,
       selections: 'has-selections',
       bookableSlots: [],
       bookableDates: [],
@@ -164,7 +165,9 @@
           target = '.SlotPicker-day--past';
         } else {
           if (date > bookingFrom) {
-            if (date < bookingTo) {
+            if (!this.settings.singleUnavailableMsg) {
+              target = '#date-' + dateStr;
+            } else if (date < bookingTo) {
               target = '.SlotPicker-day--unavailable';
             } else {
               target = '.SlotPicker-day--beyond';
