@@ -119,8 +119,9 @@ ul.BookingCalendar-legend {
   height: 29px;
   margin: 0 5px 0 0;
   border: 1px solid #dee0e2; }
-  .BookingCalendar-legendBox.BookingCalendar-date--unavailable {
-    background: url("../images/unavailable_tile.png"); }
+
+.BookingCalendar-legendBox--unavailable {
+  background: url("../images/unavailable_tile.png"); }
 
 .BookingCalendar-availableMonths {
   display: none; }
