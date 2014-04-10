@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.5.0 (2014-04-10)
+* Time slots now wrapped in element to allow extra conditional content
+
 ## 0.4.0 (2014-04-09)
 * New option to show multiple unavailable day messages
 * Move image assets within stylesheets directory
