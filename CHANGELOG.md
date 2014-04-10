@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.6.0 (2014-04-10)
+* BookingCalendar link styles are now locked down to A elements
+
 ## 0.5.1 (2014-04-10)
 * Corrected licence in bower file
 
