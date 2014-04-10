@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.5.1 (2014-04-10)
+* Corrected licence in bower file
+
 ## 0.5.0 (2014-04-10)
 * Time slots now wrapped in element to allow extra conditional content
 
