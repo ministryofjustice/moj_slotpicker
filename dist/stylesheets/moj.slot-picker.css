@@ -41,7 +41,7 @@ table.BookingCalendar-dates {
     border-bottom: none; }
 
 a.BookingCalendar-dateLink,
-.BookingCalendar-dateLink:visited {
+a.BookingCalendar-dateLink:visited {
   position: absolute;
   top: 0;
   width: 100%;
@@ -49,13 +49,13 @@ a.BookingCalendar-dateLink,
   color: #0b0c0c;
   text-decoration: none; }
 
-.BookingCalendar-dateLink:hover {
+a.BookingCalendar-dateLink:hover {
   color: #0b0c0c;
   text-decoration: underline;
   background: #d5e8f3; }
-.BookingCalendar-dateLink.is-chosen {
+a.BookingCalendar-dateLink.is-chosen {
   overflow: hidden; }
-  .BookingCalendar-dateLink.is-chosen:after {
+  a.BookingCalendar-dateLink.is-chosen:after {
     position: absolute;
     content: "";
     top: 0;
@@ -66,9 +66,9 @@ a.BookingCalendar-dateLink,
     border-width: 0 10px 10px 0;
     border-color: transparent #2b8cc4 transparent transparent; }
     @media (min-width: 641px) {
-      .BookingCalendar-dateLink.is-chosen:after {
+      a.BookingCalendar-dateLink.is-chosen:after {
         border-width: 0 15px 15px 0; } }
-.BookingCalendar-dateLink .BookingCalendar-day {
+a.BookingCalendar-dateLink .BookingCalendar-day {
   padding-left: 3px; }
 
 .BookingCalendar-date--bookable {
@@ -146,13 +146,13 @@ ul.BookingCalendar-legend {
       font-size: 20px;
       line-height: 1.2; } }
 
-.BookingCalendar-nav {
+a.BookingCalendar-nav {
   display: none; }
-  .BookingCalendar-nav.is-active {
+  a.BookingCalendar-nav.is-active {
     display: block; }
 
-.BookingCalendar-nav--next,
-.BookingCalendar-nav--prev {
+a.BookingCalendar-nav--next,
+a.BookingCalendar-nav--prev {
   position: absolute;
   top: 0;
   left: 0;
@@ -167,24 +167,24 @@ ul.BookingCalendar-legend {
   text-decoration: none;
   background: no-repeat 0 -80px; }
   @media (max-width: 640px) {
-    .BookingCalendar-nav--next,
-    .BookingCalendar-nav--prev {
+    a.BookingCalendar-nav--next,
+    a.BookingCalendar-nav--prev {
       font-size: 16px;
       line-height: 1.25; } }
-  .BookingCalendar-nav--next:hover,
-  .BookingCalendar-nav--prev:hover {
+  a.BookingCalendar-nav--next:hover,
+  a.BookingCalendar-nav--prev:hover {
     text-decoration: underline; }
 
-.BookingCalendar-nav--prev {
+a.BookingCalendar-nav--prev {
   margin-left: 10px;
   padding-left: 35px;
   background-image: url("images/prev.png"); }
   @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-    .BookingCalendar-nav--prev {
+    a.BookingCalendar-nav--prev {
       background-position: 0 10px;
       background-size: 30px; } }
 
-.BookingCalendar-nav--next {
+a.BookingCalendar-nav--next {
   left: auto;
   right: 0;
   margin-right: 10px;
@@ -192,7 +192,7 @@ ul.BookingCalendar-legend {
   background-image: url("images/next.png");
   background-position: 100% -80px; }
   @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-    .BookingCalendar-nav--next {
+    a.BookingCalendar-nav--next {
       background-position: 100% 10px;
       background-size: 30px; } }
 
