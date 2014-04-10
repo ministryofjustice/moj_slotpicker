@@ -15,5 +15,5 @@
     "Mat Harden <matharden@gmail.com>"
   ],
   "description": "A Web user interface for selecting 3 time slots in order of preference",
-  "license": "MIT"
+  "license": "OGL2 http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/"
 }
