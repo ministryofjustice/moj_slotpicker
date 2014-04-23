@@ -150,37 +150,39 @@
     },
 
     selectDay: function(day) {
-      var bookingFrom, bookingTo, today, target,
-          dateStr = day.data('date'),
-          date = new Date(dateStr);
-      
       this.$times.removeClass('is-active');
+      $(this.chosenDaySelector(day.data('date'))).addClass('is-active').focus();
+    },
+
+    chosenDaySelector: function(dateStr) {
+      var bookingFrom, bookingTo, today, date;
       
-      if (!~this.indexOf(this.settings.bookableDates, dateStr)) {
-        today = new Date(this.settings.today);
-        bookingFrom = new Date(this.settings.bookableDates[0]);
-        bookingTo = new Date(this.settings.bookableDates[this.settings.bookableDates.length-1]);
-        
-        if (date < today) {
-          target = '.SlotPicker-day--past';
-        } else {
-          if (date > bookingFrom) {
+      if (~this.indexOf(this.settings.bookableDates, dateStr)) {
+        return '#date-' + dateStr;
+      }
+
+      date = new Date(dateStr);
+      today = new Date(this.settings.today);
+      bookingFrom = new Date(this.settings.bookableDates[0]);
+      bookingTo = new Date(this.settings.bookableDates[this.settings.bookableDates.length-1]);
+      
+      if (date < today) {
+        return '.SlotPicker-day--past';
+      } else {
+        if (date > bookingFrom) {
+          if (date < bookingTo) {
             if (!this.settings.singleUnavailableMsg) {
-              target = '#date-' + dateStr;
-            } else if (date < bookingTo) {
-              target = '.SlotPicker-day--unavailable';
+              return '#date-' + dateStr;
             } else {
-              target = '.SlotPicker-day--beyond';
+              return '.SlotPicker-day--unavailable';
             }
           } else {
-            target = '.SlotPicker-day--leadtime';
+            return '.SlotPicker-day--beyond';
           }
+        } else {
+          return '.SlotPicker-day--leadtime';
         }
-      } else {
-        target = '#date-' + dateStr;
       }
-      
-      $(target).addClass('is-active').focus();
     },
 
     highlightDate: function(day) {
