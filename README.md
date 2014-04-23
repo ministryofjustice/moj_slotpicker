@@ -64,3 +64,7 @@ For non-MOJ projects you need to re-create the namespace before the moj.slot-pic
     <script>moj.Modules.SlotPicker.init();</script>
 
 This can be seen in the [demo](http://ministryofjustice.github.io/moj_slotpicker/index.html).
+
+## Known issues
+
+[#3](https://github.com/ministryofjustice/moj_slotpicker/issues/3) Ruby on Rails Asset Pipeline appends hashes to image names. This requires the image-url syntax for including images in stylesheets. As a workaround, copy the `dist/stylesheets/slot-picker-images` directory to `public/assets` of your Rails app.

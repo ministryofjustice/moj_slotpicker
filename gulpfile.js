@@ -6,7 +6,7 @@ var gulp = require('gulp'),
 var paths = {
   scripts: './src/javascripts/**/*.js',
   styles: './src/stylesheets/**/*.sass',
-  images: './src/stylesheets/images/**/*',
+  images: './src/stylesheets/slot-picker-images/**/*',
   markup: './src/index.html',
   dest: './dist/'
 };
@@ -23,7 +23,7 @@ gulp.task('copy', function() {
   gulp.src(paths.scripts)
     .pipe(gulp.dest(paths.dest + 'javascripts'));
   gulp.src(paths.images)
-    .pipe(gulp.dest(paths.dest + 'stylesheets/images'));
+    .pipe(gulp.dest(paths.dest + 'stylesheets/slot-picker-images'));
   gulp.src(paths.markup)
     .pipe(gulp.dest(paths.dest));
 });
