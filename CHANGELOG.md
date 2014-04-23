@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.6.1 (2014-04-23)
+* Fixed slots 'unavalable' notice which did not show when beyond range of dates
+
 ## 0.6.0 (2014-04-10)
 * BookingCalendar link styles are now locked down to A elements
 
