@@ -7,7 +7,7 @@
     this.settings.today = this.formatIso(this.settings.today);
     this.cacheEls($el);
     this.bindEvents();
-    this.setupNav();
+    this.settings.months = this.setupNav(this.$availableMonths);
     this.updateNav(0);
     this.consolidate();
     this.activateOriginalSlots(this.settings.originalSlots);
@@ -91,10 +91,10 @@
       });
     },
 
-    setupNav: function() {
+    setupNav: function($el) {
       var self = this;
 
-      this.settings.months = this.$availableMonths.map(function() {
+      return $el.map(function() {
         var item = $(this);
 
         return {
@@ -102,7 +102,7 @@
           date: item.attr('href'),
           pos: $(item.attr('href')).closest('tr').index() * self.settings.calendarDayHeight
         };
-      });
+      }).get();
     },
 
     updateNav: function(i) {
