@@ -25,8 +25,6 @@ gulp.task('copy', function() {
     .pipe(gulp.dest(paths.dest + 'javascripts'));
   gulp.src(paths.images)
     .pipe(gulp.dest(paths.dest + 'stylesheets/slot-picker-images'));
-  gulp.src(paths.markup)
-    .pipe(gulp.dest(paths.dest));
 });
 
 // compile sass
