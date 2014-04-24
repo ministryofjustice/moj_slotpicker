@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.0 (2014-04-24)
+* Jasmine tests suite wtih jasmine-jquery fixtures
+* Fixed Gulp task clash - include vs copy
+
 ## 0.7.0 (2014-04-24)
 * Image assets moved into `slot-picker-images` for Rails workaround
 
