@@ -18,7 +18,7 @@ table.BookingCalendar-dates {
   width: 100%;
   border-collapse: collapse;
   font-size: 19px;
-  background: url("images/unavailable_tile.png"); }
+  background: url("slot-picker-images/unavailable_tile.png"); }
   table.BookingCalendar-dates th,
   table.BookingCalendar-dates td {
     width: 14.28571%; }
@@ -121,7 +121,7 @@ ul.BookingCalendar-legend {
   border: 1px solid #dee0e2; }
 
 .BookingCalendar-legendBox--unavailable {
-  background: url("images/unavailable_tile.png"); }
+  background: url("slot-picker-images/unavailable_tile.png"); }
 
 .BookingCalendar-availableMonths {
   display: none; }
@@ -178,7 +178,7 @@ a.BookingCalendar-nav--prev {
 a.BookingCalendar-nav--prev {
   margin-left: 10px;
   padding-left: 35px;
-  background-image: url("images/prev.png"); }
+  background-image: url("slot-picker-images/prev.png"); }
   @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
     a.BookingCalendar-nav--prev {
       background-position: 0 10px;
@@ -189,7 +189,7 @@ a.BookingCalendar-nav--next {
   right: 0;
   margin-right: 10px;
   padding-right: 35px;
-  background-image: url("images/next.png");
+  background-image: url("slot-picker-images/next.png");
   background-position: 100% -80px; }
   @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
     a.BookingCalendar-nav--next {
@@ -359,8 +359,8 @@ a.BookingCalendar-nav--next {
       background-size: 100%; } }
 
 .SlotPicker-icon--remove {
-  background-image: url("images/remove.png"); }
+  background-image: url("slot-picker-images/remove.png"); }
 
 .SlotPicker-icon--promote {
   right: 50px;
-  background-image: url("images/promote.png"); }
+  background-image: url("slot-picker-images/promote.png"); }
