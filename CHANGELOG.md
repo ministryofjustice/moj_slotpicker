@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.7.0 (2014-04-24)
+* Image assets moved into `slot-picker-images` for Rails workaround
+
 ## 0.6.1 (2014-04-23)
 * Fixed slots 'unavalable' notice which did not show when beyond range of dates
 
