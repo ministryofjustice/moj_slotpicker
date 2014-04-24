@@ -6,6 +6,7 @@
     "gulp": "^3.5.5",
     "gulp-jshint": "^1.5.0",
     "jshint-stylish": "^0.1.5",
-    "gulp-ruby-sass": "^0.4.0"
+    "gulp-ruby-sass": "^0.4.0",
+    "gulp-file-include": "^0.2.1"
   }
 }

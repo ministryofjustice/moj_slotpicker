@@ -1,7 +1,8 @@
 var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     sass = require('gulp-ruby-sass'),
-    stylish = require('jshint-stylish');
+    stylish = require('jshint-stylish'),
+    fileinclude = require('gulp-file-include');
 
 var paths = {
   scripts: './src/javascripts/**/*.js',
@@ -42,5 +43,12 @@ gulp.task('watch', function() {
   gulp.watch(paths.styles, ['sass']);
 });
 
+// include
+gulp.task('include', function() {
+  gulp.src([paths.markup])
+    .pipe(fileinclude())
+    .pipe(gulp.dest(paths.dest));
+});
+
 // tasks
-gulp.task('default', ['lint', 'copy', 'sass']);
+gulp.task('default', ['lint', 'include', 'copy', 'sass']);

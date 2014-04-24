@@ -1,37 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Slot Picker</title>
-  <link rel="stylesheet" href="stylesheets/moj.slot-picker.css" />
-</head>
-<body>
+<div class="SlotPicker" data-today="2014-03-13">
+  
+  <div class="BookingCalendar">
 
-@@include('./src/includes/slot-picker.html')
+    <div class="BookingCalendar-header">
+      <ul class="BookingCalendar-availableMonths">
+        <li><a href="#month-2014-03">March</a></li>
+        <li><a href="#month-2014-04">April</a></li>
+        <li><a href="#month-2014-05">May</a></li>
+      </ul>
+      <a href="#" class="BookingCalendar-nav BookingCalendar-nav--prev">Previous</a>
+      <strong class="BookingCalendar-currentMonth">April</strong>
+      <a href="#" class="BookingCalendar-nav BookingCalendar-nav--next">Next</a>
+    </div>
 
-<p><a href="#" id="displayOutput">Alert chosen slots</a></p>
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
-<script>var moj = moj || { Modules: {} };</script>
-<script src="javascripts/moj.slot-picker.js"></script>
-<script>moj.Modules.SlotPicker.init();</script>
-
-<script>
-
-// Test select fields have been populated
-$('#displayOutput').on('click', function(e) {
-  e.preventDefault();
-  var values = $('select').map(function() {
-    return $(this).val();
-  }).get();
-  alert(values);
-});
-
-</script>
-</body>
-</html>
-lass="BookingCalendar-dates">
+    <table class="BookingCalendar-dates">
       <thead>
         <tr>
           <th>Mon</th>
@@ -733,27 +715,3 @@ lass="BookingCalendar-dates">
   </select>
 
 </div>
-
-
-<p><a href="#" id="displayOutput">Alert chosen slots</a></p>
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
-<script>var moj = moj || { Modules: {} };</script>
-<script src="javascripts/moj.slot-picker.js"></script>
-<script>moj.Modules.SlotPicker.init();</script>
-
-<script>
-
-// Test select fields have been populated
-$('#displayOutput').on('click', function(e) {
-  e.preventDefault();
-  var values = $('select').map(function() {
-    return $(this).val();
-  }).get();
-  alert(values);
-});
-
-</script>
-</body>
-</html>
