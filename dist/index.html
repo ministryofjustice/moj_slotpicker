@@ -7,31 +7,22 @@
 </head>
 <body>
 
-@@include('./src/includes/slot-picker.html')
+<div class="SlotPicker" data-today="2014-03-13">
+  
+  <div class="BookingCalendar">
 
-<p><a href="#" id="displayOutput">Alert chosen slots</a></p>
+    <div class="BookingCalendar-header">
+      <ul class="BookingCalendar-availableMonths">
+        <li><a href="#month-2014-03">March</a></li>
+        <li><a href="#month-2014-04">April</a></li>
+        <li><a href="#month-2014-05">May</a></li>
+      </ul>
+      <a href="#" class="BookingCalendar-nav BookingCalendar-nav--prev">Previous</a>
+      <strong class="BookingCalendar-currentMonth">April</strong>
+      <a href="#" class="BookingCalendar-nav BookingCalendar-nav--next">Next</a>
+    </div>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
-<script>var moj = moj || { Modules: {} };</script>
-<script src="javascripts/moj.slot-picker.js"></script>
-<script>moj.Modules.SlotPicker.init();</script>
-
-<script>
-
-// Test select fields have been populated
-$('#displayOutput').on('click', function(e) {
-  e.preventDefault();
-  var values = $('select').map(function() {
-    return $(this).val();
-  }).get();
-  alert(values);
-});
-
-</script>
-</body>
-</html>
-lass="BookingCalendar-dates">
+    <table class="BookingCalendar-dates">
       <thead>
         <tr>
           <th>Mon</th>
