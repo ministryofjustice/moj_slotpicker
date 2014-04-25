@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.8.1 (2014-04-25)
+* Fixed issue #7: incorrect classnames contained in include
+
 ## 0.8.0 (2014-04-24)
 * Jasmine tests suite wtih jasmine-jquery fixtures
 * Fixed Gulp task clash - include vs copy
