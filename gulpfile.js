@@ -2,7 +2,9 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     sass = require('gulp-ruby-sass'),
     stylish = require('jshint-stylish'),
-    fileinclude = require('gulp-file-include');
+    fileinclude = require('gulp-file-include'),
+    rename = require('gulp-rename'),
+    replace = require('gulp-replace');
 
 var paths = {
   scripts: './src/javascripts/**/*.js',
@@ -28,9 +30,16 @@ gulp.task('copy', function() {
 });
 
 // compile sass
-gulp.task('sass', function() {
-  gulp.src(paths.styles)
+gulp.task('sass-compile', function() {
+  return gulp.src(paths.styles)
     .pipe(sass())
+    .pipe(gulp.dest(paths.dest + 'stylesheets'));
+});
+
+gulp.task('sass-ap', ['sass-compile'], function() {
+  gulp.src(paths.dest + 'stylesheets/moj.slot-picker.css')
+    .pipe(rename({suffix: '.ap'}))
+    .pipe(replace(/url\(/g, 'image-url('))
     .pipe(gulp.dest(paths.dest + 'stylesheets'));
 });
 
@@ -43,10 +52,11 @@ gulp.task('watch', function() {
 
 // include
 gulp.task('include', function() {
-  gulp.src([paths.markup])
+  gulp.src(paths.markup)
     .pipe(fileinclude())
     .pipe(gulp.dest(paths.dest));
 });
 
 // tasks
 gulp.task('default', ['lint', 'include', 'copy', 'sass']);
+gulp.task('sass', ['sass-compile', 'sass-ap']);

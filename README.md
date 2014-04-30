@@ -31,6 +31,8 @@ or
 
 Download the [latest version as a ZIP](https://github.com/ministryofjustice/moj_slotpicker/releases) and use the `dist` folder.
 
+**Note for RoR:** for Asset Pipeline users, include the moj.slot-picker.ap.css file as this uses `image-url` helpers for file references.
+
 ## Mark-up
 
 The Slot Picker expects source dates to be provided in the form of option elements with values as the slot data.
@@ -64,7 +66,3 @@ For non-MOJ projects you need to re-create the namespace before the moj.slot-pic
     <script>moj.Modules.SlotPicker.init();</script>
 
 This can be seen in the [demo](http://ministryofjustice.github.io/moj_slotpicker/index.html).
-
-## Known issues
-
-[#3](https://github.com/ministryofjustice/moj_slotpicker/issues/3) Ruby on Rails Asset Pipeline appends hashes to image names. This requires the image-url syntax for including images in stylesheets. As a workaround, copy the `dist/stylesheets/slot-picker-images` directory to `public/assets` of your Rails app.
