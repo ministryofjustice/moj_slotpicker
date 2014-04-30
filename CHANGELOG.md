@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.8.2 (2014-04-30)
+* Fixed issue #3: generated CSS file for Rails Asset Pipeline
+
 ## 0.8.1 (2014-04-25)
 * Fixed issue #7: incorrect classnames contained in include
 
