@@ -11,7 +11,7 @@
     this.updateNav(0);
     this.consolidate();
     this.activateOriginalSlots(this.settings.originalSlots);
-    $('.SlotPicker-days').append( this.buildDays() );
+    this.$days.append(this.buildDays());
     return this;
   };
 
@@ -47,6 +47,7 @@
       this.$currentMonth = $('.BookingCalendar-currentMonth');
       this.$calMask = $('.BookingCalendar-mask', $el);
       this.$calDates = $('.BookingCalendar-date--bookable', $el);
+      this.$days = $('.SlotPicker-days', $el);
     },
 
     bindEvents: function() {
