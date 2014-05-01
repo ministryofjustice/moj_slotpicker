@@ -100,4 +100,37 @@ describe('Slot Picker', function() {
       expect(picker.move(array, 0, 2)).toEqual(['b', 'c', 'a']);
     });
   });
+
+  describe('duration method', function() {
+    var start1 = new Date(2014, 5, 1, 13, 55, 0),
+        end1 = new Date(2014, 5, 1, 17, 0, 0),
+        start2 = new Date(2014, 5, 1, 1, 0, 0),
+        end2 = new Date(2014, 5, 1, 2, 0, 0),
+        start3 = new Date(2014, 5, 1, 1, 0, 0),
+        end3 = new Date(2014, 5, 1, 1, 30, 0);
+
+    it('should return "30 mins"', function() {
+      expect(picker.duration(start3, end3)).toEqual(' 30 mins');
+    });
+    it('should return "1 hr"', function() {
+      expect(picker.duration(start2, end2)).toEqual('1 hr');
+    });
+    it('should return "3 hrs 5 mins"', function() {
+      expect(picker.duration(start1, end1)).toEqual('3 hrs 5 mins');
+    });
+  });
+
+  describe('timeFromSlot method', function() {
+    var time = '0935';
+
+    it('should return a valid date from 4 digit string', function() {
+      expect(Object.prototype.toString.call(picker.timeFromSlot(time))).toEqual('[object Date]');
+    });
+    it('should set hours to 9', function() {
+      expect(picker.timeFromSlot(time).getHours()).toEqual(9);
+    });
+    it('should set minutes to 35', function() {
+      expect(picker.timeFromSlot(time).getMinutes()).toEqual(35);
+    });
+  });
 });

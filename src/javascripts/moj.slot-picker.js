@@ -409,9 +409,9 @@
           diff = end.getTime() - start.getTime(),
           duration = new Date(diff);
       
-      if (duration.getHours()) {
-        out+= duration.getHours() + ' hr';
-        if (duration.getHours() > 1) {
+      if (duration.getUTCHours()) {
+        out+= duration.getUTCHours() + ' hr';
+        if (duration.getUTCHours() > 1) {
           out+= 's';
         }
       }
