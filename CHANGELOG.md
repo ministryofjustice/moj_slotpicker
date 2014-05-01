@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.0 (2014-05-01)
+* Added [notes on contributing](https://github.com/ministryofjustice/moj_slotpicker/blob/master/CONTRIBUTING.md)
+* Updated copyright
+
 ## 0.8.2 (2014-04-30)
 * Fixed issue #3: generated CSS file for Rails Asset Pipeline
 
