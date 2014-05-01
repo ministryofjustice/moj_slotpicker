@@ -18,8 +18,7 @@
   "jquery": true,
   "globals": {
     "moj": true,
-    "pvbe": true,
-    "ga": true
+    "Handlebars": true
   },
 
   "maxparams": 4,
