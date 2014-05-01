@@ -7,10 +7,11 @@
     this.settings.today = this.formatIso(this.settings.today);
     this.cacheEls($el);
     this.bindEvents();
-    this.settings.months = this.setupNav(this.$availableMonths);
+    this.settings.navMonths = this.setupNav(this.$availableMonths);
     this.updateNav(0);
     this.consolidate();
     this.activateOriginalSlots(this.settings.originalSlots);
+    $('.SlotPicker-days').append( this.buildDays() );
     return this;
   };
 
@@ -26,14 +27,15 @@
       currentSlots: [],
       calendarDayHeight: 56,
       navPointer: 0,
-      today: new Date()
+      today: new Date(),
+      days: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+      months: ['January','February','March','April','May','June','July','August','September','October','November','December']
     },
 
     cacheEls: function($el) {
       this.$_el = $el;
       
       this.$slotInputs = $('.SlotPicker-input', $el);
-      this.$slotOptions = $('.SlotPicker-slot', $el);
       this.$choices = $('.SlotPicker-choices', $el);
       this.$choice = $('.SlotPicker-choices li', $el);
       this.$promoteHelp = $('.SlotPicker-promoteHelp', $el);
@@ -44,14 +46,13 @@
       this.$dateTriggers = $('.BookingCalendar-dateLink, .DateSlider-largeDates li', $el);
       this.$currentMonth = $('.BookingCalendar-currentMonth');
       this.$calMask = $('.BookingCalendar-mask', $el);
-      this.$times = $('.SlotPicker-day', $el);
       this.$calDates = $('.BookingCalendar-date--bookable', $el);
     },
 
     bindEvents: function() {
       var self = this;
 
-      this.$slotOptions.on('click', function() {
+      this.$_el.on('click', '.SlotPicker-slot', function() {
         self.$choices.addClass('is-active');
         self.emptyUiSlots();
         self.emptySlotInputs();
@@ -107,29 +108,31 @@
 
     updateNav: function(i) {
       if (i > 0) {
-        this.$prev.addClass('is-active').text(this.settings.months[i - 1].label);
+        this.$prev.addClass('is-active').text(this.settings.navMonths[i - 1].label);
       } else {
         this.$prev.removeClass('is-active');
       }
 
-      if (i + 1 < this.settings.months.length) {
-        this.$next.addClass('is-active').text(this.settings.months[i + 1].label);
+      if (i + 1 < this.settings.navMonths.length) {
+        this.$next.addClass('is-active').text(this.settings.navMonths[i + 1].label);
       } else {
         this.$next.removeClass('is-active');
       }
 
-      this.$currentMonth.text(this.settings.months[i].label);
+      this.$currentMonth.text(this.settings.navMonths[i].label);
     },
 
     nudgeNav: function(i) {
       this.settings.navPointer = i + this.settings.navPointer;
       this.updateNav(this.settings.navPointer);
       this.$calMask.animate({
-        scrollTop: this.settings.months[this.settings.navPointer].pos
+        scrollTop: this.settings.navMonths[this.settings.navPointer].pos
       }, 200);
     },
 
     consolidate: function() {
+      var slots, i, times = [], day, days = [], previous;
+
       this.settings.bookableSlots = this.$slotInputs.first().find('option').map(function() {
         var v = $(this).val();
         if (v !== '') {
@@ -147,10 +150,31 @@
           return v;
         }
       }).get();
+      
+      slots = this.settings.bookableSlots;
+      
+      for (i = 0; i < slots.length; i++) {
+        day = this.splitDateAndSlot(slots[i])[0];
+
+        if (previous !== day && i) {
+          days[previous] = times;
+          times = [];
+        }
+
+        times.push(this.splitDateAndSlot(slots[i])[1]);
+
+        if (i === slots.length-1) {
+          days[day] = times;
+        }
+
+        previous = day;
+      }
+
+      this.settings.bookableTimes = days;
     },
 
     selectDay: function(day) {
-      this.$times.removeClass('is-active');
+      $('.SlotPicker-day', this.$_el).removeClass('is-active');
       $(this.chosenDaySelector(day.data('date'))).addClass('is-active').focus();
     },
 
@@ -205,7 +229,7 @@
     },
 
     unHighlightSlots: function() {
-      this.$times.find('.SlotPicker-label').removeClass('is-active');
+      $('.SlotPicker-label', this.$_el).removeClass('is-active');
     },
 
     emptyUiSlots: function() {
@@ -224,7 +248,7 @@
           time = label.find('.SlotPicker-time').text(),
           duration = label.find('.SlotPicker-duration').text(),
           $slot = this.$choice.eq(index);
-
+      
       $slot.addClass('is-active');
       $slot.find('.SlotPicker-date').text(day);
       $slot.find('.SlotPicker-time').text([time, duration].join(', '));
@@ -232,9 +256,9 @@
     },
 
     populateSlotInputs: function(index, chosen) {
-      this.$slotInputs.eq(index).val(chosen);
+      $('.SlotPicker-input').eq(index).val(chosen);
     },
-
+    
     processSlots: function() {
       var slots = this.settings.currentSlots,
           i, $slotEl;
@@ -249,11 +273,11 @@
     },
 
     limitReached: function() {
-      return this.$slotOptions.filter(':checked').length >= this.settings.optionLimit;
+      return this.$_el.find('.SlotPicker-slot:checked').length >= this.settings.optionLimit;
     },
 
     disableCheckboxes: function(disable) {
-      this.$slotOptions.not(':checked')
+      this.$_el.find('.SlotPicker-slot').not(':checked')
         .prop('disabled', disable)
         .closest('label')[disable ? 'addClass' : 'removeClass']('is-disabled');
     },
@@ -322,8 +346,93 @@
       }
       array.splice(new_index, 0, array.splice(old_index, 1)[0]);
       return array;
-    }
+    },
 
+    buildTimeSlots: function(date, slots) {
+      var i, out = '',
+          source = $('#SlotPicker-tmplTimeSlot').html(),
+          template = Handlebars.compile(source);
+
+      for (i = 0; i < slots.length; i++) {
+        out+= template({
+          time: this.displayTime(slots[i].split('-')[0]),
+          duration: this.duration( this.dateFromSlot(slots[i].split('-')[0]), this.dateFromSlot(slots[i].split('-')[1]) ),
+          slot: [date,slots[i]].join('-')
+        });
+      }
+
+      return out;
+    },
+
+    buildDays: function() {
+      var day, out = '', date,
+          source = $('#SlotPicker-tmplDay').html(),
+          template = Handlebars.compile(source),
+          slots = this.settings.bookableTimes;
+
+      for (day in slots) {
+        date = new Date(day);
+        out+= template({
+          date: this.settings.days[date.getDay()] +' '+ date.getDate() +' '+ this.settings.months[date.getMonth()],
+          slot: day,
+          slots: this.buildTimeSlots(day, slots[day])
+        });
+      }
+
+      return out;
+    },
+
+    displayTime: function(time) {
+      var hrs = parseInt(time.substr(0, 2)),
+          mins = time.substr(2),
+          out = hrs;
+
+      if (hrs > 12) {
+        out-= 12;
+      }
+      
+
+      if (hrs === 0) {
+        out = 12;
+      }
+
+      if (parseInt(mins)) {
+        out+= ':' + mins;
+      }
+
+      return out+= (hrs > 11) ? 'pm' : 'am';
+    },
+
+    duration: function(start, end) {
+      var out = '',
+          diff = end.getTime() - start.getTime(),
+          duration = new Date(diff);
+      
+      if (duration.getHours()) {
+        out+= duration.getHours() + ' hr';
+        if (duration.getHours() > 1) {
+          out+= 's';
+        }
+      }
+      
+      if (duration.getMinutes()) {
+        out+= ' ' + duration.getMinutes() + ' min';
+        if (duration.getMinutes() > 1) {
+          out+= 's';
+        }
+      }
+
+      return out;
+    },
+
+    dateFromSlot: function(time) {
+      var date = new Date();
+
+      date.setHours(time.substr(0, 2));
+      date.setMinutes(time.substr(2));
+
+      return date;
+    }
 
   };
 

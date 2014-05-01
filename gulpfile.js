@@ -10,7 +10,6 @@ var paths = {
   scripts: './src/javascripts/**/*.js',
   styles: './src/stylesheets/**/*.sass',
   images: './src/stylesheets/slot-picker-images/**/*',
-  markup: './src/index.html',
   dest: './dist/'
 };
 
@@ -19,6 +18,13 @@ gulp.task('lint', function() {
   gulp.src(paths.scripts)
     .pipe(jshint())
     .pipe(jshint.reporter(stylish));
+});
+
+// include
+gulp.task('include', function() {
+  gulp.src('./src/index.html')
+    .pipe(fileinclude())
+    .pipe(gulp.dest(paths.dest));
 });
 
 // join javascript and output
@@ -36,6 +42,7 @@ gulp.task('sass-compile', function() {
     .pipe(gulp.dest(paths.dest + 'stylesheets'));
 });
 
+// replace url file ref with Rails helper for Asset Pipeline
 gulp.task('sass-ap', ['sass-compile'], function() {
   gulp.src(paths.dest + 'stylesheets/moj.slot-picker.css')
     .pipe(rename({suffix: '.ap'}))
@@ -43,18 +50,18 @@ gulp.task('sass-ap', ['sass-compile'], function() {
     .pipe(gulp.dest(paths.dest + 'stylesheets'));
 });
 
-// watches
-gulp.task('watch', function() {
-  gulp.watch(paths.scripts, ['lint']);
-  gulp.watch([paths.scripts, paths.markup], ['copy']);
-  gulp.watch(paths.styles, ['sass']);
-});
-
 // include
 gulp.task('include', function() {
-  gulp.src(paths.markup)
+  gulp.src('./src/index.html')
     .pipe(fileinclude())
     .pipe(gulp.dest(paths.dest));
+});
+
+// watches
+gulp.task('watch', function() {
+  gulp.watch(paths.scripts, ['lint','copy']);
+  gulp.watch(paths.markup, ['include']);
+  gulp.watch(paths.styles, ['sass']);
 });
 
 // tasks
