@@ -357,7 +357,7 @@
       for (i = 0; i < slots.length; i++) {
         out+= template({
           time: this.displayTime(slots[i].split('-')[0]),
-          duration: this.duration( this.dateFromSlot(slots[i].split('-')[0]), this.dateFromSlot(slots[i].split('-')[1]) ),
+          duration: this.duration( this.timeFromSlot(slots[i].split('-')[0]), this.timeFromSlot(slots[i].split('-')[1]) ),
           slot: [date,slots[i]].join('-')
         });
       }
@@ -426,13 +426,13 @@
       return out;
     },
 
-    dateFromSlot: function(time) {
-      var date = new Date();
+    timeFromSlot: function(slot) {
+      var time = new Date();
 
-      date.setHours(time.substr(0, 2));
-      date.setMinutes(time.substr(2));
+      time.setHours(slot.substr(0, 2));
+      time.setMinutes(slot.substr(2));
 
-      return date;
+      return time;
     }
 
   };
