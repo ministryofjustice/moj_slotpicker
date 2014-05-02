@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.10.0 (2014-05-02)
+* Use Handlebars for templating of days and timeslots
+
 ## 0.9.0 (2014-05-01)
 * Added [notes on contributing](https://github.com/ministryofjustice/moj_slotpicker/blob/master/CONTRIBUTING.md)
 * Updated copyright
