@@ -48,6 +48,9 @@
       this.$calMask = $('.BookingCalendar-mask', $el);
       this.$calDates = $('.BookingCalendar-date--bookable', $el);
       this.$days = $('.SlotPicker-days', $el);
+
+      this.$tmplDay = Handlebars.compile($('#SlotPicker-tmplDay').html());
+      this.$tmplTimeSlot = Handlebars.compile($('#SlotPicker-tmplTimeSlot').html());
     },
 
     bindEvents: function() {
@@ -350,12 +353,10 @@
     },
 
     buildTimeSlots: function(date, slots) {
-      var i, out = '',
-          source = $('#SlotPicker-tmplTimeSlot').html(),
-          template = Handlebars.compile(source);
+      var i, out = '';
 
       for (i = 0; i < slots.length; i++) {
-        out+= template({
+        out+= this.$tmplTimeSlot({
           time: this.displayTime(slots[i].split('-')[0]),
           duration: this.duration( this.timeFromSlot(slots[i].split('-')[0]), this.timeFromSlot(slots[i].split('-')[1]) ),
           slot: [date,slots[i]].join('-')
@@ -367,13 +368,11 @@
 
     buildDays: function() {
       var day, out = '', date,
-          source = $('#SlotPicker-tmplDay').html(),
-          template = Handlebars.compile(source),
           slots = this.settings.bookableTimes;
 
       for (day in slots) {
         date = new Date(day);
-        out+= template({
+        out+= this.$tmplDay({
           date: this.settings.days[date.getDay()] +' '+ date.getDate() +' '+ this.settings.months[date.getMonth()],
           slot: day,
           slots: this.buildTimeSlots(day, slots[day])
