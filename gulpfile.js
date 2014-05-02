@@ -4,12 +4,17 @@ var gulp = require('gulp'),
     stylish = require('jshint-stylish'),
     fileinclude = require('gulp-file-include'),
     rename = require('gulp-rename'),
-    replace = require('gulp-replace');
+    replace = require('gulp-replace'),
+    handlebars = require('gulp-handlebars'),
+    defineModule = require('gulp-define-module'),
+    concat = require('gulp-concat');
 
 var paths = {
   scripts: './src/javascripts/**/*.js',
   styles: './src/stylesheets/**/*.sass',
   images: './src/stylesheets/slot-picker-images/**/*',
+  markup: ['./src/index.html', '.src/includes/slot-picker.html'],
+  templates: './src/templates/*.hbs',
   dest: './dist/'
 };
 
@@ -57,13 +62,25 @@ gulp.task('include', function() {
     .pipe(gulp.dest(paths.dest));
 });
 
+// templates
+gulp.task('templates', function(){
+  gulp.src(paths.templates)
+    .pipe(handlebars())
+    .pipe(defineModule('plain', {
+      wrapper: 'moj.Templates["<%= name %>"] = <%= handlebars %>'
+    }))
+    .pipe(concat('moj.templates.js'))
+    .pipe(gulp.dest('./dist/javascripts/'));
+});
+
 // watches
 gulp.task('watch', function() {
   gulp.watch(paths.scripts, ['lint','copy']);
   gulp.watch(paths.markup, ['include']);
   gulp.watch(paths.styles, ['sass']);
+  gulp.watch(paths.templates, ['templates']);
 });
 
 // tasks
-gulp.task('default', ['lint', 'include', 'copy', 'sass']);
+gulp.task('default', ['lint', 'include', 'copy', 'sass', 'templates']);
 gulp.task('sass', ['sass-compile', 'sass-ap']);

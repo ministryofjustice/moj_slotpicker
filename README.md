@@ -14,7 +14,8 @@ When a slot is selected the corresponding hidden option element is selected.
 
 ## Dependencies
 
-* jQuery
+* [jQuery](http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js)
+* [Handlebars RunTime](http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.runtime.js)
 * moj.js (see [Non-MOJ projects](#non-moj-projects) below)
 
 ## How to use
@@ -61,8 +62,9 @@ MOJ projects use a JavaScript [module structure](https://github.com/ministryofju
 
 For non-MOJ projects you need to re-create the namespace before the moj.slot-picker.js file is included and then initialise the Slot Picker module.
 
-    <script>var moj = moj || { Modules: {} };</script>
+    <script>var moj = moj || { Modules: {}, Templates: {} };</script>
     <script src="javascripts/moj.slot-picker.js"></script>
+    <script src="javascripts/moj.templates.js"></script>
     <script>moj.Modules.SlotPicker.init();</script>
 
 This can be seen in the [demo](http://ministryofjustice.github.io/moj_slotpicker/index.html).

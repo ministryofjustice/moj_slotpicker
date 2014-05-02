@@ -351,8 +351,7 @@
 
     buildTimeSlots: function(date, slots) {
       var i, out = '',
-          source = $('#SlotPicker-tmplTimeSlot').html(),
-          template = Handlebars.compile(source);
+          template = moj.Templates['SlotPicker-timeSlot'];
 
       for (i = 0; i < slots.length; i++) {
         out+= template({
@@ -367,8 +366,7 @@
 
     buildDays: function() {
       var day, out = '', date,
-          source = $('#SlotPicker-tmplDay').html(),
-          template = Handlebars.compile(source),
+          template = moj.Templates['SlotPicker-day'],
           slots = this.settings.bookableTimes;
 
       for (day in slots) {
@@ -391,7 +389,6 @@
       if (hrs > 12) {
         out-= 12;
       }
-      
 
       if (hrs === 0) {
         out = 12;

@@ -9,6 +9,9 @@
     "gulp-ruby-sass": "^0.4.0",
     "gulp-file-include": "^0.2.1",
     "gulp-replace": "^0.2.0",
-    "gulp-rename": "^1.2.0"
+    "gulp-rename": "^1.2.0",
+    "gulp-handlebars": "^2.1.0",
+    "gulp-define-module": "^0.1.1",
+    "gulp-concat": "^2.2.0"
   }
 }
