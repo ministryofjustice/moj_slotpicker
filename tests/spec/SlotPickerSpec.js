@@ -101,6 +101,21 @@ describe('Slot Picker', function() {
     });
   });
 
+  describe('displayTime method', function() {
+    it('should return 12am from "0000"', function() {
+      expect(picker.displayTime('0000')).toEqual('12am');
+    });
+    it('should return 1:45am from "0145"', function() {
+      expect(picker.displayTime('0145')).toEqual('1:45am');
+    });
+    it('should return 12pm from "1200"', function() {
+      expect(picker.displayTime('1200')).toEqual('12pm');
+    });
+    it('should return 5:30pm from "1730"', function() {
+      expect(picker.displayTime('1730')).toEqual('5:30pm');
+    });
+  });
+
   describe('duration method', function() {
     var start1 = new Date(2014, 5, 1, 13, 55, 0),
         end1 = new Date(2014, 5, 1, 17, 0, 0),
