@@ -148,4 +148,28 @@ describe('Slot Picker', function() {
       expect(picker.timeFromSlot(time).getMinutes()).toEqual(35);
     });
   });
+
+  describe('firstDayOfWeek', function() {
+    it('should return a date', function() {
+      expect(Object.prototype.toString.call(picker.firstDayOfWeek(new Date()))).toEqual('[object Date]');
+    });
+    it('should return Mon 28 Apr from Fri 2 May 2014', function() {
+      expect(picker.firstDayOfWeek(new Date(2014, 4, 2))).toEqual(new Date(2014, 3, 28));
+    });
+    it('should return the same day if given a Monday', function() {
+      expect(picker.firstDayOfWeek(new Date(2014, 4, 5))).toEqual(new Date(2014, 4, 5));
+    });
+  });
+
+  describe('lastDayOfWeek', function() {
+    it('should return a date', function() {
+      expect(Object.prototype.toString.call(picker.lastDayOfWeek(new Date()))).toEqual('[object Date]');
+    });
+    it('should return Sun 1 Jun from Thu 29 May 2014', function() {
+      expect(picker.lastDayOfWeek(new Date(2014, 4, 29))).toEqual(new Date(2014, 5, 1));
+    });
+    it('should return the same day if given a Sunday', function() {
+      expect(picker.lastDayOfWeek(new Date(2014, 4, 5))).toEqual(new Date(2014, 4, 5));
+    });
+  });
 });

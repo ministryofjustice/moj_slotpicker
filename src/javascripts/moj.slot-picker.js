@@ -6,12 +6,13 @@
     this.settings = $.extend({}, this.defaults, options);
     this.settings.today = this.formatIso(this.settings.today);
     this.cacheEls($el);
+    this.cacheTmpls();
     this.bindEvents();
     this.settings.navMonths = this.setupNav(this.$availableMonths);
     this.updateNav(0);
     this.consolidate();
     this.activateOriginalSlots(this.settings.originalSlots);
-    this.$days.append(this.buildDays());
+    this.renderElements();
     return this;
   };
 
@@ -48,9 +49,14 @@
       this.$calMask = $('.BookingCalendar-mask', $el);
       this.$calDates = $('.BookingCalendar-date--bookable', $el);
       this.$days = $('.SlotPicker-days', $el);
+      this.$datesBody = $('.BookingCalendar-datesBody', $el);
+    },
 
+    cacheTmpls: function() {
       this.$tmplDay = Handlebars.compile($('#SlotPicker-tmplDay').html());
       this.$tmplTimeSlot = Handlebars.compile($('#SlotPicker-tmplTimeSlot').html());
+      this.$tmplRow = Handlebars.compile($('#BookingCalendar-tmplRow').html());
+      this.$tmplDate = Handlebars.compile($('#BookingCalendar-tmplDate').html());
     },
 
     bindEvents: function() {
@@ -94,6 +100,15 @@
         e.preventDefault();
         self.nudgeNav(-1);
       });
+    },
+
+    renderElements: function() {
+      var len = this.settings.bookableDates.length,
+          from = this.settings.bookableDates[0],
+          to = this.settings.bookableDates[len-1];
+
+      this.$days.append(this.buildDays());
+      this.$datesBody.append(this.buildDates(from, to));
     },
 
     setupNav: function($el) {
@@ -382,6 +397,35 @@
       return out;
     },
 
+    buildDates: function(from, to) {
+      var out, row, curDate,
+          end = new Date(to),
+          count = 1;
+
+      curDate = this.firstDayOfWeek(new Date(from));
+      end = this.lastDayOfWeek(end);
+
+      while (curDate < end) {
+        row+= this.$tmplDate({
+          date: this.formatIso(curDate),
+          day: curDate.getDate()
+        });
+
+        if (count === 7) {
+          out+= this.$tmplRow({
+            cells: row
+          });
+          row = '';
+          count = 0;
+        }
+
+        curDate.setDate(curDate.getDate() + 1);
+        count++;
+      }
+      
+      return out;
+    },
+
     displayTime: function(time) {
       var hrs = parseInt(time.substr(0, 2)),
           mins = time.substr(2),
@@ -432,6 +476,20 @@
       time.setMinutes(slot.substr(2));
 
       return time;
+    },
+
+    firstDayOfWeek: function(date) {
+      var day = date.getDay(),
+          diff = date.getDate() - day + (day === 0 ? -6 : 1);
+
+      return new Date(date.setDate(diff));
+    },
+
+    lastDayOfWeek: function(date) {
+      var day = date.getDay(),
+          diff = date.getDate() + day - 1;
+
+      return new Date(date.setDate(diff));
     }
 
   };

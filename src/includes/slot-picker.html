@@ -13,6 +13,22 @@
   </label>
 </script>
 
+<script type="text/html" id="BookingCalendar-tmplRow">
+  <tr>
+    {{{ cells }}}
+  </tr>
+</script>
+
+<script type="text/html" id="BookingCalendar-tmplDate">
+  <td class="BookingCalendar-date--unavailable">
+    <div class="BookingCalendar-content">
+      <a class="BookingCalendar-dateLink" data-date="{{ date }}" href="#date-{{ date }}">
+        <span class="BookingCalendar-day">{{ day }}</span>
+      </a>
+    </div>
+  </td>
+</script>
+
 
 <div class="SlotPicker" data-today="2014-03-13">
   
@@ -45,7 +61,7 @@
 
     <div class="BookingCalendar-mask">
       <table class="BookingCalendar-dates">
-        <tbody>
+        <tbody class="BookingCalendar-datesBody">
           <tr>
             <td class="BookingCalendar-date--unavailable">
               <div class="BookingCalendar-content">
