@@ -10,7 +10,7 @@ var paths = {
   scripts: './src/javascripts/**/*.js',
   styles: './src/stylesheets/**/*.sass',
   images: './src/stylesheets/slot-picker-images/**/*',
-  markup: ['./src/index.html', '.src/includes/slot-picker.html'],
+  markup: ['./src/index.html', './src/includes/slot-picker.html'],
   dest: './dist/'
 };
 
