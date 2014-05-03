@@ -44,10 +44,8 @@
       this.$prev = $('.BookingCalendar-nav--prev', $el);
       this.$availableMonths = $('.BookingCalendar-availableMonths a', $el);
       this.$timeSlots = $('.SlotPicker-timeSlots', $el);
-      this.$dateTriggers = $('.BookingCalendar-dateLink, .DateSlider-largeDates li', $el);
       this.$currentMonth = $('.BookingCalendar-currentMonth');
       this.$calMask = $('.BookingCalendar-mask', $el);
-      this.$calDates = $('.BookingCalendar-date--bookable', $el);
       this.$days = $('.SlotPicker-days', $el);
       this.$datesBody = $('.BookingCalendar-datesBody', $el);
     },
@@ -84,7 +82,7 @@
         self.processSlots();
       });
 
-      this.$dateTriggers.on('click chosen', function(e) {
+      this.$_el.on('click chosen', '.BookingCalendar-dateLink, .DateSlider-largeDates li', function(e) {
         e.preventDefault();
         self.selectDay($(this));
         self.highlightDate($(this));
@@ -200,7 +198,7 @@
     chosenDaySelector: function(dateStr) {
       var bookingFrom, bookingTo, today, date;
       
-      if (~this.indexOf(this.settings.bookableDates, dateStr)) {
+      if (this.dateBookable(dateStr)) {
         return '#date-' + dateStr;
       }
 
@@ -229,7 +227,7 @@
     },
 
     highlightDate: function(day) {
-      this.$calDates.filter('.is-active').removeClass('is-active');
+      $('.BookingCalendar-date--bookable.is-active', this.$_el).removeClass('is-active');
       day.closest('td').addClass('is-active');
     },
 
@@ -338,6 +336,10 @@
       $('[data-date=' + day + ']', this.$_el)[~this.settings.currentSlots.join('-').indexOf(day) ? 'addClass' : 'removeClass']('is-chosen');
     },
 
+    dateBookable: function(date) {
+      return ~this.indexOf(this.settings.bookableDates, this.formatIso(date));
+    },
+
     formatIso: function(date) {
       if (typeof date === 'string') {
         return date;
@@ -408,7 +410,8 @@
       while (curDate < end) {
         row+= this.$tmplDate({
           date: this.formatIso(curDate),
-          day: curDate.getDate()
+          day: curDate.getDate(),
+          class: this.dateBookable(curDate) ? 'BookingCalendar-date--bookable' : 'BookingCalendar-date--unavailable'
         });
 
         if (count === 7) {
