@@ -172,4 +172,13 @@ describe('Slot Picker', function() {
       expect(picker.lastDayOfWeek(new Date(2014, 4, 5))).toEqual(new Date(2014, 4, 5));
     });
   });
+
+  describe('lastDayOfMonth', function() {
+    it('should return a date', function() {
+      expect(Object.prototype.toString.call(picker.lastDayOfMonth(new Date()))).toEqual('[object Date]');
+    });
+    it('should return 31 May from 29 May', function() {
+      expect(picker.lastDayOfMonth(new Date(2014, 4, 29))).toEqual(new Date(2014, 4, 31));
+    });
+  });
 });

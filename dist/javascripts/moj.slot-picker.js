@@ -8,11 +8,11 @@
     this.cacheEls($el);
     this.cacheTmpls();
     this.bindEvents();
-    this.settings.navMonths = this.setupNav(this.$availableMonths);
-    this.updateNav(0);
     this.consolidate();
     this.activateOriginalSlots(this.settings.originalSlots);
     this.renderElements();
+    this.settings.navMonths = this.setupNav(this.$availableMonths);
+    this.updateNav(0);
     return this;
   };
 
@@ -40,8 +40,6 @@
       this.$choices = $('.SlotPicker-choices', $el);
       this.$choice = $('.SlotPicker-choices li', $el);
       this.$promoteHelp = $('.SlotPicker-promoteHelp', $el);
-      this.$next = $('.BookingCalendar-nav--next', $el);
-      this.$prev = $('.BookingCalendar-nav--prev', $el);
       this.$availableMonths = $('.BookingCalendar-availableMonths a', $el);
       this.$timeSlots = $('.SlotPicker-timeSlots', $el);
       this.$currentMonth = $('.BookingCalendar-currentMonth');
@@ -89,12 +87,12 @@
         self.$timeSlots.addClass('is-active');
       });
 
-      this.$next.on('click', function(e) {
+      this.$_el.on('click', '.BookingCalendar-nav--next', function(e) {
         e.preventDefault();
         self.nudgeNav(1);
       });
 
-      this.$prev.on('click', function(e) {
+      this.$_el.on('click', '.BookingCalendar-nav--prev', function(e) {
         e.preventDefault();
         self.nudgeNav(-1);
       });
@@ -125,15 +123,15 @@
 
     updateNav: function(i) {
       if (i > 0) {
-        this.$prev.addClass('is-active').text(this.settings.navMonths[i - 1].label);
+        $('.BookingCalendar-nav--prev', this.$_el).addClass('is-active').text(this.settings.navMonths[i - 1].label);
       } else {
-        this.$prev.removeClass('is-active');
+        $('.BookingCalendar-nav--prev', this.$_el).removeClass('is-active');
       }
 
       if (i + 1 < this.settings.navMonths.length) {
-        this.$next.addClass('is-active').text(this.settings.navMonths[i + 1].label);
+        $('.BookingCalendar-nav--next', this.$_el).addClass('is-active').text(this.settings.navMonths[i + 1].label);
       } else {
-        this.$next.removeClass('is-active');
+        $('.BookingCalendar-nav--next', this.$_el).removeClass('is-active');
       }
 
       this.$currentMonth.text(this.settings.navMonths[i].label);
@@ -400,17 +398,23 @@
     },
 
     buildDates: function(from, to) {
-      var out, row, curDate,
+      var out, row, curDate, curIso,
           end = new Date(to),
           count = 1;
 
       curDate = this.firstDayOfWeek(new Date(from));
-      end = this.lastDayOfWeek(end);
+      end = this.lastDayOfWeek(this.lastDayOfMonth(end));
 
       while (curDate < end) {
+        curIso = this.formatIso(curDate)
+
         row+= this.$tmplDate({
-          date: this.formatIso(curDate),
+          date: curIso,
           day: curDate.getDate(),
+          today: curIso === this.settings.today,
+          newMonth: curDate.getDate() === 1,
+          monthIso: curIso.substr(0, 7),
+          monthShort: this.settings.months[curDate.getMonth()].substr(0,3),
           class: this.dateBookable(curDate) ? 'BookingCalendar-date--bookable' : 'BookingCalendar-date--unavailable'
         });
 
@@ -437,7 +441,6 @@
       if (hrs > 12) {
         out-= 12;
       }
-      
 
       if (hrs === 0) {
         out = 12;
@@ -493,6 +496,10 @@
           diff = date.getDate() + day - 1;
 
       return new Date(date.setDate(diff));
+    },
+
+    lastDayOfMonth: function(date) {
+      return new Date(date.getFullYear(), date.getMonth() + 1, 0);
     }
 
   };
