@@ -6,11 +6,11 @@
     this.settings = $.extend({}, this.defaults, options);
     this.settings.today = this.formatIso(this.settings.today);
     this.cacheEls($el);
-    this.cacheTmpls();
-    this.bindEvents();
     this.consolidate();
-    this.activateOriginalSlots(this.settings.originalSlots);
+    this.cacheTmpls();
     this.renderElements();
+    this.bindEvents();
+    this.activateOriginalSlots(this.settings.originalSlots);
     this.settings.navMonths = this.setupNav(this.$availableMonths);
     this.updateNav(0);
     return this;
@@ -406,7 +406,7 @@
       end = this.lastDayOfWeek(this.lastDayOfMonth(end));
 
       while (curDate < end) {
-        curIso = this.formatIso(curDate)
+        curIso = this.formatIso(curDate);
 
         row+= this.$tmplDate({
           date: curIso,

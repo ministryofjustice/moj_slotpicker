@@ -1,9 +1,10 @@
 describe('Slot Picker', function() {
   var picker,
-      myPicker;
+      myPicker,
+      fixturePath = '../../../../src/includes/slot-picker.html';
 
   beforeEach(function() {
-    loadFixtures('../../../../src/includes/slot-picker.html');
+    loadFixtures(fixturePath);
     moj.Modules.SlotPicker.init();
     myPicker = $('.SlotPicker');
     picker = myPicker.data('SlotPicker');
@@ -54,6 +55,23 @@ describe('Slot Picker', function() {
   describe('the amount of slot choices', function() {
     it('should be not have reached limit', function() {
       expect(picker.limitReached()).toEqual(false);
+    });
+  });
+
+  describe('activateOriginalSlots method', function() {
+    beforeEach(function() {
+      loadFixtures(fixturePath);
+      $('.SlotPicker-input option[value="2014-03-20-1400-1440"]:first').prop('selected', true);
+      moj.Modules.SlotPicker.init();
+      myPicker = $('.SlotPicker');
+      picker = myPicker.data('SlotPicker');
+    });
+
+    it('should check the corresponding tick box', function() {
+      expect(myPicker.find('input[value="2014-03-20-1400-1440"]')).toBeChecked();
+    });
+    it('should display the corresponding chosen box with details', function() {
+      expect(myPicker.find('.SlotPicker-choices li:first')).toContainText('Thursday 20 March');
     });
   });
 
@@ -149,7 +167,7 @@ describe('Slot Picker', function() {
     });
   });
 
-  describe('firstDayOfWeek', function() {
+  describe('firstDayOfWeek method', function() {
     it('should return a date', function() {
       expect(Object.prototype.toString.call(picker.firstDayOfWeek(new Date()))).toEqual('[object Date]');
     });
@@ -161,7 +179,7 @@ describe('Slot Picker', function() {
     });
   });
 
-  describe('lastDayOfWeek', function() {
+  describe('lastDayOfWeek method', function() {
     it('should return a date', function() {
       expect(Object.prototype.toString.call(picker.lastDayOfWeek(new Date()))).toEqual('[object Date]');
     });
@@ -173,7 +191,7 @@ describe('Slot Picker', function() {
     });
   });
 
-  describe('lastDayOfMonth', function() {
+  describe('lastDayOfMonth method', function() {
     it('should return a date', function() {
       expect(Object.prototype.toString.call(picker.lastDayOfMonth(new Date()))).toEqual('[object Date]');
     });
