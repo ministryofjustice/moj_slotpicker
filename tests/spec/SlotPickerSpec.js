@@ -52,12 +52,6 @@ describe('Slot Picker', function() {
     })
   });
 
-  describe('the amount of slot choices', function() {
-    it('should be not have reached limit', function() {
-      expect(picker.limitReached()).toEqual(false);
-    });
-  });
-
   describe('activateOriginalSlots method', function() {
     beforeEach(function() {
       loadFixtures(fixturePath);
@@ -197,6 +191,21 @@ describe('Slot Picker', function() {
     });
     it('should return 31 May from 29 May', function() {
       expect(picker.lastDayOfMonth(new Date(2014, 4, 29))).toEqual(new Date(2014, 4, 31));
+    });
+  });
+
+  describe('settings', function() {
+    describe('optionLimit - the amount of slot choices', function() {
+      it('should not have reached limit', function() {
+        expect(picker.limitReached()).toEqual(false);
+      });
+      it('should prevent further selections when default limit (3) is reached', function() {
+        var slots = myPicker.find('.SlotPicker-slot');
+        for (var i = 0; i < 3; i++) {
+          slots.eq(i).click();
+        }
+        expect(picker.limitReached()).toEqual(true);
+      });
     });
   });
 });
