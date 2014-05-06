@@ -123,9 +123,6 @@ ul.BookingCalendar-legend {
 .BookingCalendar-legendBox--unavailable {
   background: image-url("slot-picker-images/unavailable_tile.png"); }
 
-.BookingCalendar-availableMonths {
-  display: none; }
-
 .BookingCalendar-header {
   position: relative;
   background: #bfc1c3; }

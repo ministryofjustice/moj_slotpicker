@@ -36,19 +36,19 @@ describe('Slot Picker', function() {
 
   describe('setupNav', function() {
     var nav = [
-          {label:'March', date:'#month-2014-03', pos:-56},
-          {label:'April', date:'#month-2014-04', pos:168},
-          {label:'May', date:'#month-2014-05', pos:392}
+          {label:'March', pos:-56},
+          {label:'April', pos:168},
+          {label:'May', pos:392}
         ];
 
     it('should be a method', function() {
       expect(picker.setupNav).toBeDefined();
     });
     it('should return an array of objects', function() {
-      expect(Object.prototype.toString.call(picker.setupNav(picker.$availableMonths))).toEqual('[object Array]');
+      expect(Object.prototype.toString.call(picker.setupNav(picker.settings.bookableTimes))).toEqual('[object Array]');
     });
     it('should return an array of objects which contain date, label and pos', function() {
-      expect(picker.setupNav(picker.$availableMonths)).toEqual(nav);
+      expect(picker.setupNav(picker.settings.bookableTimes)).toEqual(nav);
     })
   });
 

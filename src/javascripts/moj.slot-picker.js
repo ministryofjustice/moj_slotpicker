@@ -11,7 +11,7 @@
     this.renderElements();
     this.bindEvents();
     this.activateOriginalSlots(this.settings.originalSlots);
-    this.settings.navMonths = this.setupNav(this.$availableMonths);
+    this.settings.navMonths = this.setupNav(this.settings.bookableTimes);
     this.updateNav(0);
     return this;
   };
@@ -40,7 +40,6 @@
       this.$choices = $('.SlotPicker-choices', $el);
       this.$choice = $('.SlotPicker-choices li', $el);
       this.$promoteHelp = $('.SlotPicker-promoteHelp', $el);
-      this.$availableMonths = $('.BookingCalendar-availableMonths a', $el);
       this.$timeSlots = $('.SlotPicker-timeSlots', $el);
       this.$currentMonth = $('.BookingCalendar-currentMonth');
       this.$calMask = $('.BookingCalendar-mask', $el);
@@ -107,18 +106,21 @@
       this.$datesBody.append(this.buildDates(from, to));
     },
 
-    setupNav: function($el) {
-      var self = this;
+    setupNav: function(dates) {
+      var months = [], lastMonth, day, month;
+      
+      for (day in dates) {
+        month = (new Date(day)).getMonth();
+        if (month !== lastMonth) {
+          months.push({
+            label: this.settings.months[month],
+            pos: $('#month-' + day.substr(0, 7)).closest('tr').index() * this.settings.calendarDayHeight
+          });
+        }
+        lastMonth = month;
+      }
 
-      return $el.map(function() {
-        var item = $(this);
-
-        return {
-          label: item.text(),
-          date: item.attr('href'),
-          pos: $(item.attr('href')).closest('tr').index() * self.settings.calendarDayHeight
-        };
-      }).get();
+      return months;
     },
 
     updateNav: function(i) {
