@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.11.0 (2014-05-07)
+* Use Handlebars for templating Booking Calendar
+
 ## 0.10.0 (2014-05-02)
 * Use Handlebars for templating of days and timeslots
 
