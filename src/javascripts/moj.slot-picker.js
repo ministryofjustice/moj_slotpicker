@@ -6,12 +6,13 @@
     this.settings = $.extend({}, this.defaults, options);
     this.settings.today = this.formatIso(this.settings.today);
     this.cacheEls($el);
-    this.bindEvents();
-    this.settings.navMonths = this.setupNav(this.$availableMonths);
-    this.updateNav(0);
     this.consolidate();
+    this.cacheTmpls();
+    this.renderElements();
+    this.bindEvents();
     this.activateOriginalSlots(this.settings.originalSlots);
-    this.$days.append(this.buildDays());
+    this.settings.navMonths = this.setupNav(this.settings.bookableTimes);
+    this.updateNav(0);
     return this;
   };
 
@@ -39,18 +40,18 @@
       this.$choices = $('.SlotPicker-choices', $el);
       this.$choice = $('.SlotPicker-choices li', $el);
       this.$promoteHelp = $('.SlotPicker-promoteHelp', $el);
-      this.$next = $('.BookingCalendar-nav--next', $el);
-      this.$prev = $('.BookingCalendar-nav--prev', $el);
-      this.$availableMonths = $('.BookingCalendar-availableMonths a', $el);
       this.$timeSlots = $('.SlotPicker-timeSlots', $el);
-      this.$dateTriggers = $('.BookingCalendar-dateLink, .DateSlider-largeDates li', $el);
       this.$currentMonth = $('.BookingCalendar-currentMonth');
       this.$calMask = $('.BookingCalendar-mask', $el);
-      this.$calDates = $('.BookingCalendar-date--bookable', $el);
       this.$days = $('.SlotPicker-days', $el);
+      this.$datesBody = $('.BookingCalendar-datesBody', $el);
+    },
 
+    cacheTmpls: function() {
       this.$tmplDay = Handlebars.compile($('#SlotPicker-tmplDay').html());
       this.$tmplTimeSlot = Handlebars.compile($('#SlotPicker-tmplTimeSlot').html());
+      this.$tmplRow = Handlebars.compile($('#BookingCalendar-tmplRow').html());
+      this.$tmplDate = Handlebars.compile($('#BookingCalendar-tmplDate').html());
     },
 
     bindEvents: function() {
@@ -78,49 +79,61 @@
         self.processSlots();
       });
 
-      this.$dateTriggers.on('click chosen', function(e) {
+      this.$_el.on('click chosen', '.BookingCalendar-dateLink, .DateSlider-largeDates li', function(e) {
         e.preventDefault();
         self.selectDay($(this));
         self.highlightDate($(this));
         self.$timeSlots.addClass('is-active');
       });
 
-      this.$next.on('click', function(e) {
+      this.$_el.on('click', '.BookingCalendar-nav--next', function(e) {
         e.preventDefault();
         self.nudgeNav(1);
       });
 
-      this.$prev.on('click', function(e) {
+      this.$_el.on('click', '.BookingCalendar-nav--prev', function(e) {
         e.preventDefault();
         self.nudgeNav(-1);
       });
     },
 
-    setupNav: function($el) {
-      var self = this;
+    renderElements: function() {
+      var len = this.settings.bookableDates.length,
+          from = this.settings.bookableDates[0],
+          to = this.settings.bookableDates[len-1];
 
-      return $el.map(function() {
-        var item = $(this);
+      this.$days.append(this.buildDays());
+      this.$datesBody.append(this.buildDates(from, to));
+    },
 
-        return {
-          label: item.text(),
-          date: item.attr('href'),
-          pos: $(item.attr('href')).closest('tr').index() * self.settings.calendarDayHeight
-        };
-      }).get();
+    setupNav: function(dates) {
+      var months = [], lastMonth, day, month;
+      
+      for (day in dates) {
+        month = (new Date(day)).getMonth();
+        if (month !== lastMonth) {
+          months.push({
+            label: this.settings.months[month],
+            pos: $('#month-' + day.substr(0, 7), this.$_el).closest('tr').index() * this.settings.calendarDayHeight
+          });
+        }
+        lastMonth = month;
+      }
+
+      return months;
     },
 
     updateNav: function(i) {
       if (i > 0) {
-        this.$prev.addClass('is-active').text(this.settings.navMonths[i - 1].label);
+        $('.BookingCalendar-nav--prev', this.$_el).addClass('is-active').text(this.settings.navMonths[i - 1].label);
       } else {
-        this.$prev.removeClass('is-active');
+        $('.BookingCalendar-nav--prev', this.$_el).removeClass('is-active');
       }
 
       if (i + 1 < this.settings.navMonths.length) {
-        this.$next.addClass('is-active').text(this.settings.navMonths[i + 1].label);
+        $('.BookingCalendar-nav--next', this.$_el).addClass('is-active').text(this.settings.navMonths[i + 1].label);
       } else {
-        this.$next.removeClass('is-active');
+        $('.BookingCalendar-nav--next', this.$_el).removeClass('is-active');
       }
 
       this.$currentMonth.text(this.settings.navMonths[i].label);
@@ -185,7 +198,7 @@
     chosenDaySelector: function(dateStr) {
       var bookingFrom, bookingTo, today, date;
       
-      if (~this.indexOf(this.settings.bookableDates, dateStr)) {
+      if (this.dateBookable(dateStr)) {
         return '#date-' + dateStr;
       }
 
@@ -214,7 +227,7 @@
     },
 
     highlightDate: function(day) {
-      this.$calDates.filter('.is-active').removeClass('is-active');
+      $('.BookingCalendar-date--bookable.is-active', this.$_el).removeClass('is-active');
       day.closest('td').addClass('is-active');
     },
 
@@ -260,7 +273,7 @@
     },
 
     populateSlotInputs: function(index, chosen) {
-      $('.SlotPicker-input').eq(index).val(chosen);
+      $('.SlotPicker-input', this.$_el).eq(index).val(chosen);
     },
     
     processSlots: function() {
@@ -323,6 +336,10 @@
       $('[data-date=' + day + ']', this.$_el)[~this.settings.currentSlots.join('-').indexOf(day) ? 'addClass' : 'removeClass']('is-chosen');
     },
 
+    dateBookable: function(date) {
+      return ~this.indexOf(this.settings.bookableDates, this.formatIso(date));
+    },
+
     formatIso: function(date) {
       if (typeof date === 'string') {
         return date;
@@ -382,6 +399,42 @@
       return out;
     },
 
+    buildDates: function(from, to) {
+      var out, row, curDate, curIso,
+          end = new Date(to),
+          count = 1;
+
+      curDate = this.firstDayOfWeek(new Date(from));
+      end = this.lastDayOfWeek(this.lastDayOfMonth(end));
+
+      while (curDate < end) {
+        curIso = this.formatIso(curDate);
+
+        row+= this.$tmplDate({
+          date: curIso,
+          day: curDate.getDate(),
+          today: curIso === this.settings.today,
+          newMonth: curDate.getDate() === 1,
+          monthIso: curIso.substr(0, 7),
+          monthShort: this.settings.months[curDate.getMonth()].substr(0,3),
+          class: this.dateBookable(curDate) ? 'BookingCalendar-date--bookable' : 'BookingCalendar-date--unavailable'
+        });
+
+        if (count === 7) {
+          out+= this.$tmplRow({
+            cells: row
+          });
+          row = '';
+          count = 0;
+        }
+
+        curDate.setDate(curDate.getDate() + 1);
+        count++;
+      }
+      
+      return out;
+    },
+
     displayTime: function(time) {
       var hrs = parseInt(time.substr(0, 2)),
           mins = time.substr(2),
@@ -390,7 +443,6 @@
       if (hrs > 12) {
         out-= 12;
       }
-      
 
       if (hrs === 0) {
         out = 12;
@@ -432,6 +484,24 @@
       time.setMinutes(slot.substr(2));
 
       return time;
+    },
+
+    firstDayOfWeek: function(date) {
+      var day = date.getDay(),
+          diff = date.getDate() - day + (day === 0 ? -6 : 1);
+
+      return new Date(date.setDate(diff));
+    },
+
+    lastDayOfWeek: function(date) {
+      var day = date.getDay(),
+          diff = date.getDate() + day - 1;
+
+      return new Date(date.setDate(diff));
+    },
+
+    lastDayOfMonth: function(date) {
+      return new Date(date.getFullYear(), date.getMonth() + 1, 0);
     }
 
   };
