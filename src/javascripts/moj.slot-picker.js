@@ -407,7 +407,7 @@
       curDate = this.firstDayOfWeek(new Date(from));
       end = this.lastDayOfWeek(this.lastDayOfMonth(end));
 
-      while (curDate < end) {
+      while (curDate <= end) {
         curIso = this.formatIso(curDate);
 
         row+= this.$tmplDate({
@@ -495,7 +495,7 @@
 
     lastDayOfWeek: function(date) {
       var day = date.getDay(),
-          diff = date.getDate() + day - 1;
+          diff = date.getDate() + (day ? 7 - day : 0);
 
       return new Date(date.setDate(diff));
     },

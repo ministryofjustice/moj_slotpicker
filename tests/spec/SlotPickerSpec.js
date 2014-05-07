@@ -177,11 +177,14 @@ describe('Slot Picker', function() {
     it('should return a date', function() {
       expect(Object.prototype.toString.call(picker.lastDayOfWeek(new Date()))).toEqual('[object Date]');
     });
+    it('should return Sun 6 Apr from Mon 31 Mar 2014', function() {
+      expect(picker.lastDayOfWeek(new Date(2014, 2, 31))).toEqual(new Date(2014, 3, 6));
+    });
     it('should return Sun 1 Jun from Thu 29 May 2014', function() {
       expect(picker.lastDayOfWeek(new Date(2014, 4, 29))).toEqual(new Date(2014, 5, 1));
     });
     it('should return the same day if given a Sunday', function() {
-      expect(picker.lastDayOfWeek(new Date(2014, 4, 5))).toEqual(new Date(2014, 4, 5));
+      expect(picker.lastDayOfWeek(new Date(2014, 4, 4))).toEqual(new Date(2014, 4, 4));
     });
   });
 
@@ -191,6 +194,12 @@ describe('Slot Picker', function() {
     });
     it('should return 31 May from 29 May', function() {
       expect(picker.lastDayOfMonth(new Date(2014, 4, 29))).toEqual(new Date(2014, 4, 31));
+    });
+  });
+
+  describe('buildDates method', function() {
+    it('should create a row for w/c 26 May when there is a bookable date in May', function() {
+      expect(myPicker.find('.BookingCalendar-dateLink[data-date="2014-06-01"]')).toExist();
     });
   });
 
