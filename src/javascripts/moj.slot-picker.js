@@ -114,7 +114,7 @@
         if (month !== lastMonth) {
           months.push({
             label: this.settings.months[month],
-            pos: $('#month-' + day.substr(0, 7)).closest('tr').index() * this.settings.calendarDayHeight
+            pos: $('#month-' + day.substr(0, 7), this.$_el).closest('tr').index() * this.settings.calendarDayHeight
           });
         }
         lastMonth = month;
@@ -273,7 +273,7 @@
     },
 
     populateSlotInputs: function(index, chosen) {
-      $('.SlotPicker-input').eq(index).val(chosen);
+      $('.SlotPicker-input', this.$_el).eq(index).val(chosen);
     },
     
     processSlots: function() {
