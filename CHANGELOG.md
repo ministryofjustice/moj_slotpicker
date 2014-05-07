@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.11.1 (2014-05-07)
+* Fixed issue #12 whole last month not added to calendar
+* Fixed lastDayOfWeek method and tests
+
 ## 0.11.0 (2014-05-07)
 * Use Handlebars for templating Booking Calendar
 
