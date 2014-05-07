@@ -197,6 +197,12 @@ describe('Slot Picker', function() {
     });
   });
 
+  describe('buildDates method', function() {
+    it('should create a row for w/c 26 May when there is a bookable date in May', function() {
+      expect(myPicker.find('.BookingCalendar-dateLink[data-date="2014-06-01"]')).toExist();
+    });
+  });
+
   describe('settings', function() {
     describe('optionLimit - the amount of slot choices', function() {
       it('should not have reached limit', function() {

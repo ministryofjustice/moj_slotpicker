@@ -407,7 +407,7 @@
       curDate = this.firstDayOfWeek(new Date(from));
       end = this.lastDayOfWeek(this.lastDayOfMonth(end));
 
-      while (curDate < end) {
+      while (curDate <= end) {
         curIso = this.formatIso(curDate);
 
         row+= this.$tmplDate({
