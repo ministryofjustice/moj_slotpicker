@@ -495,7 +495,7 @@
 
     lastDayOfWeek: function(date) {
       var day = date.getDay(),
-          diff = date.getDate() + day - 1;
+          diff = date.getDate() + (day ? 7 - day : 0);
 
       return new Date(date.setDate(diff));
     },
