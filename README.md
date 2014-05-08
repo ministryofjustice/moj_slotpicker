@@ -31,7 +31,14 @@ or
 
 Download the [latest version as a ZIP](https://github.com/ministryofjustice/moj_slotpicker/releases) and use the `dist` folder.
 
-**Note for RoR:** for Asset Pipeline users, include the moj.slot-picker.ap.css file as this uses `image-url` helpers for file references.
+### Note for Ruby on Rails Asset Pipelines
+
+For Asset Pipeline users, include the `moj.slot-picker.ap.css` file as this uses `image-url` helpers for file references.
+
+Also, assuming you have installed the package in `vendor/assets` add the following line to `config/application.rb` to make sure the slot picker assets are served.
+
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'moj.slot-picker', 'dist', 'stylesheets')
+
 
 ## Mark-up
 
