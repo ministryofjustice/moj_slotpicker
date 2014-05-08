@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.11.2 (2014-05-08)
+* Fixed issue #13 asset pipeline paths
+
 ## 0.11.1 (2014-05-07)
 * Fixed issue #12 whole last month not added to calendar
 * Fixed lastDayOfWeek method and tests
