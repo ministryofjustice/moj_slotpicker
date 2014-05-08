@@ -9,7 +9,7 @@ var gulp = require('gulp'),
 var paths = {
   scripts: './src/javascripts/**/*.js',
   styles: './src/stylesheets/**/*.sass',
-  images: './src/stylesheets/slot-picker-images/**/*',
+  images: './src/stylesheets/images/**/*',
   markup: ['./src/index.html', './src/includes/slot-picker.html'],
   dest: './dist/'
 };
@@ -33,7 +33,7 @@ gulp.task('copy', function() {
   gulp.src(paths.scripts)
     .pipe(gulp.dest(paths.dest + 'javascripts'));
   gulp.src(paths.images)
-    .pipe(gulp.dest(paths.dest + 'stylesheets/slot-picker-images'));
+    .pipe(gulp.dest(paths.dest + 'stylesheets/images'));
 });
 
 // compile sass
