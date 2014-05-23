@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.12.0 (2014-05-23)
+* Update to calendar header design
+
 ## 0.11.2 (2014-05-08)
 * Fixed issue #13 asset pipeline paths
 
