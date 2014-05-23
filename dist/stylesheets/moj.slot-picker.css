@@ -16,8 +16,11 @@
 
 table.BookingCalendar-dates {
   width: 100%;
-  border-collapse: collapse;
   font-size: 19px;
+  border-width: 0 1px;
+  border-style: solid;
+  border-color: #dee0e2;
+  border-collapse: collapse;
   background: url("images/unavailable_tile.png"); }
   table.BookingCalendar-dates th,
   table.BookingCalendar-dates td {
@@ -125,7 +128,8 @@ ul.BookingCalendar-legend {
 
 .BookingCalendar-header {
   position: relative;
-  background: #bfc1c3; }
+  border: 1px solid #dee0e2;
+  background: white; }
 
 .BookingCalendar-currentMonth {
   display: block;

@@ -5,8 +5,12 @@
 
 table.BookingCalendar-dates
   width: 100%
-  border-collapse: collapse
   font-size: 19px
+  border:
+    width: 0 1px
+    style: solid
+    color: $grey-3
+  border-collapse: collapse
   background: url("images/unavailable_tile.png")
 
   th,
@@ -119,7 +123,8 @@ ul.BookingCalendar-legend
 
 .BookingCalendar-header
   position: relative
-  background: $grey-2
+  border: 1px solid $grey-3
+  background: $white
 
 .BookingCalendar-currentMonth
   display: block
