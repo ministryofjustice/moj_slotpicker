@@ -10,6 +10,7 @@
 @-o-viewport {
   width: device-width; }
 .BookingCalendar-mask {
+  position: relative;
   overflow: hidden;
   height: 279px;
   border-bottom: 1px solid #dee0e2; }
@@ -204,6 +205,7 @@ a.BookingCalendar-nav--next {
 
 .SlotPicker-days {
   margin-bottom: 10px;
+  margin-left: 0;
   padding: 0; }
   @media (max-width: 768px) {
     .SlotPicker-days {
@@ -213,6 +215,7 @@ a.BookingCalendar-nav--next {
   display: none;
   overflow: hidden;
   padding: 0.5em;
+  list-style: none;
   background: #dee0e2; }
   @media (max-width: 640px) {
     .SlotPicker-day {

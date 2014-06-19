@@ -49,7 +49,7 @@ describe('Slot Picker', function() {
     });
     it('should return an array of objects which contain date, label and pos', function() {
       expect(picker.setupNav(picker.settings.bookableTimes)).toEqual(nav);
-    })
+    });
   });
 
   describe('activateOriginalSlots method', function() {

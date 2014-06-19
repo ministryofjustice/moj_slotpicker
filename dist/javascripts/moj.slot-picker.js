@@ -106,11 +106,16 @@
       this.$datesBody.append(this.buildDates(from, to));
     },
 
+    dateFromIso: function(str) {
+      var d = str.split('-');
+      return new Date(d[0], d[1]-1, d[2]);
+    },
+
     setupNav: function(dates) {
       var months = [], lastMonth, day, month;
       
       for (day in dates) {
-        month = (new Date(day)).getMonth();
+        month = this.dateFromIso(day).getMonth();
         if (month !== lastMonth) {
           months.push({
             label: this.settings.months[month],
@@ -157,7 +162,7 @@
         }
       }).get();
 
-      this.settings.bookableDates = this.settings.bookableSlots.map(function(s) {
+      this.settings.bookableDates = $.map(this.settings.bookableSlots, function(s) {
         return s.substr(0, 10);
       });
 
@@ -186,7 +191,7 @@
 
         previous = day;
       }
-
+      // alert(days['2014-03-16']);
       this.settings.bookableTimes = days;
     },
 
@@ -202,10 +207,10 @@
         return '#date-' + dateStr;
       }
 
-      date = new Date(dateStr);
+      date = this.dateFromIso(dateStr);
       today = new Date(this.settings.today);
-      bookingFrom = new Date(this.settings.bookableDates[0]);
-      bookingTo = new Date(this.settings.bookableDates[this.settings.bookableDates.length-1]);
+      bookingFrom = this.dateFromIso(this.settings.bookableDates[0]);
+      bookingTo = this.dateFromIso(this.settings.bookableDates[this.settings.bookableDates.length-1]);
       
       if (date < today) {
         return '.SlotPicker-day--past';
@@ -301,7 +306,7 @@
 
     splitDateAndSlot: function(str) {
       var bits = str.split('-'),
-          time = bits.splice(-2).join('-');
+          time = bits.splice(-2, 2).join('-');
       
       return [bits.join('-'), time];
     },
@@ -388,7 +393,7 @@
           slots = this.settings.bookableTimes;
 
       for (day in slots) {
-        date = new Date(day);
+        date = this.dateFromIso(day);
         out+= this.$tmplDay({
           date: this.settings.days[date.getDay()] +' '+ date.getDate() +' '+ this.settings.months[date.getMonth()],
           slot: day,
@@ -400,11 +405,11 @@
     },
 
     buildDates: function(from, to) {
-      var out, row, curDate, curIso,
-          end = new Date(to),
+      var out = '', row = '', curDate, curIso,
+          end = this.dateFromIso(to),
           count = 1;
-
-      curDate = this.firstDayOfWeek(new Date(from));
+      
+      curDate = this.firstDayOfWeek(this.dateFromIso(from));
       end = this.lastDayOfWeek(this.lastDayOfMonth(end));
 
       while (curDate <= end) {
@@ -417,7 +422,7 @@
           newMonth: curDate.getDate() === 1,
           monthIso: curIso.substr(0, 7),
           monthShort: this.settings.months[curDate.getMonth()].substr(0,3),
-          class: this.dateBookable(curDate) ? 'BookingCalendar-date--bookable' : 'BookingCalendar-date--unavailable'
+          klass: this.dateBookable(curDate) ? 'BookingCalendar-date--bookable' : 'BookingCalendar-date--unavailable'
         });
 
         if (count === 7) {
@@ -479,6 +484,8 @@
 
     timeFromSlot: function(slot) {
       var time = new Date();
+
+      // alert(slot.substr(2));
 
       time.setHours(slot.substr(0, 2));
       time.setMinutes(slot.substr(2));
