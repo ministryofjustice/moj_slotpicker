@@ -5,10 +5,11 @@
   var SlotPicker = function($el, options) {
     this.settings = $.extend({}, this.defaults, options);
     this.settings.today = this.formatIso(this.settings.today);
+    this.cacheTmpls();
     this.cacheEls($el);
     this.consolidate();
-    this.cacheTmpls();
     this.renderElements();
+    this.cacheElsRendered($el);
     this.bindEvents();
     this.activateOriginalSlots(this.settings.originalSlots);
     this.settings.navMonths = this.setupNav(this.settings.bookableTimes);
@@ -37,19 +38,26 @@
       this.$_el = $el;
       
       this.$slotInputs = $('.SlotPicker-input', $el);
-      this.$choices = $('.SlotPicker-choices', $el);
-      this.$choice = $('.SlotPicker-choices li', $el);
       this.$promoteHelp = $('.SlotPicker-promoteHelp', $el);
       this.$timeSlots = $('.SlotPicker-timeSlots', $el);
-      this.$currentMonth = $('.BookingCalendar-currentMonth');
       this.$calMask = $('.BookingCalendar-mask', $el);
+
+      // Only used once
       this.$days = $('.SlotPicker-days', $el);
       this.$datesBody = $('.BookingCalendar-datesBody', $el);
+      this.$choices = $('.SlotPicker-choices ul', $el);
+    },
+
+    cacheElsRendered: function($el) {
+      // From template - cache after render
+      this.$choice = $('.SlotPicker-choices li', $el);
+      this.$currentMonth = $('.BookingCalendar-currentMonth', $el);
     },
 
     cacheTmpls: function() {
       this.$tmplDay = Handlebars.compile($('#SlotPicker-tmplDay').html());
       this.$tmplTimeSlot = Handlebars.compile($('#SlotPicker-tmplTimeSlot').html());
+      this.$tmplChoice = Handlebars.compile($('#SlotPicker-tmplChoice').html());
       this.$tmplRow = Handlebars.compile($('#BookingCalendar-tmplRow').html());
       this.$tmplDate = Handlebars.compile($('#BookingCalendar-tmplDate').html());
     },
@@ -58,7 +66,7 @@
       var self = this;
 
       this.$_el.on('click', '.SlotPicker-slot', function() {
-        self.$choices.addClass('is-active');
+        $('.SlotPicker-choices', self.$_el).addClass('is-active');
         self.emptyUiSlots();
         self.emptySlotInputs();
         self.unHighlightSlots();
@@ -75,7 +83,7 @@
 
       this.$_el.on('click', '.SlotPicker-icon--promote', function(e) {
         e.preventDefault();
-        self.promoteSlot($(this).attr('href').split('#')[1] - 1);
+        self.promoteSlot($(this).closest('li').index());
         self.processSlots();
       });
 
@@ -104,6 +112,7 @@
 
       this.$days.append(this.buildDays());
       this.$datesBody.append(this.buildDates(from, to));
+      this.$choices.append(this.buildChoices());
     },
 
     dateFromIso: function(str) {
@@ -398,6 +407,20 @@
           date: this.settings.days[date.getDay()] +' '+ date.getDate() +' '+ this.settings.months[date.getMonth()],
           slot: day,
           slots: this.buildTimeSlots(day, slots[day])
+        });
+      }
+
+      return out;
+    },
+
+    buildChoices: function() {
+      var i, out = '',
+          opts = this.settings.optionLimit;
+
+      for (i = 1; i <= opts; i++) {
+        out+= this.$tmplChoice({
+          num: i,
+          notFirst: i > 1
         });
       }
 

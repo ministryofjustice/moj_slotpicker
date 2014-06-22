@@ -44,6 +44,19 @@
   </td>
 </script>
 
+<script type="text/html" id="SlotPicker-tmplChoice">
+  <li>
+    {{#if notFirst}}
+      <a class="SlotPicker-icon SlotPicker-icon--promote" href="#">Promote</a>
+    {{/if}}
+    <a class="SlotPicker-icon SlotPicker-icon--remove" href="#">Remove</a>
+    <span class="SlotPicker-position">{{ num }}</span>
+    <p class="SlotPicker-date"></p>
+    <p class="SlotPicker-time"></p>
+    <p class="SlotPicker-prompt">Choose a date and time from the calendar</p>
+  </li>
+</script>
+
 
 <div class="SlotPicker" data-today="2014-03-13">
   
@@ -107,29 +120,6 @@
 
   <div class="SlotPicker-choices">
     <ul>
-      <li>
-        <a class="SlotPicker-icon SlotPicker-icon--remove" href="#">Remove</a>
-        <span class="SlotPicker-position">1</span>
-        <p class="SlotPicker-date"></p>
-        <p class="SlotPicker-time"></p>
-        <p class="SlotPicker-prompt">Choose a date and time from the calendar</p>
-      </li>
-      <li>
-        <a class="SlotPicker-icon SlotPicker-icon--promote" href="#2">Promote</a>
-        <a class="SlotPicker-icon SlotPicker-icon--remove" href="#">Remove</a>
-        <span class="SlotPicker-position">2</span>
-        <p class="SlotPicker-date"></p>
-        <p class="SlotPicker-time"></p>
-        <p class="SlotPicker-prompt">Choose a second date and time from the calendar</p>
-      </li>
-      <li>
-        <a class="SlotPicker-icon SlotPicker-icon--promote" href="#3">Promote</a>
-        <a class="SlotPicker-icon SlotPicker-icon--remove" href="#">Remove</a>
-        <span class="SlotPicker-position">3</span>
-        <p class="SlotPicker-date"></p>
-        <p class="SlotPicker-time"></p>
-        <p class="SlotPicker-prompt">Choose a third date and time from the calendar</p>
-      </li>
     </ul>
     <p class="SlotPicker-promoteHelp">Use the arrows to put your visit choices in the order that suits you best.</p>
   </div>
