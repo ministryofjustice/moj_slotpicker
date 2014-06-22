@@ -41,15 +41,9 @@
       this.$promoteHelp = $('.SlotPicker-promoteHelp', $el);
       this.$timeSlots = $('.SlotPicker-timeSlots', $el);
       this.$calMask = $('.BookingCalendar-mask', $el);
-
-      // Only used once
-      this.$days = $('.SlotPicker-days', $el);
-      this.$datesBody = $('.BookingCalendar-datesBody', $el);
-      this.$choices = $('.SlotPicker-choices ul', $el);
     },
 
     cacheElsRendered: function($el) {
-      // From template - cache after render
       this.$choice = $('.SlotPicker-choices li', $el);
       this.$currentMonth = $('.BookingCalendar-currentMonth', $el);
     },
@@ -110,9 +104,9 @@
           from = this.settings.bookableDates[0],
           to = this.settings.bookableDates[len-1];
 
-      this.$days.append(this.buildDays());
-      this.$datesBody.append(this.buildDates(from, to));
-      this.$choices.append(this.buildChoices());
+      $('.SlotPicker-days', this.$_el).append(this.buildDays());
+      $('.BookingCalendar-datesBody', this.$_el).append(this.buildDates(from, to));
+      $('.SlotPicker-choices ul', this.$_el).append(this.buildChoices());
     },
 
     dateFromIso: function(str) {
@@ -304,11 +298,11 @@
     },
 
     limitReached: function() {
-      return this.$_el.find('.SlotPicker-slot:checked').length >= this.settings.optionLimit;
+      return $('.SlotPicker-slot:checked', this.$_el).length >= this.settings.optionLimit;
     },
 
     disableCheckboxes: function(disable) {
-      this.$_el.find('.SlotPicker-slot').not(':checked')
+      $('.SlotPicker-slot', this.$_el).not(':checked')
         .prop('disabled', disable)
         .closest('label')[disable ? 'addClass' : 'removeClass']('is-disabled');
     },
