@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.13.0 (2014-06-22)
+* Use Handlebars for templating slot choices
+
+## 0.12.1 (2014-06-19)
+* Internet Explorer fixes
+
 ## 0.12.0 (2014-05-23)
 * Update to calendar header design
 
