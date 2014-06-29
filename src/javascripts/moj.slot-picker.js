@@ -245,7 +245,7 @@
 
     activateOriginalSlots: function(slots) {
       for (var i = 0; i < slots.length; i++) {
-        $('[value="' + slots[i] + '"]', this.$_el).click();
+        $('.SlotPicker-slot[value="' + slots[i] + '"]', this.$_el).click();
       }
     },
 
@@ -289,7 +289,7 @@
           i, $slotEl;
 
       for (i = 0; i < slots.length; i++) {
-        $slotEl = $('[value=' + slots[i] + ']', this.$_el);
+        $slotEl = $('.SlotPicker-slot[value=' + slots[i] + ']', this.$_el);
 
         this.highlightSlot($slotEl.closest('label'));
         this.populateSlotInputs(i, $slotEl.val());
