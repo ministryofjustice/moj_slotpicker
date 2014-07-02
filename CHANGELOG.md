@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.14.0 (2014-07-02)
+* Add Dynamic DateSlider
+
 ## 0.13.0 (2014-06-22)
 * Use Handlebars for templating slot choices
 
