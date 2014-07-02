@@ -41,6 +41,7 @@
       this.$promoteHelp = $('.SlotPicker-promoteHelp', $el);
       this.$timeSlots = $('.SlotPicker-timeSlots', $el);
       this.$calMask = $('.BookingCalendar-mask', $el);
+      this.$unbookableDays = $('.SlotPicker-day--past, .SlotPicker-day--unavailable, .SlotPicker-day--beyond, .SlotPicker-day--leadtime', $el);
     },
 
     cacheElsRendered: function($el) {
@@ -197,6 +198,7 @@
 
     selectDay: function(day) {
       $('.SlotPicker-day', this.$_el).removeClass('is-active');
+      this.$unbookableDays.find('.SlotPicker-dayTitle').text(this.dayLabel(moj.Helpers.dateFromIso(day.data('date')))); // filthy hack
       $(this.chosenDaySelector(day.data('date'))).addClass('is-active').focus();
     },
 
@@ -499,6 +501,10 @@
 
     lastDayOfMonth: function(date) {
       return new Date(date.getFullYear(), date.getMonth() + 1, 0);
+    },
+
+    dayLabel: function(date) {
+      return [this.settings.days[date.getDay()], date.getDate(), this.settings.months[date.getMonth()]].join(' ');
     }
 
   };

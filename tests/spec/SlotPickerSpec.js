@@ -244,6 +244,12 @@ describe('Slot Picker', function() {
     });
   });
 
+  describe('dayLabel method', function() {
+    it('should return the day, date and month as a string', function() {
+      expect(picker.dayLabel(new Date('2 Jul, 2014'))).toEqual('Wednesday 2 July');
+    });
+  });
+
   describe('settings', function() {
     describe('optionLimit - the amount of slot choices', function() {
       it('should not have reached limit', function() {
