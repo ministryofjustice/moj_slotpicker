@@ -4,6 +4,10 @@
   <meta charset="utf-8">
   <title>Slot Picker</title>
   <link rel="stylesheet" href="stylesheets/moj.slot-picker.css" />
+  <link rel="stylesheet" href="stylesheets/moj.date-slider.css" />
+  <style>
+    body { margin: 20px 0 0; }
+  </style>
 </head>
 <body>
 
@@ -57,8 +61,45 @@
   </li>
 </script>
 
+<script type="text/html" id="DateSlider-day">
+  <li data-date="{{ isoDate }}" class="{{ klass }}">
+    {{#if dayLabel}}
+      <small>{{ weekDay }}</small>
+    {{/if}}
+    {{ day }}
+  </li>
+</script>
+
+<script type="text/html" id="DateSlider-month">
+  <span data-date="{{ yearMonth }}">{{ month }}</span>
+</script>
+
 
 <div class="SlotPicker" data-today="2014-03-13">
+
+  <div class="DateSlider" data-emulatetouch="true" data-selectonload="true">
+    <div class="DateSlider-month"></div>
+
+    <div class="DateSlider-sliders">
+      <!-- <a href="#" class="DateSlider-button DateSlider-buttonLeft">&#10094;</a>
+      <a href="#" class="DateSlider-button DateSlider-buttonRight">&#10095;</a> -->
+
+      <div class="DateSlider-smallDates scroll">
+        <ol class="DateSlider-days"></ol>
+      </div>
+
+      <div class="DateSlider-touch scroll">
+        <ol class="DateSlider-days"></ol>
+      </div>
+
+      <div class="DateSlider-portalFrame"></div>
+
+      <div class="DateSlider-largeDates scroll">
+        <ol class="DateSlider-days"></ol>
+      </div>
+    </div>
+  </div>
+
   
   <div class="BookingCalendar">
 
@@ -196,12 +237,15 @@
 
 <p><a href="#" id="displayOutput">Alert chosen slots</a></p>
 
+<script src="../vendor/modernizr.custom.44058.js"></script>
 <script src="../vendor/jquery-1.11.0.js"></script>
 <script src="../vendor/handlebars-v1.3.0.js"></script>
 
-<script>var moj = moj || { Modules: {} };</script>
+<script>var moj = moj || { Modules: {}, Helpers: {} };</script>
 <script src="javascripts/moj.slot-picker.js"></script>
+<script src="javascripts/moj.date-slider.js"></script>
 <script>moj.Modules.SlotPicker.init();</script>
+<script>moj.Modules.DateSlider.init();</script>
 
 <script>
 

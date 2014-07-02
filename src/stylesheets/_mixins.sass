@@ -1,0 +1,13 @@
+@mixin corner-marker($size: 10px)
+  overflow: hidden
+  
+  &:after
+    position: absolute
+    content: ''
+    top: 0
+    right: 0
+    width: 0
+    height: 0
+    border-style: solid
+    border-width: 0 $size $size 0
+    border-color: transparent $light-blue transparent transparent

@@ -1,3 +1,61 @@
+describe('Helper method', function() {
+  describe('formatIso', function() {
+    var aDate = new Date('6 Feb, 1977');
+
+    it('should return a string', function() {
+      expect(typeof moj.Helpers.formatIso(aDate)).toEqual('string');
+    });
+    it('should accept a string', function() {
+      expect(typeof moj.Helpers.formatIso('a string')).toEqual('string');
+    });
+    it('should return an ISO format string from a date', function() {
+      expect(moj.Helpers.formatIso(aDate)).toEqual('1977-02-06');
+    });
+  });
+
+  describe('dateFromIso', function() {
+    var dateStr = '1977-02-06';
+
+    it('should return a string', function() {
+      expect(moj.Helpers.dateFromIso(dateStr) instanceof Date).toEqual(true);
+    });
+    it('should return 6 Feb 1977 from the string "' + dateStr + '"', function() {
+      expect(moj.Helpers.dateFromIso(dateStr)).toEqual(new Date('6 Feb, 1977'));
+    });
+  });
+
+  describe('indexOf', function() {
+    it('should return a number', function() {
+      expect(typeof moj.Helpers.indexOf([9,8,7]), 7).toEqual('number');
+    });
+    it('should return the position of an item in the array', function() {
+      expect(moj.Helpers.indexOf(['one', 'two', 'three'], 'three')).toEqual(2);
+    });
+    it('should return -1 when not found', function() {
+      expect(moj.Helpers.indexOf(['one', 'two', 'three'], 'four')).toEqual(-1);
+    });
+  });
+
+  describe('dateBookable', function() {
+    var dates = ['1977-02-06', '1977-02-07', '1977-02-09'];
+
+    it('should return true when an object is in the array', function() {
+      expect(moj.Helpers.dateBookable(new Date('6 Feb, 1977'), dates)).toEqual(true);
+    });
+    it('should return false when the object is not in the array', function() {
+      expect(moj.Helpers.dateBookable(new Date('1 Feb, 1977'), dates)).toEqual(false);
+    });
+  });
+
+  describe('monthsInRange', function() {
+    var dateRange = [new Date('1 Feb, 1977'), new Date('1 Mar, 1977'), new Date('1 Apr, 1977')];
+
+    it('should return the first day of each month in range', function() {
+      expect(moj.Helpers.monthsInRange(new Date('6 Feb, 1977'), new Date('21 Apr, 1977'))).toEqual(dateRange);
+    });
+  });
+});
+
 describe('Slot Picker', function() {
   var picker,
       myPicker,
@@ -66,32 +124,6 @@ describe('Slot Picker', function() {
     });
     it('should display the corresponding chosen box with details', function() {
       expect(myPicker.find('.SlotPicker-choices li:first')).toContainText('Thursday 20 March');
-    });
-  });
-
-  describe('formatIso method', function() {
-    var aDate = new Date('6 Feb, 1977');
-
-    it('should return a string', function() {
-      expect(typeof picker.formatIso(aDate)).toEqual('string');
-    });
-    it('should accept a string', function() {
-      expect(typeof picker.formatIso('a string')).toEqual('string');
-    });
-    it('should return an ISO format string from a date', function() {
-      expect(picker.formatIso(aDate)).toEqual('1977-02-06');
-    });
-  });
-
-  describe('indexOf method', function() {
-    it('should return a number', function() {
-      expect(typeof picker.indexOf([9,8,7]), 7).toEqual('number');
-    });
-    it('should return the position of an item in the array', function() {
-      expect(picker.indexOf(['one', 'two', 'three'], 'three')).toEqual(2);
-    });
-    it('should return -1 when not found', function() {
-      expect(picker.indexOf(['one', 'two', 'three'], 'four')).toEqual(-1);
     });
   });
 

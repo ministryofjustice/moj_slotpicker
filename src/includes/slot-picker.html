@@ -48,8 +48,45 @@
   </li>
 </script>
 
+<script type="text/html" id="DateSlider-day">
+  <li data-date="{{ isoDate }}" class="{{ klass }}">
+    {{#if dayLabel}}
+      <small>{{ weekDay }}</small>
+    {{/if}}
+    {{ day }}
+  </li>
+</script>
+
+<script type="text/html" id="DateSlider-month">
+  <span data-date="{{ yearMonth }}">{{ month }}</span>
+</script>
+
 
 <div class="SlotPicker" data-today="2014-03-13">
+
+  <div class="DateSlider" data-emulatetouch="true" data-selectonload="true">
+    <div class="DateSlider-month"></div>
+
+    <div class="DateSlider-sliders">
+      <!-- <a href="#" class="DateSlider-button DateSlider-buttonLeft">&#10094;</a>
+      <a href="#" class="DateSlider-button DateSlider-buttonRight">&#10095;</a> -->
+
+      <div class="DateSlider-smallDates scroll">
+        <ol class="DateSlider-days"></ol>
+      </div>
+
+      <div class="DateSlider-touch scroll">
+        <ol class="DateSlider-days"></ol>
+      </div>
+
+      <div class="DateSlider-portalFrame"></div>
+
+      <div class="DateSlider-largeDates scroll">
+        <ol class="DateSlider-days"></ol>
+      </div>
+    </div>
+  </div>
+
   
   <div class="BookingCalendar">
 

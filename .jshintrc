@@ -18,7 +18,8 @@
   "jquery": true,
   "globals": {
     "moj": true,
-    "Handlebars": true
+    "Handlebars": true,
+    "Modernizr": true
   },
 
   "maxparams": 4,
