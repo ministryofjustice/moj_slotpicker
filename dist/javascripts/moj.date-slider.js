@@ -217,6 +217,8 @@
 
     inputDevice: function() {
       if (this.settings.emulatetouch) {
+        this.$buttonL.remove();
+        this.$buttonR.remove();
         return;
       }
       return (Modernizr.touch ? this.$buttonL.add(this.$buttonR) : this.$touch).remove();
