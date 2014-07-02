@@ -54,6 +54,15 @@ describe('Helper method', function() {
       expect(moj.Helpers.monthsInRange(new Date('6 Feb, 1977'), new Date('21 Apr, 1977'))).toEqual(dateRange);
     });
   });
+
+  describe('daysInRange', function() {
+    it('should return amount days in range, inclusive of start and end of range', function() {
+      expect(moj.Helpers.daysInRange(new Date('2 Jul, 2014'), new Date('10 Jul, 2014'))).toEqual(9);
+    });
+    it('should return a whole number regardless of time zone', function() {
+      expect(moj.Helpers.daysInRange(new Date('27 Mar, 2014'), new Date('2 Apr, 2014'))).toEqual(7);
+    });
+  });
 });
 
 describe('Slot Picker', function() {

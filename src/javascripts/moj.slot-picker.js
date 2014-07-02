@@ -102,11 +102,13 @@
     renderElements: function() {
       var len = this.settings.bookableDates.length,
           from = this.settings.bookableDates[0],
-          to = this.settings.bookableDates[len-1];
+          to = this.settings.bookableDates[len-1],
+          $beyond = $('.SlotPicker-day--beyond');
 
       $('.SlotPicker-days', this.$_el).append(this.buildDays());
       $('.BookingCalendar-datesBody', this.$_el).append(this.buildDates(from, to));
       $('.SlotPicker-choices ul', this.$_el).append(this.buildChoices());
+      $beyond.html($beyond.html().replace('{{ daysInRange }}', moj.Helpers.daysInRange(moj.Helpers.dateFromIso(from), moj.Helpers.dateFromIso(to))));
     },
 
     setupNav: function(dates) {
@@ -475,8 +477,6 @@
     timeFromSlot: function(slot) {
       var time = new Date();
 
-      // alert(slot.substr(2));
-
       time.setHours(slot.substr(0, 2));
       time.setMinutes(slot.substr(2));
 
@@ -529,6 +529,14 @@
 
   moj.Helpers.dateBookable = function(date, dates) {
     return !!~moj.Helpers.indexOf(dates, moj.Helpers.formatIso(date));
+  };
+
+  moj.Helpers.daysInRange = function(from, to) {
+    var end = new Date(to.getTime());
+
+    end.setDate(end.getDate() + 1); // inclusive of last day
+
+    return Math.ceil((end - from) / (24 * 3600 * 1000));
   };
 
 
