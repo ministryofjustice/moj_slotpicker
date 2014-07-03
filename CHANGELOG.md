@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.16.1 (2014-07-03)
+Fix: IE7 DateSlider trailing comma bug
+Fix: graphic checkbox for IE & mobile checkbox
+Fix: IE7 time slot layout overlaps
+Fix: opaque tick box background
+
 ## 0.16.0 (2014-07-03)
 * Highlight active options
 * Display message for days containing single slot
