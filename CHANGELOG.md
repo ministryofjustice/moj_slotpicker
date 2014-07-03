@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.16.0 (2014-07-03)
+* Highlight active options
+* Display message for days containing single slot
+* Large tick box graphic
+* Removed focus from days
+* Aesthic tweaks
+
 ## 0.15.0 (2014-07-03)
 * Dynamically label each day
 * Dynamic 'days in range' count
