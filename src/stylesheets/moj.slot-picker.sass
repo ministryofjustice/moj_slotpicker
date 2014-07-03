@@ -43,11 +43,11 @@
   min-width: 120px
   margin-right: .5em
   margin-bottom: .5em
-  padding: .3em 15px .3em 40px
+  padding: .3em 15px .3em 46px
   font-size: 24px
   line-height: 1.2em
   border: 2px solid $grey-2
-  background: $white
+  background: $white url("images/tick_off.png") 7px 12px no-repeat
 
   @include media(mobile)
     width: 100%
@@ -58,8 +58,15 @@
       border-color: $light-blue
       background: $light-blue-25
 
+  input
+    display: none
+
+  &.is-active
+    background-image: url("images/tick_on.png")
+
   &.is-disabled
     color: $grey-2
+    background-image: url("images/tick_disabled.png")
 
   &:last-child
     margin-right: 0

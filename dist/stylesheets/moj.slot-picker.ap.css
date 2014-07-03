@@ -247,11 +247,11 @@ a.BookingCalendar-nav--next {
   min-width: 120px;
   margin-right: 0.5em;
   margin-bottom: 0.5em;
-  padding: 0.3em 15px 0.3em 40px;
+  padding: 0.3em 15px 0.3em 46px;
   font-size: 24px;
   line-height: 1.2em;
   border: 2px solid #bfc1c3;
-  background: white; }
+  background: white image-url("images/tick_off.png") 7px 12px no-repeat; }
   @media (max-width: 640px) {
     .SlotPicker-label {
       width: 100%;
@@ -260,8 +260,13 @@ a.BookingCalendar-nav--next {
       .SlotPicker-label.is-active {
         border-color: #2b8cc4;
         background: #d5e8f3; } }
+  .SlotPicker-label input {
+    display: none; }
+  .SlotPicker-label.is-active {
+    background-image: image-url("images/tick_on.png"); }
   .SlotPicker-label.is-disabled {
-    color: #bfc1c3; }
+    color: #bfc1c3;
+    background-image: image-url("images/tick_disabled.png"); }
   .SlotPicker-label:last-child {
     margin-right: 0;
     margin-bottom: 0; }
