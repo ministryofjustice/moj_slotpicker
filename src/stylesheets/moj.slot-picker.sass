@@ -75,10 +75,6 @@
     display: inline
 
 .SlotPicker-choices
-  display: none
-
-  &.is-active
-    display: block
 
   ul
     margin: 0
@@ -90,6 +86,7 @@
       min-height: 236px
 
     li
+      cursor: pointer
       position: relative
       margin-top: 10px
       padding: 10px
@@ -101,6 +98,7 @@
         margin-top: 0
 
       .SlotPicker-prompt
+        display: none
         padding: 5px 18%
         text-align: center
         color: $grey-1
@@ -108,8 +106,11 @@
         @include media(mobile)
           padding-left: 10%
           padding-right: 10%
+      
+      &.is-clicked .SlotPicker-prompt
+        display: block
 
-      &.is-active
+      &.is-chosen
         padding-left: 65px
         padding-right: 80px
         border-style: solid
@@ -131,23 +132,25 @@
           font-weight: bold
 
         .SlotPicker-position
-          display: block
-      
+          background-color: $grey-1
+
+      &.is-active .SlotPicker-position
+        background-color: $light-blue
+
       p
         margin: 0
 
 .SlotPicker-promoteHelp
   display: none
 
-  &.is-active
+  &.is-chosen
     display: block
 
 .SlotPicker-position
-  display: none
   position: absolute
   left: 10px
   height: 100%
-  background: $light-blue
+  background: $grey-2
   color: $white
   width: 55px
   font-size: 48px

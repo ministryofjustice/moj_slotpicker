@@ -14,6 +14,7 @@
     this.activateOriginalSlots(this.settings.originalSlots);
     this.settings.navMonths = this.setupNav(this.settings.bookableTimes);
     this.updateNav(0);
+    this.activateNextOption();
     return this;
   };
 
@@ -21,6 +22,7 @@
     
     defaults: {
       optionLimit: 3,
+      leadDays: 3,
       singleUnavailableMsg: true,
       selections: 'has-selections',
       bookableDates: [],
@@ -60,12 +62,13 @@
       var self = this;
 
       this.$_el.on('click', '.SlotPicker-slot', function() {
-        $('.SlotPicker-choices', self.$_el).addClass('is-active');
+        $('.SlotPicker-choices', self.$_el).addClass('is-chosen');
         self.emptyUiSlots();
         self.emptySlotInputs();
         self.unHighlightSlots();
         self.checkSlot($(this));
         self.processSlots();
+        self.activateNextOption();
         self.disableCheckboxes(self.limitReached());
         self.togglePromoteHelp();
       });
@@ -96,6 +99,10 @@
       this.$_el.on('click', '.BookingCalendar-nav--prev', function(e) {
         e.preventDefault();
         self.nudgeNav(-1);
+      });
+
+      this.$_el.on('click', '.SlotPicker-choices li.is-active', function() {
+        $(this).addClass('is-clicked');
       });
     },
 
@@ -270,7 +277,7 @@
           duration = label.find('.SlotPicker-duration').text(),
           $slot = this.$choice.eq(index);
       
-      $slot.addClass('is-active');
+      $slot.addClass('is-chosen');
       $slot.find('.SlotPicker-date').text(day);
       $slot.find('.SlotPicker-time').text([time, duration].join(', '));
       $slot.find('.SlotPicker-icon--remove').data('slot-option', checkbox);
@@ -308,6 +315,12 @@
           time = bits.splice(-2, 2).join('-');
       
       return [bits.join('-'), time];
+    },
+
+    activateNextOption: function() {
+      var index = this.settings.currentSlots.length;
+      this.$choice.removeClass('is-active is-clicked');
+      this.$choice.eq(index).addClass('is-active');
     },
 
     checkSlot: function(el) {
