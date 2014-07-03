@@ -286,6 +286,7 @@ a.BookingCalendar-nav--next {
       display: inline; } }
 
 .SlotPicker-choices ul {
+  zoom: 1;
   margin: 0;
   padding: 10px;
   list-style-type: none;
