@@ -203,7 +203,7 @@
     selectDay: function(day) {
       $('.SlotPicker-day', this.$_el).removeClass('is-active');
       this.$unbookableDays.find('.SlotPicker-dayTitle').text(this.dayLabel(moj.Helpers.dateFromIso(day.data('date')))); // filthy hack
-      $(this.chosenDaySelector(day.data('date'))).addClass('is-active').focus();
+      $(this.chosenDaySelector(day.data('date'))).addClass('is-active');
     },
 
     chosenDaySelector: function(dateStr) {
