@@ -8,6 +8,7 @@
     display: block
 
 .SlotPicker-days
+  overflow: hidden
   margin-bottom: 10px
   margin-left: 0
   padding: 0
@@ -16,6 +17,7 @@
     margin-bottom: 0
 
 .SlotPicker-day
+  position: relative
   display: none
   overflow: hidden
   padding: .5em
@@ -38,6 +40,7 @@
 .SlotPicker-label
   cursor: pointer
   position: relative
+  overflow: hidden
   float: left
   box-sizing: border-box
   min-width: 120px
@@ -53,13 +56,11 @@
     width: 100%
     padding-top: 10px
     padding-bottom: 10px
+    background-position: 7px 3px
 
     &.is-active
       border-color: $light-blue
-      background: $light-blue-25
-
-  input
-    display: none
+      background-color: $light-blue-25
 
   &.is-active
     background-image: url("images/tick_on.png")
@@ -74,8 +75,8 @@
 
 .SlotPicker-slot
   position: absolute
-  top: 50%
-  left: 10px
+  top: -99px
+  left: -99px
   margin-top: -7px
 
 .SlotPicker-duration

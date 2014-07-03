@@ -261,7 +261,7 @@
     },
 
     emptyUiSlots: function() {
-      this.$choice.removeClass('is-active');
+      this.$choice.removeClass('is-active is-chosen');
       this.$choice.find('.SlotPicker-icon--remove').removeData();
       this.$choice.find('.SlotPicker-date, .SlotPicker-time').text('');
     },
@@ -337,7 +337,7 @@
     },
 
     removeSlot: function(slot) {
-      var pos = this.settings.currentSlots.indexOf(slot);
+      var pos = moj.Helpers.indexOf(this.settings.currentSlots, slot);
       
       this.settings.currentSlots.splice(pos, 1);
       this.markDate(slot);

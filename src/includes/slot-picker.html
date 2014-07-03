@@ -9,8 +9,8 @@
 </script>
 
 <script type="text/html" id="SlotPicker-tmplTimeSlot">
-  <label class="SlotPicker-label">
-    <input class="SlotPicker-slot" type="checkbox" value="{{ slot }}">
+  <label class="SlotPicker-label" for="slot-{{ slot }}">
+    <input class="SlotPicker-slot" type="checkbox" value="{{ slot }}" id="slot-{{ slot }}">
     <strong class="SlotPicker-time">{{ time }}</strong>
     <span class="SlotPicker-duration">{{ duration }}</span>
   </label>
