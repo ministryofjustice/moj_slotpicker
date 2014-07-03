@@ -23,7 +23,6 @@
       optionLimit: 3,
       singleUnavailableMsg: true,
       selections: 'has-selections',
-      bookableSlots: [],
       bookableDates: [],
       originalSlots: [],
       currentSlots: [],
@@ -156,25 +155,23 @@
     consolidate: function() {
       var slots, i, times = [], day, days = [], previous;
 
-      this.settings.bookableSlots = this.$slotInputs.first().find('option').map(function() {
-        var v = $(this).val();
-        if (v !== '') {
-          return v;
-        }
-      }).get();
-
-      this.settings.bookableDates = $.map(this.settings.bookableSlots, function(s) {
-        return s.substr(0, 10);
-      });
-
       this.settings.originalSlots = this.$slotInputs.map(function() {
         var v = $(this).val();
         if (v !== '') {
           return v;
         }
       }).get();
-      
-      slots = this.settings.bookableSlots;
+
+      slots = this.$slotInputs.first().find('option').map(function() {
+        var v = $(this).val();
+        if (v !== '') {
+          return v;
+        }
+      }).get();
+
+      this.settings.bookableDates = $.map(slots, function(s) {
+        return s.substr(0, 10);
+      });
       
       for (i = 0; i < slots.length; i++) {
         day = this.splitDateAndSlot(slots[i])[0];
@@ -192,7 +189,7 @@
 
         previous = day;
       }
-      // alert(days['2014-03-16']);
+      
       this.settings.bookableTimes = days;
     },
 
