@@ -236,6 +236,9 @@ a.BookingCalendar-nav--next {
       font-size: 20px;
       line-height: 1.2; } }
 
+.SlotPicker-dayOneSlot {
+  margin: 0; }
+
 .SlotPicker-label {
   cursor: pointer;
   position: relative;

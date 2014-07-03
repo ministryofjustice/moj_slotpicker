@@ -387,7 +387,8 @@
         out+= this.$tmplDay({
           date: this.settings.days[date.getDay()] +' '+ date.getDate() +' '+ this.settings.months[date.getMonth()],
           slot: day,
-          slots: this.buildTimeSlots(day, slots[day])
+          slots: this.buildTimeSlots(day, slots[day]),
+          oneSlot: slots[day].length === 1
         });
       }
 
