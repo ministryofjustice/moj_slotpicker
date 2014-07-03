@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.15.0 (2014-07-03)
+* Dynamically label each day
+* Dynamic 'days in range' count
+* Emulate touch option
+
 ## 0.14.0 (2014-07-02)
 * Add Dynamic DateSlider
 
