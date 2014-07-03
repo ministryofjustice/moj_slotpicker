@@ -42,7 +42,7 @@
       MAGNIFYFONT: 1.33,
       BORDERWIDTH: 2,
       FONTSIZESCALE: 0.52,
-      SHRINKWEEKDAY: 0.42,
+      SHRINKWEEKDAY: 0.42
     },
 
     cacheEls: function($el) {
