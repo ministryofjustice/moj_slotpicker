@@ -11,7 +11,7 @@
     this.calculateDimensions();
     this.resizeElements();
     this.inputDevice();
-    if (this.settings.selectonload) {
+    if (this.settings.selectonload && $el.is(':visible')) {
       this.selectDateFromIndex(0);
     }
     return this;
