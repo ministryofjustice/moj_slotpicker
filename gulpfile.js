@@ -1,10 +1,12 @@
 var gulp = require('gulp'),
+    pkg = require('./package.json'),
     jshint = require('gulp-jshint'),
     sass = require('gulp-ruby-sass'),
     stylish = require('jshint-stylish'),
     fileinclude = require('gulp-file-include'),
     rename = require('gulp-rename'),
-    replace = require('gulp-replace');
+    replace = require('gulp-replace'),
+    header = require('gulp-header');
 
 var paths = {
   scripts: './src/javascripts/**/*.js',
@@ -13,6 +15,14 @@ var paths = {
   markup: ['./src/index.html', './src/includes/slot-picker.html'],
   dest: './dist/'
 };
+
+var banner = ['/**',
+  ' * <%= pkg.name %> - <%= pkg.description %>',
+  ' * @version v<%= pkg.version %>',
+  ' * @link <%= pkg.homepage %>',
+  ' * @license <%= pkg.license %>',
+  ' */',
+  ''].join('\n');
 
 // lint javascript
 gulp.task('lint', function() {
@@ -31,6 +41,7 @@ gulp.task('include', function() {
 // join javascript and output
 gulp.task('copy', function() {
   gulp.src(paths.scripts)
+    .pipe(header(banner, { pkg : pkg } ))
     .pipe(gulp.dest(paths.dest + 'javascripts'));
   gulp.src(paths.images)
     .pipe(gulp.dest(paths.dest + 'stylesheets/images'));
@@ -40,6 +51,7 @@ gulp.task('copy', function() {
 gulp.task('sass-compile', function() {
   return gulp.src(paths.styles)
     .pipe(sass())
+    .pipe(header(banner, { pkg : pkg } ))
     .pipe(gulp.dest(paths.dest + 'stylesheets'));
 });
 

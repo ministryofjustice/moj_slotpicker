@@ -1,7 +1,10 @@
 {
   "title": "MOJ Slot Picker",
   "name": "moj.slot-picker",
+  "description": "UI components for selecting time slots",
   "version": "0.17.0",
+  "license": "OGL v2.0 - https://github.com/ministryofjustice/moj_slotpicker/blob/master/LICENCE.md",
+  "homepage": "https://github.com/ministryofjustice/moj_slotpicker",
   "devDependencies": {
     "gulp": "^3.5.5",
     "gulp-jshint": "^1.5.0",
@@ -9,6 +12,7 @@
     "gulp-ruby-sass": "^0.4.0",
     "gulp-file-include": "^0.2.1",
     "gulp-replace": "^0.2.0",
-    "gulp-rename": "^1.2.0"
+    "gulp-rename": "^1.2.0",
+    "gulp-header": "^1.0.2"
   }
 }
