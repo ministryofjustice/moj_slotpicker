@@ -104,6 +104,11 @@
       this.$_el.on('click', '.SlotPicker-choices li.is-active', function() {
         $(this).addClass('is-clicked');
       });
+
+      this.$_el.on('click', '.SlotPicker-choices li.is-chosen', function() {
+        var date = $(this).find('.SlotPicker-icon--remove').data('slot-option').attr('id').split('slot-')[1].substr(0, 10);
+        $('.BookingCalendar-dateLink[data-date="' + date + '"]').click();
+      });
     },
 
     renderElements: function() {
