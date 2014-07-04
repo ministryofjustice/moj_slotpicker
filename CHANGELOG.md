@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.18.0 (2014-07-04)
+* New: Asset files include banner/header with version info
+
 ## 0.17.0 (2014-07-04)
 * New: Display current day of chosen slot in calendar
 * Fix: Create Asset Pipeline DateSlider friendly CSS

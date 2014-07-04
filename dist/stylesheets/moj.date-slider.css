@@ -1,6 +1,6 @@
 /**
  * moj.slot-picker - UI components for selecting time slots
- * @version v0.17.0
+ * @version v0.18.0
  * @link https://github.com/ministryofjustice/moj_slotpicker
  * @license OGL v2.0 - https://github.com/ministryofjustice/moj_slotpicker/blob/master/LICENCE.md
  */
