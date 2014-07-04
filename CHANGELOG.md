@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.18.1 (2014-07-04)
+* Fix: TypeError when removing slots using button
+* Fix: Initial day selection for DateSlider interferes with calendar
+
 ## 0.18.0 (2014-07-04)
 * New: Asset files include banner/header with version info
 
