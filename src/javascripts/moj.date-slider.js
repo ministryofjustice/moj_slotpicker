@@ -324,7 +324,7 @@
       for (month in months) {
         out+= $tmplDay({
           yearMonth: this.yearMonthFromDate(months[month]),
-          month: this.settings.months[months[month].getMonth() + 1]
+          month: this.settings.months[months[month].getMonth()]
         });
       }
 
