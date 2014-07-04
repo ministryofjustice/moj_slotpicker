@@ -239,7 +239,18 @@ describe('Slot Picker', function() {
   });
 
   describe('buildDates method', function() {
+    beforeEach(function() {
+      loadFixtures(fixturePath);
+      $('.SlotPicker').data('today', '2014-03-09');
+      moj.Modules.SlotPicker.init();
+      myPicker = $('.SlotPicker');
+      picker = myPicker.data('SlotPicker');
+    });
+
     it('should create a row for w/c 26 May when there is a bookable date in May', function() {
+      expect(myPicker.find('.BookingCalendar-dateLink[data-date="2014-06-01"]')).toExist();
+    });
+    it('should create a for the current week when bookable days start on a Monday', function() {
       expect(myPicker.find('.BookingCalendar-dateLink[data-date="2014-06-01"]')).toExist();
     });
   });

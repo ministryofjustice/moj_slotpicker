@@ -4,7 +4,7 @@
 
   var SlotPicker = function($el, options) {
     this.settings = $.extend({}, this.defaults, options);
-    this.settings.today = moj.Helpers.formatIso(this.settings.today);
+    this.settings.today = new Date(this.settings.today);
     this.cacheTmpls();
     this.cacheEls($el);
     this.consolidate();
@@ -207,18 +207,17 @@
     },
 
     chosenDaySelector: function(dateStr) {
-      var bookingFrom, bookingTo, today, date;
+      var bookingFrom, bookingTo, date;
       
       if (moj.Helpers.dateBookable(dateStr, this.settings.bookableDates)) {
         return '#date-' + dateStr;
       }
 
       date = moj.Helpers.dateFromIso(dateStr);
-      today = new Date(this.settings.today);
       bookingFrom = moj.Helpers.dateFromIso(this.settings.bookableDates[0]);
       bookingTo = moj.Helpers.dateFromIso(this.settings.bookableDates[this.settings.bookableDates.length-1]);
       
-      if (date < today) {
+      if (date < this.settings.today) {
         return '.SlotPicker-day--past';
       } else {
         if (date > bookingFrom) {
@@ -411,11 +410,16 @@
 
     buildDates: function(from, to) {
       var out = '', row = '', curDate, curIso,
+          todayIso = moj.Helpers.formatIso(this.settings.today),
           end = moj.Helpers.dateFromIso(to),
           count = 1;
       
       curDate = this.firstDayOfWeek(moj.Helpers.dateFromIso(from));
       end = this.lastDayOfWeek(this.lastDayOfMonth(end));
+
+      if (curDate > this.settings.today) {
+        curDate.setDate(curDate.getDate() - 7);
+      }
 
       while (curDate <= end) {
         curIso = moj.Helpers.formatIso(curDate);
@@ -423,7 +427,7 @@
         row+= this.$tmplDate({
           date: curIso,
           day: curDate.getDate(),
-          today: curIso === this.settings.today,
+          today: curIso === todayIso,
           newMonth: curDate.getDate() === 1,
           monthIso: curIso.substr(0, 7),
           monthShort: this.settings.months[curDate.getMonth()].substr(0,3),
