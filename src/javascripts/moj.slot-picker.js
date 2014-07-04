@@ -75,6 +75,7 @@
 
       this.$_el.on('click', '.SlotPicker-icon--remove', function(e) {
         e.preventDefault();
+        e.stopPropagation();
         $($(this).data('slot-option')).click();
       });
 
