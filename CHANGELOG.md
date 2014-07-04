@@ -1,10 +1,16 @@
 # Changelog
 
+## 0.17.0 (2014-07-04)
+* New: Display current day of chosen slot in calendar
+* Fix: Create Asset Pipeline DateSlider friendly CSS
+* Fix: Include current week in BookingCalendar when slots start
+* Fix: DateSlider month labels show next month
+
 ## 0.16.1 (2014-07-03)
-Fix: IE7 DateSlider trailing comma bug
-Fix: graphic checkbox for IE & mobile checkbox
-Fix: IE7 time slot layout overlaps
-Fix: opaque tick box background
+* Fix: IE7 DateSlider trailing comma bug
+* Fix: graphic checkbox for IE & mobile checkbox
+* Fix: IE7 time slot layout overlaps
+* Fix: opaque tick box background
 
 ## 0.16.0 (2014-07-03)
 * Highlight active options
