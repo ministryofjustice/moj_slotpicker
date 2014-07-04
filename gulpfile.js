@@ -49,6 +49,10 @@ gulp.task('sass-ap', ['sass-compile'], function() {
     .pipe(rename({suffix: '.ap'}))
     .pipe(replace(/url\(/g, 'image-url('))
     .pipe(gulp.dest(paths.dest + 'stylesheets'));
+  gulp.src(paths.dest + 'stylesheets/moj.date-slider.css')
+    .pipe(rename({suffix: '.ap'}))
+    .pipe(replace(/url\(/g, 'image-url('))
+    .pipe(gulp.dest(paths.dest + 'stylesheets'));
 });
 
 // include
