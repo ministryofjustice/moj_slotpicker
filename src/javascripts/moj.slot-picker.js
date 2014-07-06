@@ -31,6 +31,7 @@
       calendarDayHeight: 56,
       navPointer: 0,
       today: new Date(),
+      scrollToFocus: true,
       days: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
       months: ['January','February','March','April','May','June','July','August','September','October','November','December']
     },
@@ -105,6 +106,8 @@
 
       this.$_el.on('click', '.SlotPicker-choices li.is-active', function() {
         $(this).addClass('is-clicked');
+        // scroll - top of DateSlider
+        self.confirmVisibility($('.DateSlider').first(), 'top');
       });
 
       this.$_el.on('click', '.SlotPicker-choices li.is-chosen', function() {
@@ -208,9 +211,14 @@
     },
 
     selectDay: function(day) {
+      var selector = this.chosenDaySelector(day.data('date'));
+
       $('.SlotPicker-day', this.$_el).removeClass('is-active');
       this.$unbookableDays.find('.SlotPicker-dayTitle').text(this.dayLabel(moj.Helpers.dateFromIso(day.data('date')))); // filthy hack
-      $(this.chosenDaySelector(day.data('date'))).addClass('is-active');
+      $(selector).addClass('is-active');
+
+      // scroll - bottom of selected day
+      this.confirmVisibility($(selector), 'bottom');
     },
 
     chosenDaySelector: function(dateStr) {
@@ -285,7 +293,7 @@
       
       $slot.addClass('is-chosen');
       $slot.find('.SlotPicker-date').text(day);
-      $slot.find('.SlotPicker-time').text([time, duration].join(', '));
+      $slot.find('.SlotPicker-time').text(time + ', ' + duration);
       $slot.find('.SlotPicker-icon--remove').data('slot-option', checkbox);
     },
 
@@ -304,6 +312,9 @@
         this.populateSlotInputs(i, $slotEl.val());
         this.populateUiSlots(i, $slotEl);
       }
+
+      // scroll - bottom of added slot
+      this.confirmVisibility(this.$choice.eq(slots.length-1), 'bottom');
     },
 
     limitReached: function() {
@@ -527,6 +538,39 @@
 
     dayLabel: function(date) {
       return [this.settings.days[date.getDay()], date.getDate(), this.settings.months[date.getMonth()]].join(' ');
+    },
+
+    isElementInViewport: function(el) {
+      var rect = el.getBoundingClientRect();
+
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    },
+
+    confirmVisibility: function($el, boundary) {
+      if (!this.isElementInViewport($el.get(0)) && Modernizr.touch && this.settings.scrollToFocus) {
+        this.moveIntoViewport($el, boundary);
+      }
+    },
+
+    moveIntoViewport: function($el, boundary) {
+      var top, bottom;
+
+      if (boundary === 'top') {
+        top = $el.offset().top;
+        $('html, body').animate({
+          scrollTop: top
+        }, 350);
+      } else {
+        bottom = $el.offset().top + $el.outerHeight();
+        $('html, body').animate({
+          scrollTop: bottom - $(window).height()
+        }, 350);
+      }
     }
 
   };
