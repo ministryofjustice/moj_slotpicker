@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.19.0 (2014-07-06)
+* Scroll next element into focus (mobile/touch only)
+* Fix: day is selected when removing slot
+
 ## 0.18.1 (2014-07-04)
 * Fix: TypeError when removing slots using button
 * Fix: Initial day selection for DateSlider interferes with calendar
