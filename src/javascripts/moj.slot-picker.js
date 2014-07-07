@@ -5,7 +5,6 @@
   var SlotPicker = function($el, options) {
     this.settings = $.extend({}, this.defaults, options);
     this.settings.today = new Date(this.settings.today);
-    this.cacheTmpls();
     this.cacheEls($el);
     this.consolidate();
     this.renderElements();
@@ -49,14 +48,6 @@
     cacheElsRendered: function($el) {
       this.$choice = $('.SlotPicker-choices li', $el);
       this.$currentMonth = $('.BookingCalendar-currentMonth', $el);
-    },
-
-    cacheTmpls: function() {
-      this.$tmplDay = Handlebars.compile($('#SlotPicker-tmplDay').html());
-      this.$tmplTimeSlot = Handlebars.compile($('#SlotPicker-tmplTimeSlot').html());
-      this.$tmplChoice = Handlebars.compile($('#SlotPicker-tmplChoice').html());
-      this.$tmplRow = Handlebars.compile($('#BookingCalendar-tmplRow').html());
-      this.$tmplDate = Handlebars.compile($('#BookingCalendar-tmplDate').html());
     },
 
     bindEvents: function() {
@@ -382,10 +373,11 @@
     },
 
     buildTimeSlots: function(date, slots) {
-      var i, out = '';
+      var template = moj.Helpers.getTemplate('#SlotPicker-tmplTimeSlot'),
+          i, out = '';
 
       for (i = 0; i < slots.length; i++) {
-        out+= this.$tmplTimeSlot({
+        out+= template({
           time: this.displayTime(slots[i].split('-')[0]),
           duration: this.duration( this.timeFromSlot(slots[i].split('-')[0]), this.timeFromSlot(slots[i].split('-')[1]) ),
           slot: [date,slots[i]].join('-')
@@ -396,12 +388,13 @@
     },
 
     buildDays: function() {
-      var day, out = '', date,
+      var template = moj.Helpers.getTemplate('#SlotPicker-tmplDay'),
+          day, out = '', date,
           slots = this.settings.bookableTimes;
 
       for (day in slots) {
         date = moj.Helpers.dateFromIso(day);
-        out+= this.$tmplDay({
+        out+= template({
           date: this.settings.days[date.getDay()] +' '+ date.getDate() +' '+ this.settings.months[date.getMonth()],
           slot: day,
           slots: this.buildTimeSlots(day, slots[day]),
@@ -413,11 +406,12 @@
     },
 
     buildChoices: function() {
-      var i, out = '',
+      var template = moj.Helpers.getTemplate('#SlotPicker-tmplChoice'),
+          i, out = '',
           opts = this.settings.optionLimit;
 
       for (i = 1; i <= opts; i++) {
-        out+= this.$tmplChoice({
+        out+= template({
           num: i,
           notFirst: i > 1
         });
@@ -427,7 +421,9 @@
     },
 
     buildDates: function(from, to) {
-      var out = '', row = '', curDate, curIso,
+      var templateRow = moj.Helpers.getTemplate('#BookingCalendar-tmplRow'),
+          templateDate = moj.Helpers.getTemplate('#BookingCalendar-tmplDate'),
+          out = '', row = '', curDate, curIso,
           todayIso = moj.Helpers.formatIso(this.settings.today),
           end = moj.Helpers.dateFromIso(to),
           count = 1;
@@ -442,7 +438,7 @@
       while (curDate <= end) {
         curIso = moj.Helpers.formatIso(curDate);
 
-        row+= this.$tmplDate({
+        row+= templateDate({
           date: curIso,
           day: curDate.getDate(),
           today: curIso === todayIso,
@@ -453,7 +449,7 @@
         });
 
         if (count === 7) {
-          out+= this.$tmplRow({
+          out+= templateRow({
             cells: row
           });
           row = '';
@@ -575,6 +571,19 @@
 
   };
 
+
+  moj.Helpers.getTemplate = function(selector) {
+    var $template = $(selector),
+        compiled;
+
+    if ($template.length) {
+      compiled = Handlebars.compile($template.html());
+    } else {
+      throw 'SlotPicker error: ' + selector + ' template not found';
+    }
+
+    return compiled;
+  };
 
   moj.Helpers.formatIso = function(date) {
     if (typeof date === 'string') {

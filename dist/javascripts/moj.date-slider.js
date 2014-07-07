@@ -299,7 +299,7 @@
     },
 
     buildDays: function(from, to, dayLabel) {
-      var $tmplDay = Handlebars.compile($('#DateSlider-day').html()),
+      var template = moj.Helpers.getTemplate('#DateSlider-tmplDay'),
           out = '', curIso,
           curDate = new Date();
 
@@ -309,7 +309,7 @@
       while (curDate <= to) {
         curIso = moj.Helpers.formatIso(curDate);
         
-        out+= $tmplDay({
+        out+= template({
           dayLabel: dayLabel,
           klass: moj.Helpers.dateBookable(curIso, this.slotPicker.bookableDates) ? '' : 'unavailable',
           isoDate: curIso,
@@ -324,11 +324,11 @@
     },
 
     buildMonthLabels: function(months) {
-      var $tmplDay = Handlebars.compile($('#DateSlider-month').html()),
+      var template = moj.Helpers.getTemplate('#DateSlider-tmplMonth'),
           out = '', month;
 
       for (month in months) {
-        out+= $tmplDay({
+        out+= template({
           yearMonth: this.yearMonthFromDate(months[month]),
           month: this.settings.months[months[month].getMonth()]
         });
