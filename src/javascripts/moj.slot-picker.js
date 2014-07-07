@@ -215,7 +215,7 @@
 
       $('.SlotPicker-day', this.$_el).removeClass('is-active');
       this.$unbookableDays.find('.SlotPicker-dayTitle').text(this.dayLabel(moj.Helpers.dateFromIso(day.data('date')))); // filthy hack
-      $(selector).addClass('is-active');
+      $(selector).addClass('is-active').focus();
 
       // scroll - bottom of selected day
       this.confirmVisibility($(selector), 'bottom');
