@@ -6,16 +6,19 @@ A Web user interface for selecting 3 time slots in order of preference.
 
 The interface consists of:
 
-* a calendar (for selecting available days)
+* a calendar for selecting available days
+* an optional date 'slider' for touch screens
 * a list of slots for the selected day
-* a list of chosen slots
+* a list of chosen slots in order of preference
 
 When a slot is selected the corresponding hidden option element is selected.
+
 
 ## Dependencies
 
 * jQuery
 * moj.js (see [Non-MOJ projects](#non-moj-projects) below)
+* [Handlbars](http://handlebarsjs.com/)
 
 ## How to use
 
@@ -31,13 +34,16 @@ or
 
 Download the [latest version as a ZIP](https://github.com/ministryofjustice/moj_slotpicker/releases) and use the `dist` folder.
 
+
 ### Note for Ruby on Rails Asset Pipelines
 
-For Asset Pipeline users, include the `moj.slot-picker.ap.css` file as this uses `image-url` helpers for file references.
+For Asset Pipeline users, include the CSS files with the `.ap` suffix as these use the `image-url` helper for file image assets.
 
-Also, assuming you have installed the package in `vendor/assets` add the following line to `config/application.rb` to make sure the slot picker assets are served.
+Also, assuming you have installed the package in `vendor/assets`, add the following line to `config/application.rb` to make sure the slot picker assets are served.
 
-    config.assets.paths << Rails.root.join('vendor', 'assets', 'moj.slot-picker', 'dist', 'stylesheets')
+    config.assets.paths << "#{Rails.root}/vendor/assets/moj.slot-picker/dist/stylesheets"
+
+Lastly, make sure `*.png` is included in `config.assets.precompile`.
 
 
 ## Mark-up
@@ -48,9 +54,7 @@ The Slot Picker expects source dates to be provided in the form of option elemen
 
 The slot data is in the format `YYYY-MM-DD-HHMM-HHMM`, where the former time is the start of the slot and the latter time is the end.
 
-Re-create the classname structure as shown in `/dist/index.html`.
-
-Currently the component requires your app to generate each calendar day (see `.BookingCalendar-dates` and `.SlotPicker-days`).
+Re-create the classname structure and templates as shown in `/dist/index.html`.
 
 ## Options
 
@@ -66,9 +70,9 @@ single-unavailable-msg | true    | Use one message for all days do not contain a
 
 MOJ projects use a JavaScript [module structure](https://github.com/ministryofjustice/moj_boilerplate/blob/master/app/assets/javascripts/moj.js) based on [Heisenburg.js](https://github.com/Heisenbergjs/heisenberg). 
 
-For non-MOJ projects you need to re-create the namespace before the moj.slot-picker.js file is included and then initialise the Slot Picker module.
+For non-MOJ projects you need to re-create the namespace before the moj.slot-picker.js and moj.date-slider.js files are included, and then initialise the each module.
 
-    <script>var moj = moj || { Modules: {} };</script>
+    <script>var moj = moj || { Modules: {}, Helpers: {} };</script>
     <script src="javascripts/moj.slot-picker.js"></script>
     <script>moj.Modules.SlotPicker.init();</script>
 
