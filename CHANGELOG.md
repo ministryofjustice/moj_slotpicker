@@ -1,7 +1,13 @@
 # Changelog
 
+## 0.19.1 (2014-07-08)
+* Fix: Reinstate focus on days
+* Fix: Add missing 'tmpl' prefix to templates
+* Change: Update README
+* Change: Use unified helper method for Handlebars templates
+
 ## 0.19.0 (2014-07-06)
-* Scroll next element into focus (mobile/touch only)
+* New: Scroll next element into focus (mobile/touch only)
 * Fix: day is selected when removing slot
 
 ## 0.18.1 (2014-07-04)
