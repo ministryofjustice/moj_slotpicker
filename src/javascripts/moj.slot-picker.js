@@ -464,7 +464,7 @@
     },
 
     displayTime: function(time) {
-      var hrs = parseInt(time.substr(0, 2)),
+      var hrs = parseInt(time.substr(0, 2), 10),
           mins = time.substr(2),
           out = hrs;
 

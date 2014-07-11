@@ -155,6 +155,9 @@ describe('Slot Picker', function() {
   });
 
   describe('displayTime method', function() {
+    it('should return 8:45am from "0845"', function() {
+      expect(picker.displayTime('0845')).toEqual('8:45am');
+    });
     it('should return 12am from "0000"', function() {
       expect(picker.displayTime('0000')).toEqual('12am');
     });
