@@ -2,7 +2,7 @@
   "title": "MOJ Slot Picker",
   "name": "moj.slot-picker",
   "description": "UI components for selecting time slots",
-  "version": "0.19.1",
+  "version": "0.19.2",
   "license": "OGL v2.0 - https://github.com/ministryofjustice/moj_slotpicker/blob/master/LICENCE.md",
   "homepage": "https://github.com/ministryofjustice/moj_slotpicker",
   "devDependencies": {

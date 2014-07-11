@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.19.2 (2014-07-11)
+* Fix: IE7/8 display wrong time for 0845
+
 ## 0.19.1 (2014-07-08)
 * Fix: Reinstate focus on days
 * Fix: Add missing 'tmpl' prefix to templates

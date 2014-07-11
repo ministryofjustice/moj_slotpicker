@@ -1,6 +1,6 @@
 {
   "name": "moj.slot-picker",
-  "version": "0.19.1",
+  "version": "0.19.2",
   "main": "dist/javascript/moj.slot-picker.css",
   "ignore": [
     ".jshintrc",
