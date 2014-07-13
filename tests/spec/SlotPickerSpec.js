@@ -17,7 +17,7 @@ describe('Helper method', function() {
     var dateStr = '1977-02-06';
 
     it('should return a string', function() {
-      expect(moj.Helpers.dateFromIso(dateStr) instanceof Date).toEqual(true);
+      expect(moj.Helpers.dateFromIso(dateStr) instanceof Date).toBe(true);
     });
     it('should return 6 Feb 1977 from the string "' + dateStr + '"', function() {
       expect(moj.Helpers.dateFromIso(dateStr)).toEqual(new Date('6 Feb, 1977'));
@@ -40,10 +40,10 @@ describe('Helper method', function() {
     var dates = ['1977-02-06', '1977-02-07', '1977-02-09'];
 
     it('should return true when an object is in the array', function() {
-      expect(moj.Helpers.dateBookable(new Date('6 Feb, 1977'), dates)).toEqual(true);
+      expect(moj.Helpers.dateBookable(new Date('6 Feb, 1977'), dates)).toBe(true);
     });
     it('should return false when the object is not in the array', function() {
-      expect(moj.Helpers.dateBookable(new Date('1 Feb, 1977'), dates)).toEqual(false);
+      expect(moj.Helpers.dateBookable(new Date('1 Feb, 1977'), dates)).toBe(false);
     });
   });
 
@@ -112,7 +112,7 @@ describe('Slot Picker', function() {
       expect(picker.setupNav).toBeDefined();
     });
     it('should return an array of objects', function() {
-      expect(Object.prototype.toString.call(picker.setupNav(picker.settings.bookableTimes))).toEqual('[object Array]');
+      expect(picker.setupNav(picker.settings.bookableTimes) instanceof Array).toBe(true);
     });
     it('should return an array of objects which contain date, label and pos', function() {
       expect(picker.setupNav(picker.settings.bookableTimes)).toEqual(nav);
@@ -144,7 +144,7 @@ describe('Slot Picker', function() {
     });
 
     it('should return an array', function() {
-      expect(Object.prototype.toString.call(picker.move(array, 0, 0))).toEqual('[object Array]');
+      expect(picker.move(array, 0, 0) instanceof Array).toBe(true);
     });
     it('should move an item up the index', function() {
       expect(picker.move(array, 1, 0)).toEqual(['b', 'a', 'c']);
@@ -195,7 +195,7 @@ describe('Slot Picker', function() {
     var time = '0935';
 
     it('should return a valid date from 4 digit string', function() {
-      expect(Object.prototype.toString.call(picker.timeFromSlot(time))).toEqual('[object Date]');
+      expect(picker.timeFromSlot(time) instanceof Date).toBe(true);
     });
     it('should set hours to 9', function() {
       expect(picker.timeFromSlot(time).getHours()).toEqual(9);
@@ -207,7 +207,7 @@ describe('Slot Picker', function() {
 
   describe('firstDayOfWeek method', function() {
     it('should return a date', function() {
-      expect(Object.prototype.toString.call(picker.firstDayOfWeek(new Date()))).toEqual('[object Date]');
+      expect(picker.firstDayOfWeek(new Date()) instanceof Date).toBe(true);
     });
     it('should return Mon 28 Apr from Fri 2 May 2014', function() {
       expect(picker.firstDayOfWeek(new Date(2014, 4, 2))).toEqual(new Date(2014, 3, 28));
@@ -219,7 +219,7 @@ describe('Slot Picker', function() {
 
   describe('lastDayOfWeek method', function() {
     it('should return a date', function() {
-      expect(Object.prototype.toString.call(picker.lastDayOfWeek(new Date()))).toEqual('[object Date]');
+      expect(picker.lastDayOfWeek(new Date()) instanceof Date).toBe(true);
     });
     it('should return Sun 6 Apr from Mon 31 Mar 2014', function() {
       expect(picker.lastDayOfWeek(new Date(2014, 2, 31))).toEqual(new Date(2014, 3, 6));
@@ -234,7 +234,7 @@ describe('Slot Picker', function() {
 
   describe('lastDayOfMonth method', function() {
     it('should return a date', function() {
-      expect(Object.prototype.toString.call(picker.lastDayOfMonth(new Date()))).toEqual('[object Date]');
+      expect(picker.lastDayOfMonth(new Date()) instanceof Date).toBe(true);
     });
     it('should return 31 May from 29 May', function() {
       expect(picker.lastDayOfMonth(new Date(2014, 4, 29))).toEqual(new Date(2014, 4, 31));
@@ -267,14 +267,14 @@ describe('Slot Picker', function() {
   describe('settings', function() {
     describe('optionLimit - the amount of slot choices', function() {
       it('should not have reached limit', function() {
-        expect(picker.limitReached()).toEqual(false);
+        expect(picker.limitReached()).toBe(false);
       });
       it('should prevent further selections when default limit (3) is reached', function() {
         var slots = myPicker.find('.SlotPicker-slot');
         for (var i = 0; i < 3; i++) {
           slots.eq(i).click();
         }
-        expect(picker.limitReached()).toEqual(true);
+        expect(picker.limitReached()).toBe(true);
       });
     });
   });
