@@ -21,7 +21,6 @@
     
     defaults: {
       optionLimit: 3,
-      leadDays: 3,
       singleUnavailableMsg: true,
       selections: 'has-selections',
       bookableDates: [],
