@@ -87,69 +87,68 @@
 
 .SlotPicker-choices
 
-  ul
-    zoom: 1
+  zoom: 1
+  margin: 0
+  padding: 10px
+  list-style-type: none
+  background: $grey-3
+
+  @include media(desktop)
+    min-height: 236px
+
+.SlotPicker-choice
+  cursor: pointer
+  position: relative
+  margin-top: 10px
+  padding: 10px
+  min-height: 60px
+  background: $white
+  border: 1px solid $grey-2
+
+  &:first-child
+    margin-top: 0
+
+  .SlotPicker-prompt
+    display: none
+    padding: 5px 18%
+    text-align: center
+    color: $grey-1
+
+    @include media(mobile)
+      padding-left: 10%
+      padding-right: 10%
+  
+  &.is-clicked .SlotPicker-prompt
+    display: block
+
+  &.is-chosen
+    padding-left: 65px
+    padding-right: 80px
+
+    @include media(mobile)
+      padding-left: 55px
+
+    p
+      font-size: 24px
+
+    .SlotPicker-prompt
+      display: none
+
+    .SlotPicker-icon--remove,
+    .SlotPicker-icon--promote
+      display: block
+
+    .SlotPicker-date
+      font-weight: bold
+
+    .SlotPicker-position
+      background-color: $grey-1
+
+  &.is-active .SlotPicker-position
+    background-color: $light-blue
+
+  p
     margin: 0
-    padding: 10px
-    list-style-type: none
-    background: $grey-3
-
-    @include media(desktop)
-      min-height: 236px
-
-    li
-      cursor: pointer
-      position: relative
-      margin-top: 10px
-      padding: 10px
-      min-height: 60px
-      background: $white
-      border: 1px solid $grey-2
-
-      &:first-child
-        margin-top: 0
-
-      .SlotPicker-prompt
-        display: none
-        padding: 5px 18%
-        text-align: center
-        color: $grey-1
-
-        @include media(mobile)
-          padding-left: 10%
-          padding-right: 10%
-      
-      &.is-clicked .SlotPicker-prompt
-        display: block
-
-      &.is-chosen
-        padding-left: 65px
-        padding-right: 80px
-
-        @include media(mobile)
-          padding-left: 55px
-
-        p
-          font-size: 24px
-
-        .SlotPicker-prompt
-          display: none
-
-        .SlotPicker-icon--remove,
-        .SlotPicker-icon--promote
-          display: block
-
-        .SlotPicker-date
-          font-weight: bold
-
-        .SlotPicker-position
-          background-color: $grey-1
-
-      &.is-active .SlotPicker-position
-        background-color: $light-blue
-
-      p
-        margin: 0
 
 .SlotPicker-promoteHelp
   display: none

@@ -291,57 +291,58 @@ a.BookingCalendar-nav--next {
     .SlotPicker-duration {
       display: inline; } }
 
-.SlotPicker-choices ul {
+.SlotPicker-choices {
   zoom: 1;
   margin: 0;
   padding: 10px;
   list-style-type: none;
   background: #dee0e2; }
   @media (min-width: 769px) {
-    .SlotPicker-choices ul {
+    .SlotPicker-choices {
       min-height: 236px; } }
-  .SlotPicker-choices ul li {
-    cursor: pointer;
-    position: relative;
-    margin-top: 10px;
-    padding: 10px;
-    min-height: 60px;
-    background: white;
-    border: 1px solid #bfc1c3; }
-    .SlotPicker-choices ul li:first-child {
-      margin-top: 0; }
-    .SlotPicker-choices ul li .SlotPicker-prompt {
-      display: none;
-      padding: 5px 18%;
-      text-align: center;
-      color: #6f777b; }
-      @media (max-width: 640px) {
-        .SlotPicker-choices ul li .SlotPicker-prompt {
-          padding-left: 10%;
-          padding-right: 10%; } }
-    .SlotPicker-choices ul li.is-clicked .SlotPicker-prompt {
+
+.SlotPicker-choice {
+  cursor: pointer;
+  position: relative;
+  margin-top: 10px;
+  padding: 10px;
+  min-height: 60px;
+  background: white;
+  border: 1px solid #bfc1c3; }
+  .SlotPicker-choice:first-child {
+    margin-top: 0; }
+  .SlotPicker-choice .SlotPicker-prompt {
+    display: none;
+    padding: 5px 18%;
+    text-align: center;
+    color: #6f777b; }
+    @media (max-width: 640px) {
+      .SlotPicker-choice .SlotPicker-prompt {
+        padding-left: 10%;
+        padding-right: 10%; } }
+  .SlotPicker-choice.is-clicked .SlotPicker-prompt {
+    display: block; }
+  .SlotPicker-choice.is-chosen {
+    padding-left: 65px;
+    padding-right: 80px; }
+    @media (max-width: 640px) {
+      .SlotPicker-choice.is-chosen {
+        padding-left: 55px; } }
+    .SlotPicker-choice.is-chosen p {
+      font-size: 24px; }
+    .SlotPicker-choice.is-chosen .SlotPicker-prompt {
+      display: none; }
+    .SlotPicker-choice.is-chosen .SlotPicker-icon--remove,
+    .SlotPicker-choice.is-chosen .SlotPicker-icon--promote {
       display: block; }
-    .SlotPicker-choices ul li.is-chosen {
-      padding-left: 65px;
-      padding-right: 80px; }
-      @media (max-width: 640px) {
-        .SlotPicker-choices ul li.is-chosen {
-          padding-left: 55px; } }
-      .SlotPicker-choices ul li.is-chosen p {
-        font-size: 24px; }
-      .SlotPicker-choices ul li.is-chosen .SlotPicker-prompt {
-        display: none; }
-      .SlotPicker-choices ul li.is-chosen .SlotPicker-icon--remove,
-      .SlotPicker-choices ul li.is-chosen .SlotPicker-icon--promote {
-        display: block; }
-      .SlotPicker-choices ul li.is-chosen .SlotPicker-date {
-        font-weight: bold; }
-      .SlotPicker-choices ul li.is-chosen .SlotPicker-position {
-        background-color: #6f777b; }
-    .SlotPicker-choices ul li.is-active .SlotPicker-position {
-      background-color: #2b8cc4; }
-    .SlotPicker-choices ul li p {
-      margin: 0; }
+    .SlotPicker-choice.is-chosen .SlotPicker-date {
+      font-weight: bold; }
+    .SlotPicker-choice.is-chosen .SlotPicker-position {
+      background-color: #6f777b; }
+  .SlotPicker-choice.is-active .SlotPicker-position {
+    background-color: #2b8cc4; }
+  .SlotPicker-choice p {
+    margin: 0; }
 
 .SlotPicker-promoteHelp {
   display: none; }

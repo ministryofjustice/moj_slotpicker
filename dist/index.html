@@ -53,7 +53,7 @@
 </script>
 
 <script type="text/html" id="SlotPicker-tmplChoice">
-  <li>
+  <div class="SlotPicker-choice">
     {{#if notFirst}}
       <a class="SlotPicker-icon SlotPicker-icon--promote" href="#">Promote</a>
     {{/if}}
@@ -62,7 +62,7 @@
     <p class="SlotPicker-date"></p>
     <p class="SlotPicker-time"></p>
     <p class="SlotPicker-prompt">Choose a date and time from the calendar</p>
-  </li>
+  </div>
 </script>
 
 <script type="text/html" id="DateSlider-tmplDay">
@@ -168,8 +168,6 @@
   </div>
 
   <div class="SlotPicker-choices">
-    <ul>
-    </ul>
     <p class="SlotPicker-promoteHelp">Use the arrows to put your visit choices in the order that suits you best.</p>
   </div>
 

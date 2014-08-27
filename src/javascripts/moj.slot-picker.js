@@ -45,7 +45,7 @@
     },
 
     cacheElsRendered: function($el) {
-      this.$choice = $('.SlotPicker-choices li', $el);
+      this.$choice = $('.SlotPicker-choice', $el);
       this.$currentMonth = $('.BookingCalendar-currentMonth', $el);
     },
 
@@ -73,7 +73,7 @@
       this.$_el.on('click', '.SlotPicker-icon--promote', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        self.promoteSlot($(this).closest('li').index());
+        self.promoteSlot($(this).closest('.SlotPicker-choice').index());
         self.processSlots();
       });
 
@@ -94,13 +94,13 @@
         self.nudgeNav(-1);
       });
 
-      this.$_el.on('click', '.SlotPicker-choices li.is-active', function() {
+      this.$_el.on('click', '.SlotPicker-choice.is-active', function() {
         $(this).addClass('is-clicked');
         // scroll - top of DateSlider
         self.confirmVisibility($('.DateSlider').first(), 'top');
       });
 
-      this.$_el.on('click', '.SlotPicker-choices li.is-chosen', function() {
+      this.$_el.on('click', '.SlotPicker-choice.is-chosen', function() {
         var date = $(this).find('.SlotPicker-icon--remove').data('slot-option').attr('id').split('slot-')[1].substr(0, 10);
         $('.BookingCalendar-dateLink[data-date="' + date + '"]').click();
       });
@@ -114,7 +114,7 @@
 
       $('.SlotPicker-days', this.$_el).append(this.buildDays());
       $('.BookingCalendar-datesBody', this.$_el).append(this.buildDates(from, to));
-      $('.SlotPicker-choices ul', this.$_el).append(this.buildChoices());
+      $('.SlotPicker-choices', this.$_el).prepend(this.buildChoices());
       $beyond.html($beyond.html().replace('{{ daysInRange }}', moj.Helpers.daysInRange(moj.Helpers.dateFromIso(from), moj.Helpers.dateFromIso(to))));
     },
 
