@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.20.1 (2014-08-28)
+* Fix: Reordering now works when UI choices are adajecent to other elements
+* Fix: failing original slots spec
+
 ## 0.20.0 (2014-08-28)
 * Change: UI slots now require 'SlotPicker-choice' class
 
