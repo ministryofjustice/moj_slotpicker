@@ -73,7 +73,7 @@
       this.$_el.on('click', '.SlotPicker-icon--promote', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        self.promoteSlot($(this).closest('.SlotPicker-choice').index());
+        self.promoteSlot($(this).closest('.SlotPicker-choice').index('.SlotPicker-choice'));
         self.processSlots();
       });
 

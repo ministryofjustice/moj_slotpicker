@@ -1,6 +1,6 @@
 /**
  * moj.slot-picker - UI components for selecting time slots
- * @version v0.19.2
+ * @version v0.20.0
  * @link https://github.com/ministryofjustice/moj_slotpicker
  * @license OGL v2.0 - https://github.com/ministryofjustice/moj_slotpicker/blob/master/LICENCE.md
  */
@@ -79,7 +79,7 @@
       this.$_el.on('click', '.SlotPicker-icon--promote', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        self.promoteSlot($(this).closest('.SlotPicker-choice').index());
+        self.promoteSlot($(this).closest('.SlotPicker-choice').index('.SlotPicker-choice'));
         self.processSlots();
       });
 
