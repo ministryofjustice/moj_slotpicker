@@ -132,7 +132,7 @@ describe('Slot Picker', function() {
       expect(myPicker.find('input[value="2014-03-20-1400-1440"]')).toBeChecked();
     });
     it('should display the corresponding chosen box with details', function() {
-      expect(myPicker.find('.SlotPicker-choices li:first')).toContainText('Thursday 20 March');
+      expect(myPicker.find('.SlotPicker-choice:first')).toContainText('Thursday 20 March');
     });
   });
 
