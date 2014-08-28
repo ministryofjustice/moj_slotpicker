@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.20.0 (2014-08-28)
+* Change: UI slots now require 'SlotPicker-choice' class
+
 ## 0.19.2 (2014-07-11)
 * Fix: IE7/8 display wrong time for 0845
 
