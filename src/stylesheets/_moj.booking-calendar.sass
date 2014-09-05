@@ -100,16 +100,14 @@ a.BookingCalendar-dateLink
   background: $light-blue
 
 ul.BookingCalendar-legend
-  overflow: hidden
   padding: 0
   list-style: none
 
-  li
-    float: left
-    margin-right: 20px
+  > li
+    display: table-cell
     @include core-16
 
-    &:last-child
+    &:last-child .BookingCalendar-legendDesc
       margin-right: 0
 
 .BookingCalendar-legendBox
@@ -118,6 +116,11 @@ ul.BookingCalendar-legend
   height: 29px
   margin: 0 5px 0 0
   border: 1px solid $grey-3
+
+.BookingCalendar-legendDesc
+  float: left
+  margin-right: 1em
+  line-height: 0
 
 .BookingCalendar-legendBox--unavailable
   background: url("images/unavailable_tile.png")

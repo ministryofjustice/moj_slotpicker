@@ -110,11 +110,13 @@
 
   .SlotPicker-prompt
     display: none
+    margin-left: 55px
     padding: 5px 18%
     text-align: center
     color: $grey-1
 
     @include media(mobile)
+      margin-left: 45px
       padding-left: 10%
       padding-right: 10%
   
@@ -165,11 +167,17 @@
   width: 55px
   font-size: 48px
   font-weight: bold
-  text-align: center
   margin: -10px 0 0 -10px
 
   @include media(mobile)
     width: 45px
+
+  span
+    position: absolute
+    top: 50%
+    width: 100%
+    margin-top: -0.6em
+    text-align: center
 
 .SlotPicker-icon
   display: none
