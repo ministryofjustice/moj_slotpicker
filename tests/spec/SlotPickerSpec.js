@@ -101,7 +101,7 @@ describe('Slot Picker', function() {
     });
   });
 
-  describe('setupNav', function() {
+  describe('getMonthPositions', function() {
     var nav = [
           {label:'March', pos:-56},
           {label:'April', pos:168},
@@ -109,13 +109,13 @@ describe('Slot Picker', function() {
         ];
 
     it('should be a method', function() {
-      expect(picker.setupNav).toBeDefined();
+      expect(picker.getMonthPositions).toBeDefined();
     });
     it('should return an array of objects', function() {
-      expect(picker.setupNav(picker.settings.bookableTimes) instanceof Array).toBe(true);
+      expect(picker.getMonthPositions(picker.settings.bookableTimes) instanceof Array).toBe(true);
     });
     it('should return an array of objects which contain date, label and pos', function() {
-      expect(picker.setupNav(picker.settings.bookableTimes)).toEqual(nav);
+      expect(picker.getMonthPositions(picker.settings.bookableTimes)).toEqual(nav);
     });
   });
 

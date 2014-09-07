@@ -17,7 +17,7 @@
     this.cacheElsRendered($el);
     this.bindEvents();
     this.activateOriginalSlots(this.settings.originalSlots);
-    this.settings.navMonths = this.setupNav(this.settings.bookableTimes);
+    this.settings.navMonths = this.getMonthPositions(this.settings.bookableTimes);
     this.updateNav(0);
     this.activateNextOption();
     return this;
@@ -124,7 +124,7 @@
       $beyond.html($beyond.html().replace('{{ daysInRange }}', moj.Helpers.daysInRange(moj.Helpers.dateFromIso(from), moj.Helpers.dateFromIso(to))));
     },
 
-    setupNav: function(dates) {
+    getMonthPositions: function(dates) {
       var months = [], lastMonth, day, month;
       
       for (day in dates) {
