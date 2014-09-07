@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.21.0 (2014-09-07)
+* New: Responsive month labels
+* Fix: Set background colours on day elements & key
+* Fix: Vertical centre legend
+
 ## 0.20.1 (2014-08-28)
 * Fix: Reordering now works when UI choices are adajecent to other elements
 * Fix: failing original slots spec
