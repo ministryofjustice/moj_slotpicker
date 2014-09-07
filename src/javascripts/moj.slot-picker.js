@@ -136,19 +136,33 @@
     },
 
     updateNav: function(i) {
+      var prev = $('.BookingCalendar-nav--prev', this.$_el),
+          next = $('.BookingCalendar-nav--next', this.$_el);
+
       if (i > 0) {
-        $('.BookingCalendar-nav--prev', this.$_el).addClass('is-active').text(this.settings.navMonths[i - 1].label);
+        prev.addClass('is-active');
+        prev.html(this.navLabel(this.settings.navMonths[i - 1].label));
       } else {
-        $('.BookingCalendar-nav--prev', this.$_el).removeClass('is-active');
+        prev.removeClass('is-active');
       }
 
       if (i + 1 < this.settings.navMonths.length) {
-        $('.BookingCalendar-nav--next', this.$_el).addClass('is-active').text(this.settings.navMonths[i + 1].label);
+        next.addClass('is-active');
+        next.html(this.navLabel(this.settings.navMonths[i + 1].label));
       } else {
-        $('.BookingCalendar-nav--next', this.$_el).removeClass('is-active');
+        next.removeClass('is-active');
       }
 
       this.$currentMonth.text(this.settings.navMonths[i].label);
+    },
+
+    navLabel: function(text) {
+      var template = moj.Helpers.getTemplate('#BookingCalendar-tmplNav');
+
+      return template({
+        monthAbr: text.substr(0, 3),
+        monthRemaining: text.substr(3)
+      });
     },
 
     nudgeNav: function(i) {

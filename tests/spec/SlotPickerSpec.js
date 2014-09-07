@@ -119,6 +119,12 @@ describe('Slot Picker', function() {
     });
   });
 
+  describe('navLabel method', function() {
+    it('should return an abbreviated string with the remaining characters wrapped in an element', function() {
+      expect(picker.navLabel('January')).toContain('Jan<span class="BookingCalendar-navFull">uary</span>');
+    });
+  });
+
   describe('activateOriginalSlots method', function() {
     beforeEach(function() {
       loadFixtures(fixturePath);

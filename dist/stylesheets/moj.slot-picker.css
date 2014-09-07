@@ -208,6 +208,12 @@ a.BookingCalendar-nav--next {
       background-position: 100% 10px;
       background-size: 30px; } }
 
+.BookingCalendar-navFull {
+  display: none; }
+  @media (min-width: 769px) {
+    .BookingCalendar-navFull {
+      display: inline; } }
+
 .SlotPicker-timeSlots {
   display: none; }
   .SlotPicker-timeSlots.is-active {
