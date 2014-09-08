@@ -116,12 +116,15 @@
       var len = this.settings.bookableDates.length,
           from = this.settings.bookableDates[0],
           to = this.settings.bookableDates[len-1],
-          $beyond = $('.SlotPicker-day--beyond');
+          $beyond = $('.SlotPicker-day--beyond'),
+          tomorrow = new Date(this.settings.today.getTime());
+
+      tomorrow.setDate(tomorrow.getDate() + 1);
 
       $('.SlotPicker-days', this.$_el).append(this.buildDays());
       $('.BookingCalendar-datesBody', this.$_el).append(this.buildDates(from, to));
       $('.SlotPicker-choices', this.$_el).prepend(this.buildChoices());
-      $beyond.html($beyond.html().replace('{{ daysInRange }}', moj.Helpers.daysInRange(moj.Helpers.dateFromIso(from), moj.Helpers.dateFromIso(to))));
+      $beyond.html($beyond.html().replace('{{ daysInRange }}', moj.Helpers.daysInRange(tomorrow, moj.Helpers.dateFromIso(to))));
     },
 
     getMonthPositions: function(dates) {
