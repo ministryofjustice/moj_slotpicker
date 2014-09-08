@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.21.1 (2014-09-08)
+* Fix: Correct daysInRange to count days from tomorrow
+
 ## 0.21.0 (2014-09-07)
 * New: Responsive month labels
 * Fix: Set background colours on day elements & key
