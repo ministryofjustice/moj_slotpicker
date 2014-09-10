@@ -110,6 +110,11 @@ ul.BookingCalendar-legend
     &:last-child .BookingCalendar-legendDesc
       margin-right: 0
 
+  @include media(mobile)
+    margin: 0
+    padding: 0 15px 20px
+    background: $grey-3
+
 .BookingCalendar-legendBox
   float: left
   width: 29px
@@ -118,9 +123,14 @@ ul.BookingCalendar-legend
   background: $white
   border: 1px solid $grey-3
 
+  @include media(mobile)
+    border-width: 2px
+    border-color: #999
+
 .BookingCalendar-legendDesc
   float: left
   margin-right: 1em
+  @include core-16
   line-height: 0
 
 .BookingCalendar-legendBox--unavailable

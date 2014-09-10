@@ -429,7 +429,7 @@
       for (i = 1; i <= opts; i++) {
         out+= template({
           num: i,
-          notFirst: i > 1
+          first: i === 1
         });
       }
 

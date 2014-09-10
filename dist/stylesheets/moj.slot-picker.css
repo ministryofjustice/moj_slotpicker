@@ -120,6 +120,11 @@ ul.BookingCalendar-legend {
         line-height: 1.14286; } }
     ul.BookingCalendar-legend > li:last-child .BookingCalendar-legendDesc {
       margin-right: 0; }
+  @media (max-width: 640px) {
+    ul.BookingCalendar-legend {
+      margin: 0;
+      padding: 0 15px 20px;
+      background: #dee0e2; } }
 
 .BookingCalendar-legendBox {
   float: left;
@@ -128,11 +133,24 @@ ul.BookingCalendar-legend {
   margin: 0 5px 0 0;
   background: white;
   border: 1px solid #dee0e2; }
+  @media (max-width: 640px) {
+    .BookingCalendar-legendBox {
+      border-width: 2px;
+      border-color: #999999; } }
 
 .BookingCalendar-legendDesc {
   float: left;
   margin-right: 1em;
+  font-family: "nta", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 300;
+  text-transform: none;
   line-height: 0; }
+  @media (max-width: 640px) {
+    .BookingCalendar-legendDesc {
+      font-size: 14px;
+      line-height: 1.14286; } }
 
 .BookingCalendar-legendBox--unavailable {
   background: #dee0e2 url("images/unavailable_tile.png"); }
@@ -221,8 +239,7 @@ a.BookingCalendar-nav--next {
 
 .SlotPicker-days {
   overflow: hidden;
-  margin-bottom: 10px;
-  margin-left: 0;
+  margin: 0;
   padding: 0; }
   @media (max-width: 768px) {
     .SlotPicker-days {
@@ -248,7 +265,7 @@ a.BookingCalendar-nav--next {
   font-weight: 400;
   text-transform: none;
   font-weight: 700;
-  margin: 0.2em 0 0.3em; }
+  margin: 0; }
   @media (max-width: 640px) {
     .SlotPicker-dayTitle {
       font-size: 20px;
@@ -304,23 +321,23 @@ a.BookingCalendar-nav--next {
 .SlotPicker-choices {
   zoom: 1;
   margin: 0;
-  padding: 10px;
-  list-style-type: none;
-  background: #dee0e2; }
+  list-style-type: none; }
   @media (min-width: 769px) {
     .SlotPicker-choices {
       min-height: 236px; } }
 
 .SlotPicker-choice {
-  cursor: pointer;
-  position: relative;
-  margin-top: 10px;
   padding: 10px;
-  min-height: 60px;
-  background: white;
-  border: 1px solid #bfc1c3; }
-  .SlotPicker-choice:first-child {
-    margin-top: 0; }
+  background: #dee0e2; }
+  .SlotPicker-choice + .SlotPicker-choice {
+    padding-top: 0; }
+  .SlotPicker-choice .SlotPicker-choiceInner {
+    cursor: pointer;
+    position: relative;
+    min-height: 60px;
+    padding: 10px;
+    background: white;
+    border: 1px solid #bfc1c3; }
   .SlotPicker-choice .SlotPicker-prompt {
     display: none;
     margin-left: 55px;
@@ -334,22 +351,22 @@ a.BookingCalendar-nav--next {
         padding-right: 10%; } }
   .SlotPicker-choice.is-clicked .SlotPicker-prompt {
     display: block; }
-  .SlotPicker-choice.is-chosen {
+  .SlotPicker-choice.is-chosen .SlotPicker-choiceInner {
     padding-left: 65px;
     padding-right: 80px; }
     @media (max-width: 640px) {
-      .SlotPicker-choice.is-chosen {
+      .SlotPicker-choice.is-chosen .SlotPicker-choiceInner {
         padding-left: 55px; } }
-    .SlotPicker-choice.is-chosen p {
+    .SlotPicker-choice.is-chosen .SlotPicker-choiceInner p {
       font-size: 24px; }
-    .SlotPicker-choice.is-chosen .SlotPicker-prompt {
+    .SlotPicker-choice.is-chosen .SlotPicker-choiceInner .SlotPicker-prompt {
       display: none; }
-    .SlotPicker-choice.is-chosen .SlotPicker-icon--remove,
-    .SlotPicker-choice.is-chosen .SlotPicker-icon--promote {
+    .SlotPicker-choice.is-chosen .SlotPicker-choiceInner .SlotPicker-icon--remove,
+    .SlotPicker-choice.is-chosen .SlotPicker-choiceInner .SlotPicker-icon--promote {
       display: block; }
-    .SlotPicker-choice.is-chosen .SlotPicker-date {
+    .SlotPicker-choice.is-chosen .SlotPicker-choiceInner .SlotPicker-date {
       font-weight: bold; }
-    .SlotPicker-choice.is-chosen .SlotPicker-position {
+    .SlotPicker-choice.is-chosen .SlotPicker-choiceInner .SlotPicker-position {
       background-color: #6f777b; }
   .SlotPicker-choice.is-active .SlotPicker-position {
     background-color: #2b8cc4; }
@@ -363,6 +380,7 @@ a.BookingCalendar-nav--next {
 
 .SlotPicker-position {
   position: absolute;
+  top: 10px;
   left: 10px;
   height: 100%;
   background: #bfc1c3;

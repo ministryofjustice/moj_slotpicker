@@ -9,8 +9,7 @@
 
 .SlotPicker-days
   overflow: hidden
-  margin-bottom: 10px
-  margin-left: 0
+  margin: 0
   padding: 0
 
   @include media(false, 768px)
@@ -32,7 +31,7 @@
 
 .SlotPicker-dayTitle
   @include bold-24
-  margin: .2em 0 .3em
+  margin: 0
 
 .SlotPicker-dayOneSlot
   margin: 0
@@ -86,27 +85,27 @@
     display: inline
 
 .SlotPicker-choices
-
   zoom: 1
   margin: 0
-  padding: 10px
   list-style-type: none
-  background: $grey-3
 
   @include media(desktop)
     min-height: 236px
 
 .SlotPicker-choice
-  cursor: pointer
-  position: relative
-  margin-top: 10px
   padding: 10px
-  min-height: 60px
-  background: $white
-  border: 1px solid $grey-2
+  background: $grey-3
 
-  &:first-child
-    margin-top: 0
+  & + &
+    padding-top: 0
+
+  .SlotPicker-choiceInner
+    cursor: pointer
+    position: relative
+    min-height: 60px
+    padding: 10px
+    background: $white
+    border: 1px solid $grey-2
 
   .SlotPicker-prompt
     display: none
@@ -123,7 +122,7 @@
   &.is-clicked .SlotPicker-prompt
     display: block
 
-  &.is-chosen
+  &.is-chosen .SlotPicker-choiceInner
     padding-left: 65px
     padding-right: 80px
 
@@ -160,6 +159,7 @@
 
 .SlotPicker-position
   position: absolute
+  top: 10px
   left: 10px
   height: 100%
   background: $grey-2
