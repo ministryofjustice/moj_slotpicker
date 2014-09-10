@@ -333,6 +333,7 @@ a.BookingCalendar-nav--next {
     padding-top: 0; }
   .SlotPicker-choice .SlotPicker-choiceInner {
     cursor: pointer;
+    overflow: hidden;
     position: relative;
     min-height: 60px;
     padding: 10px;
@@ -372,6 +373,12 @@ a.BookingCalendar-nav--next {
     background-color: #2b8cc4; }
   .SlotPicker-choice p {
     margin: 0; }
+
+.SlotPicker-choiceContent {
+  position: relative;
+  top: 0;
+  -webkit-transition: top 0.3s ease-out;
+  transition: top 0.3s ease-out; }
 
 .SlotPicker-promoteHelp {
   display: none; }

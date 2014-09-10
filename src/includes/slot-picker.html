@@ -46,8 +46,10 @@
   <div class="SlotPicker-choice">
     <div class="SlotPicker-choiceInner">
       <div class="SlotPicker-position"><span>{{ num }}</span></div>
-      <p class="SlotPicker-date"></p>
-      <p class="SlotPicker-time"></p>
+      <div class="SlotPicker-choiceContent">
+        <p class="SlotPicker-date"></p>
+        <p class="SlotPicker-time"></p>
+      </div>
       <p class="SlotPicker-prompt">Choose a date and time from the calendar</p>
       {{#unless first}}
         <a class="SlotPicker-icon SlotPicker-icon--promote" href="#">Promote</a>

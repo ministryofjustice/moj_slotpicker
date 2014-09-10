@@ -73,8 +73,7 @@
       this.$_el.on('click', '.SlotPicker-icon--promote', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        self.promoteSlot($(this).closest('.SlotPicker-choice').index('.SlotPicker-choice'));
-        self.processSlots();
+        self.promoteSlot($(this));
       });
 
       this.$_el.on('click chosen', '.BookingCalendar-dateLink, .DateSlider-largeDates li', function(e) {
@@ -104,6 +103,28 @@
         var date = $(this).find('.SlotPicker-icon--remove').data('slot-option').attr('id').split('slot-')[1].substr(0, 10);
         $('.BookingCalendar-dateLink[data-date="' + date + '"]').click();
       });
+    },
+
+    promoteSlot: function(slot) {
+      var promoted = slot.closest('.SlotPicker-choice'),
+          index = promoted.index('.SlotPicker-choice'),
+          demoted = $('.SlotPicker-choice:eq(' + (index - 1) + ')'),
+          h = promoted.find('.SlotPicker-choiceInner').height() + parseInt(promoted.find('.SlotPicker-choiceInner').css('padding-top'))
+          self = this;
+      
+      var promote = function() {
+        self.shiftSlot(index);
+        self.processSlots();
+      };
+
+      var transition = function() {
+        return Modernizr.csstransitions ? 300 : 0;
+      };
+      
+      promoted.find('.SlotPicker-choiceContent').css('top', -h + 'px');
+      demoted.find('.SlotPicker-choiceContent').css('top', h + 'px');
+
+      setTimeout(function(){promote()}, transition());
     },
 
     renderElements: function() {
@@ -302,6 +323,7 @@
       $slot.find('.SlotPicker-date').text(day);
       $slot.find('.SlotPicker-time').text(time + ', ' + duration);
       $slot.find('.SlotPicker-icon--remove').data('slot-option', checkbox);
+      $slot.find('.SlotPicker-choiceContent').removeAttr('style');
     },
 
     populateSlotInputs: function(index, chosen) {
@@ -367,7 +389,7 @@
       this.markDate(slot);
     },
 
-    promoteSlot: function(pos) {
+    shiftSlot: function(pos) {
       this.settings.currentSlots = this.move(this.settings.currentSlots, pos, pos - 1);
     },
 

@@ -60,8 +60,10 @@
   <div class="SlotPicker-choice">
     <div class="SlotPicker-choiceInner">
       <div class="SlotPicker-position"><span>{{ num }}</span></div>
-      <p class="SlotPicker-date"></p>
-      <p class="SlotPicker-time"></p>
+      <div class="SlotPicker-choiceContent">
+        <p class="SlotPicker-date"></p>
+        <p class="SlotPicker-time"></p>
+      </div>
       <p class="SlotPicker-prompt">Choose a date and time from the calendar</p>
       {{#unless first}}
         <a class="SlotPicker-icon SlotPicker-icon--promote" href="#">Promote</a>
@@ -252,7 +254,7 @@
 
 <p><a href="#" id="displayOutput">Alert chosen slots</a></p>
 
-<script src="../vendor/modernizr.custom.44058.js"></script>
+<script src="../vendor/modernizr.custom.85598.js"></script>
 <script src="../vendor/jquery-1.11.0.js"></script>
 <script src="../vendor/handlebars-v1.3.0.js"></script>
 
