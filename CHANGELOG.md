@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.22.1 (2014-09-11)
+* Fix: missing comma IE bug
+
 ## 0.22.0 (2014-09-11)
 * New: Transition added to UI choices when reordering
 * Change: Extra element added to UI choices to help style alternatives
