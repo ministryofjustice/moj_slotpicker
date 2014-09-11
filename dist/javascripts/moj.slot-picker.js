@@ -115,7 +115,7 @@
       var promoted = slot.closest('.SlotPicker-choice'),
           index = promoted.index('.SlotPicker-choice'),
           demoted = $('.SlotPicker-choice:eq(' + (index - 1) + ')'),
-          h = promoted.find('.SlotPicker-choiceInner').height() + parseInt(promoted.find('.SlotPicker-choiceInner').css('padding-top'))
+          h = promoted.find('.SlotPicker-choiceInner').height() + parseInt(promoted.find('.SlotPicker-choiceInner').css('padding-top')),
           self = this;
       
       var promote = function() {
