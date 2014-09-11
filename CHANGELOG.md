@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.22.0 (2014-09-11)
+* New: Transition added to UI choices when reordering
+* Change: Extra element added to UI choices to help style alternatives
+
 ## 0.21.1 (2014-09-08)
 * Fix: Correct daysInRange to count days from tomorrow
 
