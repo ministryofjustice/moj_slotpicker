@@ -18,7 +18,7 @@ When a slot is selected the corresponding hidden option element is selected.
 
 * jQuery
 * moj.js (see [Non-MOJ projects](#non-moj-projects) below)
-* [Handlbars](http://handlebarsjs.com/)
+* [Handlebars](http://handlebarsjs.com/)
 
 ## How to use
 
