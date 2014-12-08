@@ -6,6 +6,8 @@
   "license": "OGL v2.0 - https://github.com/ministryofjustice/moj_slotpicker/blob/master/LICENCE.md",
   "homepage": "https://github.com/ministryofjustice/moj_slotpicker",
   "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jasmine": "^0.8.1",
     "gulp": "^3.5.5",
     "gulp-jshint": "^1.5.0",
     "jshint-stylish": "^0.1.5",
