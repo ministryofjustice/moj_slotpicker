@@ -124,7 +124,7 @@
       promoted.find('.SlotPicker-choiceContent').css('top', -h + 'px');
       demoted.find('.SlotPicker-choiceContent').css('top', h + 'px');
 
-      setTimeout(function(){promote()}, transition());
+      setTimeout(function(){promote();}, transition());
     },
 
     renderElements: function() {
