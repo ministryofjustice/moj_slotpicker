@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.22.2 (2014-12-09)
+* Add Makefile and explain how to build resources
+* Fix: Add comma to pass JS Linting
+* Fix: typo in README
+
 ## 0.22.1 (2014-09-11)
 * Fix: missing comma IE bug
 
