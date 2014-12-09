@@ -77,3 +77,17 @@ For non-MOJ projects you need to re-create the namespace before the moj.slot-pic
     <script>moj.Modules.SlotPicker.init();</script>
 
 This can be seen in the [demo](http://ministryofjustice.github.io/moj_slotpicker/index.html).
+
+## Build
+
+Prior to running the build process you will need NodeJS resources
+
+    npm install
+
+Build JavaScript and CSS from source files.
+
+    make
+
+For development you can also watch source files for changes and automatically lint, concatenate and copy them.
+
+    make watch
