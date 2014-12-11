@@ -4,7 +4,7 @@ We welcome patches to the moj_slotpicker, as long as you follow these guidelines
 
 ## Git workflow ##
 
-- Pull requests must contain a succint, clear summary of what the user need is driving this feature change.
+- Pull requests must contain a succint, clear summary of what the user need is driving this feature change
 - Follow the GDS [Git styleguide](https://github.com/alphagov/styleguides/blob/master/git.md)
 - Make a feature branch
 - Ensure your branch contains logical atomic commits before sending a pull request
@@ -19,7 +19,7 @@ We welcome patches to the moj_slotpicker, as long as you follow these guidelines
 ## Code ##
 
 - Must be readable with meaningful naming, eg no short hand single character variable names
-- Follow the GDS [Ruby style guide](https://github.com/alphagov/styleguides/blob/master/ruby.md)
+- Follow the GDS [Ruby style guide](https://github.com/alphagov/styleguides/blob/master/js.md)
 
 ## Testing ##
 
