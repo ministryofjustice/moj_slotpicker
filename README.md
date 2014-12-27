@@ -17,7 +17,6 @@ When a slot is selected the corresponding hidden option element is selected.
 ## Dependencies
 
 * jQuery
-* moj.js (see [Non-MOJ projects](#non-moj-projects) below)
 * [Handlebars](http://handlebarsjs.com/)
 
 ## How to use
@@ -68,11 +67,10 @@ single-unavailable-msg | true    | Use one message for all days do not contain a
 
 ## Non-MOJ projects
 
-MOJ projects use a JavaScript [module structure](https://github.com/ministryofjustice/moj_boilerplate/blob/master/app/assets/javascripts/moj.js) based on [Heisenburg.js](https://github.com/Heisenbergjs/heisenberg). 
+MOJ projects use a JavaScript [module structure](https://github.com/ministryofjustice/moj_boilerplate/blob/master/app/assets/javascripts/moj.js) based on [Heisenburg.js](https://github.com/Heisenbergjs/heisenberg) which automatically initialises the module.
 
-For non-MOJ projects you need to re-create the namespace before the moj.slot-picker.js and moj.date-slider.js files are included, and then initialise the each module.
+For non-MOJ projects you'll need to manually trigger the `init` method to initialise any instances of `.SlotPicker`.
 
-    <script>var moj = moj || { Modules: {}, Helpers: {} };</script>
     <script src="javascripts/moj.slot-picker.js"></script>
     <script>moj.Modules.SlotPicker.init();</script>
 
@@ -91,3 +89,12 @@ Build JavaScript and CSS from source files.
 For development you can also watch source files for changes and automatically lint, concatenate and copy them.
 
     make watch
+
+
+## Tests
+
+Tests can be run either through the command line:
+
+    make test
+
+or rendered in a browser by viewing `SpecRunner.html` (at the root of a Web server).

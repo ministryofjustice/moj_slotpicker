@@ -1,3 +1,7 @@
+var fixturePath = 'slot-picker.html';
+
+jasmine.getFixtures().fixturesPath = './src/includes';
+
 describe('Helper method', function() {
   describe('formatIso', function() {
     var aDate = new Date('6 Feb, 1977');
@@ -66,15 +70,11 @@ describe('Helper method', function() {
 });
 
 describe('Slot Picker', function() {
-  var picker,
-      myPicker,
-      fixturePath = '../../../../src/includes/slot-picker.html';
+  var myPicker;
 
   beforeEach(function() {
     loadFixtures(fixturePath);
-    moj.Modules.SlotPicker.init();
-    myPicker = $('.SlotPicker');
-    picker = myPicker.data('SlotPicker');
+    myPicker = new moj.Modules._SlotPicker($('.SlotPicker'));
   });
 
   describe('fixture', function() {
@@ -95,9 +95,9 @@ describe('Slot Picker', function() {
     });
   });
 
-  describe('moj.Modules.SlotPicker', function() {
+  describe('moj.Modules._SlotPicker', function() {
     it('should be an object', function() {
-      expect(typeof moj.Modules.SlotPicker).toEqual('object');
+      expect(typeof moj.Modules._SlotPicker).toEqual('function');
     });
   });
 
@@ -109,19 +109,19 @@ describe('Slot Picker', function() {
         ];
 
     it('should be a method', function() {
-      expect(picker.getMonthPositions).toBeDefined();
+      expect(myPicker.getMonthPositions).toBeDefined();
     });
     it('should return an array of objects', function() {
-      expect(picker.getMonthPositions(picker.settings.bookableTimes) instanceof Array).toBe(true);
+      expect(myPicker.getMonthPositions(myPicker.settings.bookableTimes) instanceof Array).toBe(true);
     });
     it('should return an array of objects which contain date, label and pos', function() {
-      expect(picker.getMonthPositions(picker.settings.bookableTimes)).toEqual(nav);
+      expect(myPicker.getMonthPositions(myPicker.settings.bookableTimes)).toEqual(nav);
     });
   });
 
   describe('navLabel method', function() {
     it('should return an abbreviated string with the remaining characters wrapped in an element', function() {
-      expect(picker.navLabel('January')).toContain('Jan<span class="BookingCalendar-navFull">uary</span>');
+      expect(myPicker.navLabel('January')).toContain('Jan<span class="BookingCalendar-navFull">uary</span>');
     });
   });
 
@@ -129,16 +129,14 @@ describe('Slot Picker', function() {
     beforeEach(function() {
       loadFixtures(fixturePath);
       $('.SlotPicker-input option[value="2014-03-20-1400-1440"]:first').prop('selected', true);
-      moj.Modules.SlotPicker.init();
-      myPicker = $('.SlotPicker');
-      picker = myPicker.data('SlotPicker');
+      myPicker = new moj.Modules._SlotPicker($('.SlotPicker'));
     });
 
     it('should check the corresponding tick box', function() {
-      expect(myPicker.find('input[value="2014-03-20-1400-1440"]')).toBeChecked();
+      expect($('.SlotPicker').find('input[value="2014-03-20-1400-1440"]')).toBeChecked();
     });
     it('should display the corresponding chosen box with details', function() {
-      expect(myPicker.find('.SlotPicker-choice:first')).toContainText('Thursday 20 March');
+      expect($('.SlotPicker').find('.SlotPicker-choice:first')).toContainText('Thursday 20 March');
     });
   });
 
@@ -150,31 +148,31 @@ describe('Slot Picker', function() {
     });
 
     it('should return an array', function() {
-      expect(picker.move(array, 0, 0) instanceof Array).toBe(true);
+      expect(myPicker.move(array, 0, 0) instanceof Array).toBe(true);
     });
     it('should move an item up the index', function() {
-      expect(picker.move(array, 1, 0)).toEqual(['b', 'a', 'c']);
+      expect(myPicker.move(array, 1, 0)).toEqual(['b', 'a', 'c']);
     });
     it('should move an item down the index', function() {
-      expect(picker.move(array, 0, 2)).toEqual(['b', 'c', 'a']);
+      expect(myPicker.move(array, 0, 2)).toEqual(['b', 'c', 'a']);
     });
   });
 
   describe('displayTime method', function() {
     it('should return 8:45am from "0845"', function() {
-      expect(picker.displayTime('0845')).toEqual('8:45am');
+      expect(myPicker.displayTime('0845')).toEqual('8:45am');
     });
     it('should return 12am from "0000"', function() {
-      expect(picker.displayTime('0000')).toEqual('12am');
+      expect(myPicker.displayTime('0000')).toEqual('12am');
     });
     it('should return 1:45am from "0145"', function() {
-      expect(picker.displayTime('0145')).toEqual('1:45am');
+      expect(myPicker.displayTime('0145')).toEqual('1:45am');
     });
     it('should return 12pm from "1200"', function() {
-      expect(picker.displayTime('1200')).toEqual('12pm');
+      expect(myPicker.displayTime('1200')).toEqual('12pm');
     });
     it('should return 5:30pm from "1730"', function() {
-      expect(picker.displayTime('1730')).toEqual('5:30pm');
+      expect(myPicker.displayTime('1730')).toEqual('5:30pm');
     });
   });
 
@@ -187,13 +185,13 @@ describe('Slot Picker', function() {
         end3 = new Date(2014, 5, 1, 1, 30, 0);
 
     it('should return "30 mins"', function() {
-      expect(picker.duration(start3, end3)).toEqual(' 30 mins');
+      expect(myPicker.duration(start3, end3)).toEqual(' 30 mins');
     });
     it('should return "1 hr"', function() {
-      expect(picker.duration(start2, end2)).toEqual('1 hr');
+      expect(myPicker.duration(start2, end2)).toEqual('1 hr');
     });
     it('should return "3 hrs 5 mins"', function() {
-      expect(picker.duration(start1, end1)).toEqual('3 hrs 5 mins');
+      expect(myPicker.duration(start1, end1)).toEqual('3 hrs 5 mins');
     });
   });
 
@@ -201,49 +199,49 @@ describe('Slot Picker', function() {
     var time = '0935';
 
     it('should return a valid date from 4 digit string', function() {
-      expect(picker.timeFromSlot(time) instanceof Date).toBe(true);
+      expect(myPicker.timeFromSlot(time) instanceof Date).toBe(true);
     });
     it('should set hours to 9', function() {
-      expect(picker.timeFromSlot(time).getHours()).toEqual(9);
+      expect(myPicker.timeFromSlot(time).getHours()).toEqual(9);
     });
     it('should set minutes to 35', function() {
-      expect(picker.timeFromSlot(time).getMinutes()).toEqual(35);
+      expect(myPicker.timeFromSlot(time).getMinutes()).toEqual(35);
     });
   });
 
   describe('firstDayOfWeek method', function() {
     it('should return a date', function() {
-      expect(picker.firstDayOfWeek(new Date()) instanceof Date).toBe(true);
+      expect(myPicker.firstDayOfWeek(new Date()) instanceof Date).toBe(true);
     });
     it('should return Mon 28 Apr from Fri 2 May 2014', function() {
-      expect(picker.firstDayOfWeek(new Date(2014, 4, 2))).toEqual(new Date(2014, 3, 28));
+      expect(myPicker.firstDayOfWeek(new Date(2014, 4, 2))).toEqual(new Date(2014, 3, 28));
     });
     it('should return the same day if given a Monday', function() {
-      expect(picker.firstDayOfWeek(new Date(2014, 4, 5))).toEqual(new Date(2014, 4, 5));
+      expect(myPicker.firstDayOfWeek(new Date(2014, 4, 5))).toEqual(new Date(2014, 4, 5));
     });
   });
 
   describe('lastDayOfWeek method', function() {
     it('should return a date', function() {
-      expect(picker.lastDayOfWeek(new Date()) instanceof Date).toBe(true);
+      expect(myPicker.lastDayOfWeek(new Date()) instanceof Date).toBe(true);
     });
     it('should return Sun 6 Apr from Mon 31 Mar 2014', function() {
-      expect(picker.lastDayOfWeek(new Date(2014, 2, 31))).toEqual(new Date(2014, 3, 6));
+      expect(myPicker.lastDayOfWeek(new Date(2014, 2, 31))).toEqual(new Date(2014, 3, 6));
     });
     it('should return Sun 1 Jun from Thu 29 May 2014', function() {
-      expect(picker.lastDayOfWeek(new Date(2014, 4, 29))).toEqual(new Date(2014, 5, 1));
+      expect(myPicker.lastDayOfWeek(new Date(2014, 4, 29))).toEqual(new Date(2014, 5, 1));
     });
     it('should return the same day if given a Sunday', function() {
-      expect(picker.lastDayOfWeek(new Date(2014, 4, 4))).toEqual(new Date(2014, 4, 4));
+      expect(myPicker.lastDayOfWeek(new Date(2014, 4, 4))).toEqual(new Date(2014, 4, 4));
     });
   });
 
   describe('lastDayOfMonth method', function() {
     it('should return a date', function() {
-      expect(picker.lastDayOfMonth(new Date()) instanceof Date).toBe(true);
+      expect(myPicker.lastDayOfMonth(new Date()) instanceof Date).toBe(true);
     });
     it('should return 31 May from 29 May', function() {
-      expect(picker.lastDayOfMonth(new Date(2014, 4, 29))).toEqual(new Date(2014, 4, 31));
+      expect(myPicker.lastDayOfMonth(new Date(2014, 4, 29))).toEqual(new Date(2014, 4, 31));
     });
   });
 
@@ -251,36 +249,34 @@ describe('Slot Picker', function() {
     beforeEach(function() {
       loadFixtures(fixturePath);
       $('.SlotPicker').data('today', '2014-03-09');
-      moj.Modules.SlotPicker.init();
-      myPicker = $('.SlotPicker');
-      picker = myPicker.data('SlotPicker');
+      myPicker = new moj.Modules._SlotPicker($('.SlotPicker'));
     });
 
     it('should create a row for w/c 26 May when there is a bookable date in May', function() {
-      expect(myPicker.find('.BookingCalendar-dateLink[data-date="2014-06-01"]')).toExist();
+      expect($('.SlotPicker').find('.BookingCalendar-dateLink[data-date="2014-06-01"]')).toExist();
     });
     it('should create a for the current week when bookable days start on a Monday', function() {
-      expect(myPicker.find('.BookingCalendar-dateLink[data-date="2014-06-01"]')).toExist();
+      expect($('.SlotPicker').find('.BookingCalendar-dateLink[data-date="2014-06-01"]')).toExist();
     });
   });
 
   describe('dayLabel method', function() {
     it('should return the day, date and month as a string', function() {
-      expect(picker.dayLabel(new Date('2 Jul, 2014'))).toEqual('Wednesday 2 July');
+      expect(myPicker.dayLabel(new Date('2 Jul, 2014'))).toEqual('Wednesday 2 July');
     });
   });
 
   describe('settings', function() {
     describe('optionLimit - the amount of slot choices', function() {
       it('should not have reached limit', function() {
-        expect(picker.limitReached()).toBe(false);
+        expect(myPicker.limitReached()).toBe(false);
       });
       it('should prevent further selections when default limit (3) is reached', function() {
-        var slots = myPicker.find('.SlotPicker-slot');
+        var slots = $('.SlotPicker').find('.SlotPicker-slot');
         for (var i = 0; i < 3; i++) {
           slots.eq(i).click();
         }
-        expect(picker.limitReached()).toBe(true);
+        expect(myPicker.limitReached()).toBe(true);
       });
     });
   });

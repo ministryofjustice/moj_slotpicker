@@ -8,6 +8,8 @@
 (function() {
   'use strict';
 
+  window.moj = window.moj || { Modules: {}, Helpers: {} };
+
   var SlotPicker = function($el, options) {
     this.settings = $.extend({}, this.defaults, options);
     this.settings.today = new Date(this.settings.today);
@@ -664,6 +666,7 @@
     return Math.ceil((end - from) / (24 * 3600 * 1000));
   };
 
+  moj.Modules._SlotPicker = SlotPicker;
 
   moj.Modules.SlotPicker = {
     init: function() {

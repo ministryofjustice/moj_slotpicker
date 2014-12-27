@@ -2,6 +2,8 @@
 (function() {
   'use strict';
 
+  window.moj = window.moj || { Modules: {}, Helpers: {} };
+
   var DateSlider = function($el, options) {
     this.settings = $.extend({}, this.defaults, options);
     this.slotPicker = $el.closest('.SlotPicker').data('SlotPicker').settings;
@@ -348,6 +350,9 @@
     
     return months;
   };
+
+
+  moj.Modules._DateSlider = DateSlider;
 
 
   moj.Modules.DateSlider = {
