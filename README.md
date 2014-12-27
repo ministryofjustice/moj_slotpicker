@@ -89,3 +89,12 @@ Build JavaScript and CSS from source files.
 For development you can also watch source files for changes and automatically lint, concatenate and copy them.
 
     make watch
+
+
+## Tests
+
+Tests can be run either through the command line:
+
+    make test
+
+or rendered in a browser by viewing `SpecRunner.html` (at the root of a Web server).

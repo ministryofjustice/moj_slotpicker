@@ -4,4 +4,7 @@ build:
 watch:
 	gulp watch
 
+test:
+	grunt jasmine
+
 .PHONY: build watch
