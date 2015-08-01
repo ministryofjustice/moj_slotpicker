@@ -37,7 +37,7 @@
   width: 700px;
   height: 100%;
   overflow: hidden;
-  border: 2px solid #999999; }
+  border: 2px solid #999; }
   .scroll::-webkit-scrollbar {
     display: none; }
 
@@ -54,13 +54,13 @@ a.DateSlider-button {
   z-index: 15;
   width: 100px;
   height: 100px;
-  color: white;
+  color: #fff;
   font-size: 40px;
   line-height: 100px;
   text-align: center;
   text-decoration: none;
   background: #98a6b5;
-  border: 2px solid #999999; }
+  border: 2px solid #999; }
 
 a.DateSlider-buttonRight {
   right: 0;
@@ -86,7 +86,7 @@ a.DateSlider-buttonRight {
   z-index: 10;
   width: 98px;
   height: 150px;
-  border: 2px solid #999999; }
+  border: 2px solid #999; }
 
 .DateSlider-days {
   display: table;
@@ -116,9 +116,9 @@ a.DateSlider-buttonRight {
     font-size: 40px;
     line-height: 100px;
     text-align: center;
-    background: white; }
+    background: #fff; }
     .DateSlider-smallDates .DateSlider-days li {
-      color: #666666; }
+      color: #666; }
     .DateSlider-smallDates .DateSlider-days li small {
       display: none; }
     .DateSlider-largeDates .DateSlider-days li {
@@ -143,8 +143,8 @@ a.DateSlider-buttonRight {
       box-sizing: border-box;
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
-      border-right: 1px solid #999999;
-      border-left: 1px solid #999999; }
+      border-right: 1px solid #999;
+      border-left: 1px solid #999; }
     .DateSlider-days li.unavailable {
       background: none; }
     .DateSlider-days li.is-chosen {
@@ -159,3 +159,5 @@ a.DateSlider-buttonRight {
         border-style: solid;
         border-width: 0 15px 15px 0;
         border-color: transparent #2b8cc4 transparent transparent; }
+
+/*# sourceMappingURL=moj.date-slider.css.map */

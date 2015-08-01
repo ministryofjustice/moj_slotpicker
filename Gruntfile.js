@@ -10,9 +10,9 @@ module.exports = function(grunt) {
         options: {
           vendor: [
             'vendor/modernizr.custom.85598.js',
-            'vendor/jquery-1.11.0.js',
-            'vendor/handlebars-v1.3.0.js',
-            'vendor/jasmine-jquery.js'
+            'vendor/jquery/dist/jquery.js',
+            'vendor/handlebars/handlebars.js',
+            'vendor/jasmine-jquery/lib/jasmine-jquery.js'
           ],
           specs: 'tests/spec/*Spec.js',
           display: 'short',
