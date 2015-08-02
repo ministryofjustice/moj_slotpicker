@@ -82,7 +82,7 @@ a.BookingCalendar-dateLink .BookingCalendar-day {
   padding-left: 3px; }
 
 .BookingCalendar-date--bookable {
-  background: white; }
+  background: #fff; }
   .BookingCalendar-date--bookable.is-active {
     background: #96c6e2; }
 
@@ -96,7 +96,7 @@ a.BookingCalendar-dateLink .BookingCalendar-day {
   left: 0;
   width: 100%;
   padding: 0;
-  color: white;
+  color: #fff;
   line-height: normal;
   text-align: center;
   background: #6f777b; }
@@ -112,7 +112,7 @@ ul.BookingCalendar-legend {
     font-family: "nta", Arial, sans-serif;
     font-size: 16px;
     line-height: 1.25;
-    font-weight: 300;
+    font-weight: 400;
     text-transform: none; }
     @media (max-width: 640px) {
       ul.BookingCalendar-legend > li {
@@ -131,12 +131,12 @@ ul.BookingCalendar-legend {
   width: 29px;
   height: 29px;
   margin: 0 5px 0 0;
-  background: white;
+  background: #fff;
   border: 1px solid #dee0e2; }
   @media (max-width: 640px) {
     .BookingCalendar-legendBox {
       border-width: 2px;
-      border-color: #999999; } }
+      border-color: #999; } }
 
 .BookingCalendar-legendDesc {
   float: left;
@@ -144,7 +144,7 @@ ul.BookingCalendar-legend {
   font-family: "nta", Arial, sans-serif;
   font-size: 16px;
   line-height: 1.25;
-  font-weight: 300;
+  font-weight: 400;
   text-transform: none;
   line-height: 0; }
   @media (max-width: 640px) {
@@ -158,22 +158,21 @@ ul.BookingCalendar-legend {
 .BookingCalendar-header {
   position: relative;
   border: 1px solid #dee0e2;
-  background: white; }
+  background: #fff; }
 
 .BookingCalendar-currentMonth {
   display: block;
   font-family: "nta", Arial, sans-serif;
   font-size: 24px;
   line-height: 1.25;
-  font-weight: 400;
-  text-transform: none;
   font-weight: 700;
+  text-transform: none;
   margin: 0;
   padding: 0.5em 0;
   text-align: center; }
   @media (max-width: 640px) {
     .BookingCalendar-currentMonth {
-      font-size: 20px;
+      font-size: 18px;
       line-height: 1.2; } }
 
 a.BookingCalendar-nav {
@@ -262,13 +261,12 @@ a.BookingCalendar-nav--next {
   font-family: "nta", Arial, sans-serif;
   font-size: 24px;
   line-height: 1.25;
-  font-weight: 400;
-  text-transform: none;
   font-weight: 700;
+  text-transform: none;
   margin: 0; }
   @media (max-width: 640px) {
     .SlotPicker-dayTitle {
-      font-size: 20px;
+      font-size: 18px;
       line-height: 1.2; } }
 
 .SlotPicker-dayOneSlot {
@@ -287,7 +285,7 @@ a.BookingCalendar-nav--next {
   font-size: 24px;
   line-height: 1.2em;
   border: 2px solid #bfc1c3;
-  background: white url("images/tick_off.png") 7px 12px no-repeat; }
+  background: #fff url("images/tick_off.png") 7px 12px no-repeat; }
   @media (max-width: 640px) {
     .SlotPicker-label {
       width: 100%;
@@ -337,7 +335,7 @@ a.BookingCalendar-nav--next {
     position: relative;
     min-height: 60px;
     padding: 10px;
-    background: white;
+    background: #fff;
     border: 1px solid #bfc1c3; }
   .SlotPicker-choice .SlotPicker-prompt {
     display: none;
@@ -391,7 +389,7 @@ a.BookingCalendar-nav--next {
   left: 10px;
   height: 100%;
   background: #bfc1c3;
-  color: white;
+  color: #fff;
   width: 55px;
   font-size: 48px;
   font-weight: bold;
@@ -428,3 +426,5 @@ a.BookingCalendar-nav--next {
 .SlotPicker-icon--promote {
   right: 50px;
   background-image: url("images/promote.png"); }
+
+/*# sourceMappingURL=moj.slot-picker.css.map */

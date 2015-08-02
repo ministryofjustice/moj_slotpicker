@@ -344,8 +344,10 @@
         this.populateUiSlots(i, $slotEl);
       }
 
-      // scroll - bottom of added slot
-      this.confirmVisibility(this.$choice.eq(slots.length-1), 'bottom');
+      if (this.$choice.length > 0) {
+        // scroll - bottom of added slot
+        this.confirmVisibility(this.$choice.eq(slots.length-1), 'bottom');
+      }
     },
 
     limitReached: function() {
