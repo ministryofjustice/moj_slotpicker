@@ -29,6 +29,10 @@ or
 
     git clone https://github.com/ministryofjustice/slot-picker
 
+    cd slot-picker
+
+    bower install
+
 or
 
 Download the [latest version as a ZIP](https://github.com/ministryofjustice/moj_slotpicker/releases) and use the `dist` folder.
@@ -90,6 +94,11 @@ For development you can also watch source files for changes and automatically li
 
     make watch
 
+## Web server
+
+Web server can run through the command line:
+
+    python -m SimpleHTTPServer
 
 ## Tests
 
